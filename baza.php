@@ -22,6 +22,7 @@
 	  		Ime VARCHAR(20),
 	  		Prezime VARCHAR(20),
 	        E_mail_adresa VARCHAR(50),
+			Password VARCHAR(50),
 	        Nivo_pristupa ENUM ('Administrator', 'Vlasnik', 'Komercijalista', 'Radnik')
 	    )";
 
@@ -199,11 +200,11 @@
 	    echo "Sve potrebne tabele su kreirane!";
 
 	    $unos_korisnika = 
-	    "INSERT INTO AUTORIZOVANI_KORISNICI (Ime, Prezime, E_mail_adresa, Nivo_pristupa) VALUES 
-	        ('Kosta','Eric','kgkosta360@gmail.com', 'Vlasnik'),
-	        ('Marko','Markovic', 'mare_bg@yahoo.com', 'Radnik'),
-	        ('Jovana','Lukic','jl87@gmail.com', 'Komercijalista'),
-	        ('Katarina','Markovic', 'karatina@gmail.com', 'Administrator')
+	    "INSERT INTO AUTORIZOVANI_KORISNICI (Ime, Prezime, E_mail_adresa, Password, Nivo_pristupa) VALUES 
+	        ('Kosta','Eric','kgkosta360@gmail.com', 'kosta123', 'Vlasnik'),
+	        ('Marko','Markovic', 'mare_bg@yahoo.com', 'marko123', 'Radnik'),
+	        ('Jovana','Lukic','jl87@gmail.com', 'jovana123', 'Komercijalista'),
+	        ('Katarina','Markovic', 'karatina@gmail.com', 'katarina123', 'Administrator')
 	    ";
 
 	    $unos_proizvoda = "INSERT INTO PROIZVODI (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Cena, Kolicina, Duzina_garantnog_lista, Link, Slika, Tip) VALUES
