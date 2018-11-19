@@ -346,7 +346,7 @@ else{ ?>
   		<option value="monitor">Monitor</option>
   		<option value="podloga">Podloga</option>
   		<option value="projektor">Projektor</option>
-  		<pption value="skener">Skener</option>
+  		<option value="skener">Skener</option>
   		<option value="slusalice">Slusalice</option>
   		<option value="stampac">Stampac</option>
   		<option value="tastatura">Tastatura</option>
