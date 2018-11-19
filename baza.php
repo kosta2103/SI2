@@ -21,14 +21,14 @@
 			ID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	  		Ime VARCHAR(20),
 	  		Prezime VARCHAR(20),
-	        E_mail_adresa VARCHAR(50),
+	        	E_mail_adresa VARCHAR(50),
 			Password VARCHAR(50),
-	        Nivo_pristupa ENUM ('Administrator', 'Vlasnik', 'Komercijalista', 'Radnik')
+	        	Nivo_pristupa ENUM ('Administrator', 'Vlasnik', 'Komercijalista', 'Radnik')
 	    )";
 
 	    $tabela_prozivoda = "CREATE TABLE IF NOT EXISTS PROIZVODI(
 	        ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			Barcode INT,
+		Barcode INT,
 	        Naziv VARCHAR(100),
 	        Model VARCHAR(50),
 	        Dimenzije VARCHAR(50),
@@ -140,7 +140,7 @@
 	        Zvucni_sistem ENUM('5.1', '7.1'),
 	        Povezivanje VARCHAR(20),
 	        Gaming VARCHAR(2),
-			Frekvencijski_raspon VARCHAR(30)
+		Frekvencijski_raspon VARCHAR(30)
 	    )";
 
 
@@ -150,7 +150,7 @@
 	        Snaga VARCHAR(20),
 	        Konektori VARCHAR(100),
 	        Povezivanje VARCHAR(50),
-			Frekvencijski_raspon VARCHAR(30)
+		Frekvencijski_raspon VARCHAR(30)
 	    )";
 
 	   
@@ -336,8 +336,8 @@
 	    	(1424316, 'Ne', '10Mb/s', '128GB', 'USB')
 	    ";
 
-	    $konekcija->query($unos_korisnika) or die($konekcija->error);
-	    $konekcija->query($unos_proizvoda) or die($konekcija->error);
+	    	$konekcija->query($unos_korisnika) or die($konekcija->error);
+	    	$konekcija->query($unos_proizvoda) or die($konekcija->error);
 		$konekcija->query($unos_tastature) or die($konekcija->error);
 		$konekcija->query($unos_misa) or die($konekcija->error);
 		$konekcija->query($unos_podloge) or die($konekcija->error);
