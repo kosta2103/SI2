@@ -740,7 +740,7 @@
                                     ?>
 
                                     <input type="hidden" name="selektovani_tip" value="<?php echo $select ?>">
-                                    <button type="submit" name="dodaj" id="tekst2" class="btn btn-primary btn-block">Add</button>
+                                    <button type="submit" name="dodaj" id="tekst2" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-plus"></i> Add</button>
                                 <?php
                             }
                             ?>
