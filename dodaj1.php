@@ -475,7 +475,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">DVI</label>
                                             <div class="col-sm-9">
-                                                <input type="text" id="tekst2" name="dvi" placeholder="DVI" class="form-control" autofocus>
+                                                <input type="text" name="dvi" placeholder="DVI" class="form-control" autofocus>
                                             </div>
                                         </div>
                                         <div class="form-group">
