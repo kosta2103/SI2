@@ -48,7 +48,7 @@
 	        Povezivanje VARCHAR(20),
 	        USB_port VARCHAR(2),
 	        Numericki_deo VARCHAR(2),
-	        Tip ENUM ('Wired', 'Wireless', 'Bluetooth'),
+	        Tip_tastatura ENUM ('Wired', 'Wireless', 'Bluetooth'),
 	        Tip_tastera ENUM ('Mehanicki', 'X_Scissor', 'Gumena_membrana', 'Hibridni'),
 	        Programabilni_tasteri VARCHAR(2),
 	        RGB_osvetljenje VARCHAR(2)
@@ -65,13 +65,13 @@
 
 	    $tabela_podloga = "CREATE TABLE IF NOT EXISTS PODLOGA(
 	        ID INT UNSIGNED PRIMARY KEY,
-	        Tip ENUM ('Obicna', 'Sa gelom', 'Gamerska'),
+	        Tip_podloga ENUM ('Obicna', 'Sa gelom', 'Gamerska'),
 	        Materijal ENUM ('PVC', 'Guma', 'Platno')
 	    )";
 
 	    $tabela_stampac = "CREATE TABLE IF NOT EXISTS STAMPAC(
 	        ID INT UNSIGNED PRIMARY KEY,
-	        Tip ENUM ('Matricni', 'Laserski'),
+	        Tip_stampac ENUM ('Matricni', 'Laserski'),
 	        Povezivanje VARCHAR(20),
 	        Rezolucija VARCHAR(20),
 	        Brzina_stampe VARCHAR(20),
@@ -110,7 +110,7 @@
 	    $tabela_projektor = "CREATE TABLE IF NOT EXISTS PROJEKTOR(
 	        ID INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(20),
-	        Tip ENUM ('DLP', 'DLP LCD', '3LCD', 'LCOS', 'LCD'),
+	        Tip_projektor ENUM ('DLP', 'DLP LCD', '3LCD', 'LCOS', 'LCD'),
 	        Rezolucija VARCHAR(20),
 	        Osvetljenje VARCHAR(20),
 	        Wireless VARCHAR(2),
@@ -127,7 +127,7 @@
 	        Strana_1 VARCHAR(20),
 	        Strana_2 VARCHAR(20),
 	        Broj_uticnica VARCHAR(20),
-	        Tip VARCHAR(20),
+	        Tip_kablovi VARCHAR(20),
 	        Prekidac VARCHAR(2),
 	        Vrsta ENUM('Kabl', 'Adapter')
 	    )";
@@ -135,7 +135,7 @@
 
 	    $tabela_slusalice = "CREATE TABLE IF NOT EXISTS SLUSALICE(
 	        ID INT UNSIGNED PRIMARY KEY,
-	        Tip ENUM('Bubice', 'Slusalice'),
+	        Tip_slusalice ENUM('Bubice', 'Slusalice'),
 	        Mikrofon ENUM('Ne', 'Na rucici', 'Na slusalici', 'Na kablu'),
 	        Zvucni_sistem ENUM('5.1', '7.1'),
 	        Povezivanje VARCHAR(20),
@@ -268,7 +268,7 @@
 			(1424316, 'USB Flash 128GB 2.0 SanDisk SDCZ50-128G-B35 Blade Teardrope', 'Blade Teardrope (SDCZ50-128G-B35)', '7.4 x 17.6 x 41.5mm', 'SanDisk', '4190', '22', '3 godine', 'https://www.sandisk.com/home/usb-flash/cruzer-blade', 'https://www.sandisk.com/content/dam/sandisk-main/en_us/portal-assets/product-images/retail-products/Cruzer_Blade_angle.png', 'fles_memorija')
 	    ";
 
-	    $unos_tastature = "INSERT INTO TASTATURA (ID, Povezivanje, USB_port, Numericki_deo, Tip, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES
+	    $unos_tastature = "INSERT INTO TASTATURA (ID, Povezivanje, USB_port, Numericki_deo, Tip_tastatura, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES
 	        (5219891, 'USB', 'Ne', 'Da', 'Wired', 'Mehanicki', 'Ne', 'Da'),
 	        (8784608, 'USB, Wireless', 'Ne', 'Da', 'Wireless', 'Mehanicki', 'Ne', 'Da')
 	    ";
@@ -279,12 +279,12 @@
 	    	(5177568, 'Ne', '>4000 dpi', 'Bluetooth', 'Da', 'Hero')
 	    ";
 
-	    $unos_podloge = "INSERT INTO PODLOGA(ID, Tip, Materijal) VALUES
+	    $unos_podloge = "INSERT INTO PODLOGA(ID, Tip_podloga, Materijal) VALUES
 	    	(5830957, 'Gamerska', 'Platno'),
 	    	(4317640, 'Gamerska', 'Guma')
 	    ";
 
-	    $unos_stampaca = "INSERT INTO STAMPAC(ID, Tip, Povezivanje, Rezolucija, Brzina_stampe, Bar_kod, Mreza, Wireless) VALUES
+	    $unos_stampaca = "INSERT INTO STAMPAC(ID, Tip_stampac, Povezivanje, Rezolucija, Brzina_stampe, Bar_kod, Mreza, Wireless) VALUES
 	    	(5647681, 'Matricni', 'USB', '9pin', '347 cps', 'Da', 'Ne', 'Da'),
 	    	(7049080, 'Laserski', 'USB', '4800 x 600 dpi', '45 ppm', 'Da', 'Da', 'Da')
 	    ";
@@ -299,17 +299,17 @@
 	    	(3404060, 'HDMI, DisplayPort, USB', '3840x2160', '3', 'Da', '32 in', '60Hz', '2', 'Ne', 'Ne', 'Da', 'Da', 'Ne', 'Da')
 	    ";
 
-	    $unos_projektora = "INSERT INTO PROJEKTOR(ID, Povezivanje, Tip, Rezolucija, Osvetljenje, Wireless, USB, Mreza, HDMI, DVI, RS232, VGA) VALUES	    	
+	    $unos_projektora = "INSERT INTO PROJEKTOR(ID, Povezivanje, Tip_projektor, Rezolucija, Osvetljenje, Wireless, USB, Mreza, HDMI, DVI, RS232, VGA) VALUES	    	
 	    	(2804973, 'HDMI, VGA, USB', 'DLP', '1920x1080', '3200Ansi', 'Da', 'Da', 'Da', 'Da', 'Ne', 'Ne', 'Da'),
 	    	(3420597, 'HDMI, USB, RS232', 'DLP', '800x600', '3500Ansi', 'Ne', 'Da', 'Da', 'Da', 'Ne', 'Da', 'Da')
 	    ";
 
-	    $unos_kablova = "INSERT INTO KABLOVI(ID, Strana_1, Strana_2, Broj_uticnica, Tip, Prekidac, Vrsta) VALUES
+	    $unos_kablova = "INSERT INTO KABLOVI(ID, Strana_1, Strana_2, Broj_uticnica, Tip_kablovi, Prekidac, Vrsta) VALUES
 			(2217886, '3.5 mm stereo jack', '2xRCA', '2', 'Hama adapter 43254', 'Ne', 'Kabl'),
 	    	(4022441, 'VGA 15 pin HDD', 'VGA 15 pin HDD', '1', 'Hama adapter 41933', 'Ne', 'Adapter')	
 	    ";
 
-	    $unos_slusalica = "INSERT INTO SLUSALICE(ID, Tip, Mikrofon, Zvucni_sistem, Povezivanje, Gaming, Frekvencijski_raspon) VALUES
+	    $unos_slusalica = "INSERT INTO SLUSALICE(ID, Tip_slusalice, Mikrofon, Zvucni_sistem, Povezivanje, Gaming, Frekvencijski_raspon) VALUES
 	    	(3268589, 'Slusalice', 'Na slusalici', '7.1', '3.5mm', 'Da', '13Hz-27KHz'),
 	    	(6882212, 'Bubice', 'Na kablu', '5.1', '3.5mm', 'Da', '20Hz-20KHz'),
 			(5941612, 'Slusalice', 'Na slusalici', '7.1', '2 x Jack (3.5mm)', 'Da', '12Hz-28KHz')
