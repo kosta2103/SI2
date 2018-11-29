@@ -1,0 +1,168 @@
+
+select.form-control:not([size]):not([multiple]) {
+    height: 34px;
+}
+
+
+body {
+    background: #FFF url(img/bg-wall-repeat.jpg);
+    line-height: 1;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:14px;
+}
+
+#head {
+    height:118px;
+	width:100%;
+    background:url(img/bg-header.png) repeat-x bottom center;
+    color: #f0ad4e;
+    z-index: 9000;
+    position: fixed;
+}
+
+.innerhead {
+    width: 100%;
+    height: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:14px;
+    text-align: center;
+}
+
+
+.config {
+    padding: 140px 0 1% 0;
+    height: 1200px;
+    max-height: 1500px;
+}
+
+h2 {
+    font-family: 'rationaleregular', sans-serif;
+    font-size:2.5em;
+    text-transform:uppercase;
+    letter-spacing:-2px;
+    width: 100%;
+    margin: 0;
+    padding: 3% 0 0.5% 0;
+}
+
+.bottom
+{
+    padding-top: 20px;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    position: fixed;
+}
+
+.divider2 {
+    position: relative;
+    margin: -5px 0;
+    height: 20px;
+    background: url(img/divider.png) repeat-x center bottom;
+    z-index: 2000;
+    clear: left;
+}
+
+#foot {
+    margin: 0;
+    padding: 0;
+	text-align: center;
+    height: 50px;
+    line-height: 100px;
+    background: url(img/bg-dl-repeat.jpg) repeat-x top;
+}
+
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.btn.btn-primary {
+    background: #f0ad4e none repeat scroll 0 0;
+    border-color: #f0ad4e;
+}
+
+
+*[role="form"] {
+    max-width: 100%;
+    padding: 15px;
+ }
+
+
+ .search
+ {
+     text-align: right;
+ }
+
+ .form-control
+ {
+     width: 15%;
+     height: 25px;
+     display: inline-block;
+ }
+
+ li
+ {
+     margin-bottom: 10px
+ }
+
+ .container
+ {
+     max-width: 100%;
+     width: 100%;
+ }
+
+ .col-sm-10 .container
+ {
+     /* border: 1px solid; */
+     min-height: 300px;
+ }
+
+.col-sm-2 .container
+{
+    border: 1px solid;
+}
+
+.btn
+{
+    padding-top: 0;
+    height: 25px;
+}
+
+select.form-control.selectTip
+{   
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 25px !important;
+    width: 100%;
+}
+
+.selectTip
+{
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 25px !important;
+    width: 100%;
+}
+
+td, th
+{
+    text-align: center;
+    padding: 5px;
+    max-width: 300px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.img-thumbnail
+{
+    max-width: 100px;
+    max-height: 50px;
+}
+
+
+
