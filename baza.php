@@ -28,7 +28,7 @@
 
 	    $tabela_prozivoda = "CREATE TABLE IF NOT EXISTS PROIZVODI(
 	        ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			Barcode INT,
+			Barcode INT UNIQUE,
 	        Naziv VARCHAR(100),
 	        Model VARCHAR(50),
 	        Dimenzije VARCHAR(50),
@@ -44,7 +44,7 @@
 
 
 	    $tabela_tastatura = "CREATE TABLE IF NOT EXISTS TASTATURA(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(20),
 	        USB_port VARCHAR(2),
 	        Numericki_deo VARCHAR(2),
@@ -55,7 +55,7 @@
 	    ) ";
 
 	    $tabela_mis = "CREATE TABLE IF NOT EXISTS MIS(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Za_obe_ruke VARCHAR(20),
 	        Rezolucija ENUM ('<1000 dpi', '1000-2000 dpi', '2000-3000 dpi', '3000-4000 dpi', '>4000 dpi'),
 	        Povezivanje ENUM ('USB', 'PS/2', 'Wireless', 'Bluetooth'),
@@ -64,13 +64,13 @@
 	    )";
 
 	    $tabela_podloga = "CREATE TABLE IF NOT EXISTS PODLOGA(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Tip_podloga ENUM ('Obicna', 'Sa gelom', 'Gamerska'),
 	        Materijal ENUM ('PVC', 'Guma', 'Platno')
 	    )";
 
 	    $tabela_stampac = "CREATE TABLE IF NOT EXISTS STAMPAC(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Tip_stampac ENUM ('Matricni', 'Laserski'),
 	        Povezivanje VARCHAR(20),
 	        Rezolucija VARCHAR(20),
@@ -82,7 +82,7 @@
 
 
 	    $tabela_skener = "CREATE TABLE IF NOT EXISTS SKENER(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Format ENUM('A6', 'A5', 'A4', 'A3', 'A2', 'A1', 'A0', '>A0'),
 	        Flatbed VARCHAR(2),
 	        Povezivanje VARCHAR(20),
@@ -91,7 +91,7 @@
 	    )";
 
 	    $tabela_monitor = "CREATE TABLE IF NOT EXISTS MONITOR(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(50),
 	        Maksimalna_rezolucija VARCHAR(20),
 	        USB ENUM('1', '2', '3', '4', '>4', 'Ne'),
@@ -108,7 +108,7 @@
 	    )";
 
 	    $tabela_projektor = "CREATE TABLE IF NOT EXISTS PROJEKTOR(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(20),
 	        Tip_projektor ENUM ('DLP', 'DLP LCD', '3LCD', 'LCOS', 'LCD'),
 	        Rezolucija VARCHAR(20),
@@ -123,7 +123,7 @@
 	    )";
 
 	    $tabela_kablovi = "CREATE TABLE IF NOT EXISTS KABLOVI(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Strana_1 VARCHAR(20),
 	        Strana_2 VARCHAR(20),
 	        Broj_uticnica VARCHAR(20),
@@ -134,7 +134,7 @@
 
 
 	    $tabela_slusalice = "CREATE TABLE IF NOT EXISTS SLUSALICE(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Tip_slusalice ENUM('Bubice', 'Slusalice'),
 	        Mikrofon ENUM('Ne', 'Na rucici', 'Na slusalici', 'Na kablu'),
 	        Zvucni_sistem ENUM('5.1', '7.1'),
@@ -145,7 +145,7 @@
 
 
 	    $tabela_zvucnici = "CREATE TABLE IF NOT EXISTS ZVUCNICI(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Zvucni_sistem ENUM('4.1', '5.1', '7.1'),
 	        Snaga VARCHAR(20),
 	        Konektori VARCHAR(100),
@@ -155,7 +155,7 @@
 
 	   
 	    $tabela_mikrofon = "CREATE TABLE IF NOT EXISTS MIKROFON(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(20),
 	        Duzina_kabla VARCHAR(20),
 	        Frekvencijski_raspon VARCHAR(30)
@@ -163,14 +163,14 @@
 	    
 	    
 	    $tabela_ediskovi = "CREATE TABLE IF NOT EXISTS EKSTERNI_DISK(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Format ENUM ('2.5', '3.5'),
 	        Povezivanje VARCHAR(20),
 	        Kapacitet VARCHAR(20)
 	    )";
 
 	    $tabela_flash = "CREATE TABLE IF NOT EXISTS FLES_MEMORIJA(
-	        ID INT UNSIGNED PRIMARY KEY,
+	        Barcode INT UNSIGNED PRIMARY KEY,
 	        USB_type_C VARCHAR(2),
 	        Brzina_citanja_pisanja VARCHAR(20),
 	        Kapacitet VARCHAR(20),
@@ -268,70 +268,70 @@
 			(1424316, 'USB Flash 128GB 2.0 SanDisk SDCZ50-128G-B35 Blade Teardrope', 'Blade Teardrope (SDCZ50-128G-B35)', '7.4 x 17.6 x 41.5mm', 'SanDisk', '4190', '22', '3 godine', 'https://www.sandisk.com/home/usb-flash/cruzer-blade', 'https://www.sandisk.com/content/dam/sandisk-main/en_us/portal-assets/product-images/retail-products/Cruzer_Blade_angle.png', 'fles_memorija')
 	    ";
 
-	    $unos_tastature = "INSERT INTO TASTATURA (ID, Povezivanje, USB_port, Numericki_deo, Tip_tastatura, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES
+	    $unos_tastature = "INSERT INTO TASTATURA (Barcode, Povezivanje, USB_port, Numericki_deo, Tip_tastatura, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES
 	        (5219891, 'USB', 'Ne', 'Da', 'Wired', 'Mehanicki', 'Ne', 'Da'),
 	        (8784608, 'USB, Wireless', 'Ne', 'Da', 'Wireless', 'Mehanicki', 'Ne', 'Da')
 	    ";
 
 
-	    $unos_misa = "INSERT INTO MIS (ID, Za_obe_ruke, Rezolucija, Povezivanje, Gaming, Senzor) VALUES
+	    $unos_misa = "INSERT INTO MIS (Barcode, Za_obe_ruke, Rezolucija, Povezivanje, Gaming, Senzor) VALUES
 	    	(2135262, 'Ne', '>4000 dpi', 'USB', 'Da', 'Opticki'),
 	    	(5177568, 'Ne', '>4000 dpi', 'Bluetooth', 'Da', 'Hero')
 	    ";
 
-	    $unos_podloge = "INSERT INTO PODLOGA(ID, Tip_podloga, Materijal) VALUES
+	    $unos_podloge = "INSERT INTO PODLOGA(Barcode, Tip_podloga, Materijal) VALUES
 	    	(5830957, 'Gamerska', 'Platno'),
 	    	(4317640, 'Gamerska', 'Guma')
 	    ";
 
-	    $unos_stampaca = "INSERT INTO STAMPAC(ID, Tip_stampac, Povezivanje, Rezolucija, Brzina_stampe, Bar_kod, Mreza, Wireless) VALUES
+	    $unos_stampaca = "INSERT INTO STAMPAC(Barcode, Tip_stampac, Povezivanje, Rezolucija, Brzina_stampe, Bar_kod, Mreza, Wireless) VALUES
 	    	(5647681, 'Matricni', 'USB', '9pin', '347 cps', 'Da', 'Ne', 'Da'),
 	    	(7049080, 'Laserski', 'USB', '4800 x 600 dpi', '45 ppm', 'Da', 'Da', 'Da')
 	    ";
 
-	    $unos_skenera = "INSERT INTO SKENER(ID, Format, Flatbed, Povezivanje, Rezolucija, ADF) VALUES
+	    $unos_skenera = "INSERT INTO SKENER(Barcode, Format, Flatbed, Povezivanje, Rezolucija, ADF) VALUES
 	    	(6091935, 'A3', 'Da', 'USB', '2400dpi', 'Ne'),
 	    	(4828429, 'A4', 'Da', 'Wireless', '1200x1200 dpi', 'Da')
 	    ";
 
-	    $unos_monitora = "INSERT INTO MONITOR(ID, Povezivanje, Maksimalna_rezolucija, USB, Ugradjeni_zvucnici, Dijagonala_ekrana, Brzina_osvezavanja, HDMI, DVI, VGA, Display_port, Podesavanje_po_visini, TouchScreen, Rotacija) VALUES
+	    $unos_monitora = "INSERT INTO MONITOR(Barcode, Povezivanje, Maksimalna_rezolucija, USB, Ugradjeni_zvucnici, Dijagonala_ekrana, Brzina_osvezavanja, HDMI, DVI, VGA, Display_port, Podesavanje_po_visini, TouchScreen, Rotacija) VALUES
 	    	(3799008, 'DisplayPort, USB', '1366x768', '1', 'Ne', '14 in', '60Hz', 'Ne', 'Ne', 'Ne', 'Da', 'Ne', 'Da', 'Ne'),
 	    	(3404060, 'HDMI, DisplayPort, USB', '3840x2160', '3', 'Da', '32 in', '60Hz', '2', 'Ne', 'Ne', 'Da', 'Da', 'Ne', 'Da')
 	    ";
 
-	    $unos_projektora = "INSERT INTO PROJEKTOR(ID, Povezivanje, Tip_projektor, Rezolucija, Osvetljenje, Wireless, USB, Mreza, HDMI, DVI, RS232, VGA) VALUES	    	
+	    $unos_projektora = "INSERT INTO PROJEKTOR(Barcode, Povezivanje, Tip_projektor, Rezolucija, Osvetljenje, Wireless, USB, Mreza, HDMI, DVI, RS232, VGA) VALUES	    	
 	    	(2804973, 'HDMI, VGA, USB', 'DLP', '1920x1080', '3200Ansi', 'Da', 'Da', 'Da', 'Da', 'Ne', 'Ne', 'Da'),
 	    	(3420597, 'HDMI, USB, RS232', 'DLP', '800x600', '3500Ansi', 'Ne', 'Da', 'Da', 'Da', 'Ne', 'Da', 'Da')
 	    ";
 
-	    $unos_kablova = "INSERT INTO KABLOVI(ID, Strana_1, Strana_2, Broj_uticnica, Tip_kablovi, Prekidac, Vrsta) VALUES
+	    $unos_kablova = "INSERT INTO KABLOVI(Barcode, Strana_1, Strana_2, Broj_uticnica, Tip_kablovi, Prekidac, Vrsta) VALUES
 			(2217886, '3.5 mm stereo jack', '2xRCA', '2', 'Hama adapter 43254', 'Ne', 'Kabl'),
 	    	(4022441, 'VGA 15 pin HDD', 'VGA 15 pin HDD', '1', 'Hama adapter 41933', 'Ne', 'Adapter')	
 	    ";
 
-	    $unos_slusalica = "INSERT INTO SLUSALICE(ID, Tip_slusalice, Mikrofon, Zvucni_sistem, Povezivanje, Gaming, Frekvencijski_raspon) VALUES
+	    $unos_slusalica = "INSERT INTO SLUSALICE(Barcode, Tip_slusalice, Mikrofon, Zvucni_sistem, Povezivanje, Gaming, Frekvencijski_raspon) VALUES
 	    	(3268589, 'Slusalice', 'Na slusalici', '7.1', '3.5mm', 'Da', '13Hz-27KHz'),
 	    	(6882212, 'Bubice', 'Na kablu', '5.1', '3.5mm', 'Da', '20Hz-20KHz'),
 			(5941612, 'Slusalice', 'Na slusalici', '7.1', '2 x Jack (3.5mm)', 'Da', '12Hz-28KHz')
 	    ";
 
-	    $unos_zvucnika = "INSERT INTO ZVUCNICI(ID, Zvucni_sistem, Snaga, Konektori, Povezivanje, Frekvencijski_raspon) VALUES
+	    $unos_zvucnika = "INSERT INTO ZVUCNICI(Barcode, Zvucni_sistem, Snaga, Konektori, Povezivanje, Frekvencijski_raspon) VALUES
 	    	(6351577, '5.1', '80W', 'USB', '3.5mm', '50Hz-20KHz'),
 	    	(6638247, '5.1', '160W', 'RCA, USB', 'Bluetooth', '50Hz-20KHz'),
 			(6296467, '5.1', '500W', '2 Digitalna opticka ulaza, 1 Digitalni koaksijalni ulaz, RCA, 3,5 mm', 'USB, 3.5mm, Bluetooth', '35Hz-20KHz')
 	    ";
 
-	    $unos_mikrofona = "INSERT INTO MIKROFON(ID, Povezivanje, Duzina_kabla, Frekvencijski_raspon) VALUES
+	    $unos_mikrofona = "INSERT INTO MIKROFON(Barcode, Povezivanje, Duzina_kabla, Frekvencijski_raspon) VALUES
 	    	(1938070, '3.5mm', '2.5m', '50Hz-16KHz'),
 	    	(6353093, 'USB', '/', '44Hz-48KHz')
 	    ";
 
-	    $unos_ediska = "INSERT INTO EKSTERNI_DISK(ID, Format, Povezivanje, Kapacitet) VALUES
+	    $unos_ediska = "INSERT INTO EKSTERNI_DISK(Barcode, Format, Povezivanje, Kapacitet) VALUES
 	    	(9372997, '2.5', 'USB', '1TB'),
 	    	(7741000, '3.5', 'USB', '4TB')
 	    ";
 
-	    $unos_fmemorije = "INSERT INTO FLES_MEMORIJA(ID, USB_type_C, Brzina_citanja_pisanja, Kapacitet, Povezvianje) VALUES
+	    $unos_fmemorije = "INSERT INTO FLES_MEMORIJA(Barcode, USB_type_C, Brzina_citanja_pisanja, Kapacitet, Povezvianje) VALUES
 	    	(9032190, 'Da', '150Mb/s', '32GB', 'USB/USB C'),
 	    	(1424316, 'Ne', '10Mb/s', '128GB', 'USB')
 	    ";
