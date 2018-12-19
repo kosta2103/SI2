@@ -33,8 +33,11 @@
 	        Model VARCHAR(50),
 	        Dimenzije VARCHAR(50),
 	        Proizvodjac VARCHAR(20),
+			Nabavna_cena INT(20),
 	        Cena INT(20),
 	        Kolicina INT(20),
+			Broj_prodatih_primeraka INT(20),
+			Datum_poslednje_prodaje DATE,
 	        Duzina_garantnog_lista VARCHAR(20),
 	        Link VARCHAR(255),
 	        Slika VARCHAR(255),
@@ -207,65 +210,65 @@
 	        ('Katarina','Markovic', 'karatina@gmail.com', 'katarina123', 'Administrator')
 	    ";
 
-	    $unos_proizvoda = "INSERT INTO PROIZVODI (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Cena, Kolicina, Duzina_garantnog_lista, Link, Slika, Tip) VALUES
-	        (5219891, 'Tastatura Logitech G910 Mechanical Gaming', 'G910 Orion Spark', '505 x 243.5 x 35.5mm', 'Logitech', '19190', '7', '1 godina', 'https://www.logitechg.com/en-us/products/gaming-keyboards/g910-orion-rgb-gaming-keyboard.html', 'https://www.logitechg.com/content/dam/gaming/en/products/g910/g910-hero-feature-1-desktop.png.imgw.1888.1888.png', 'tastatura'),
-	        (8784608, 'Tastatura USB US Logitech G613', 'G613', '478 x 216 x 33mm', 'Logitech', '15990', '4', '2 godine', 'https://www.logitechg.com/en-roeu/products/gaming-keyboards/g613-wireless-mechanical-gaming-keyboard.html', 'https://www.logitechg.com/content/dam/gaming/en/products/g613/g613-intro-desktop.png.imgw.1888.1888.png', 'tastatura'),
+	    $unos_proizvoda = "INSERT INTO PROIZVODI (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Nabavna_cena, Cena, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje, Duzina_garantnog_lista, Link, Slika, Tip) VALUES
+	        (5219891, 'Tastatura Logitech G910 Mechanical Gaming', 'G910 Orion Spark', '505 x 243.5 x 35.5mm', 'Logitech', '15350', '19190', '7', '24', '2018-03-29', '1 godina', 'https://www.logitechg.com/en-us/products/gaming-keyboards/g910-orion-rgb-gaming-keyboard.html', 'https://www.logitechg.com/content/dam/gaming/en/products/g910/g910-hero-feature-1-desktop.png.imgw.1888.1888.png', 'tastatura'),
+	        (8784608, 'Tastatura USB US Logitech G613', 'G613', '478 x 216 x 33mm', 'Logitech', '12700', '15990', '4', '59', '2018-07-05', '2 godine', 'https://www.logitechg.com/en-roeu/products/gaming-keyboards/g613-wireless-mechanical-gaming-keyboard.html', 'https://www.logitechg.com/content/dam/gaming/en/products/g613/g613-intro-desktop.png.imgw.1888.1888.png', 'tastatura'),
 
 	        (2135262, 'Mis HyperX Pulsfire FPS Pro Gaming', 'Pulse Fire FPS Pro RGB',
-	        '120 x 63 x 41mm', 'HyperX', '6990', '10', '1 godina', 'https://www.hyperxgaming.com/en/mice/pulsefire-fps-gaming-mouse',
+	        '120 x 63 x 41mm', 'HyperX', '5592', '6990', '10', '150', '2018-12-15', '1 godina', 'https://www.hyperxgaming.com/en/mice/pulsefire-fps-gaming-mouse',
 	        'https://media.kingston.com/hyperx/features/hx-features-mouse-pulsefire-fps-la.jpg',
 	        'mis'),
 	        (5177568, 'Mis USB Logitech G603 Lightspeed', 'G603', '115 x 67 x 38mm', 
-	        'Logitech', '9390', '2', '3 godine', 'http://gaming.logitech.com/en-us/product/g603-lightspeed-wireless-gaming-mouse#specsAnchor',
+	        'Logitech', '7510', '9390', '2', '200', '2018-12-20', '3 godine', 'http://gaming.logitech.com/en-us/product/g603-lightspeed-wireless-gaming-mouse#specsAnchor',
 	        'https://www.logitechg.com/content/dam/gaming/en/products/g603/g603-gallery-1.png.imgw.1384.1038.jpeg',
 	        'mis'),
 
-	        (5830957, 'Podloga za mis Genesis M12 Maxi Carbon 500 Flash NPG-1282', 'M12 Maxi Carbon 500 NPG -1282', '450 × 900 x 2,5mm', 'Genesis', '2290',
-	        '20', '1 godina', 'http://genesis-zone.com/en/product/carbon-500-maxi-flash-gaming-mousepad/', 
+	        (5830957, 'Podloga za mis Genesis M12 Maxi Carbon 500 Flash NPG-1282', 'M12 Maxi Carbon 500 NPG -1282', '450 × 900 x 2,5mm', 'Genesis', '1830', '2290',
+	        '20', '40', '2018-09-09', '1 godina', 'http://genesis-zone.com/en/product/carbon-500-maxi-flash-gaming-mousepad/', 
 	        'https://s0emmi.multimedija.rs/media/catalog/product/862/86/8628601.jpg', 'podloga'),
-	        (4317640, 'Podloga Mionix Sargas S', 'Sargas S', '270 × 400 x 2mm', 'Mionix',
-	        '990','0', '6 meseci', 'https://mionix.net/', 'https://s0emmi.multimedija.rs/media/catalog/product/679/73/6797353.jpg', 'podloga'),
+	        (4317640, 'Podloga Mionix Sargas S', 'Sargas S', '270 × 400 x 2mm', 'Mionix', '790', 
+	        '990','0', '44', '2018-01-25', '6 meseci', 'https://mionix.net/', 'https://s0emmi.multimedija.rs/media/catalog/product/679/73/6797353.jpg', 'podloga'),
 
-	        (5647681, 'Stampac A4 Epson LX-350', 'LX-350', ' ', 'Epson', '25290', '2', '4 godine', ' ', 'https://s0emmi.multimedija.rs/media/catalog/product/116/96/1169612.jpg', 'stampac'),
-	        (7049080, 'Stampac HP LaserJet Pro M501dn', 'M501dn', '16.46 x 25.16 x 11.38 in','HP', '38890', '1', '4 godine', 'http://www8.hp.com/us/en/products/printers/product-detail.html?oid=7710401#!tab=specs',
+	        (5647681, 'Stampac A4 Epson LX-350', 'LX-350', '12.3 x 27.10 x 14.56 in', 'Epson', '20230', '25290', '2', '20', '2018-05-07', '4 godine', 'https://www.epson.eu/products/printers/dot-matrix-printers/lx-350', 'https://s0emmi.multimedija.rs/media/catalog/product/116/96/1169612.jpg', 'stampac'),
+	        (7049080, 'Stampac HP LaserJet Pro M501dn', 'M501dn', '16.46 x 25.16 x 11.38 in','HP', '31100', '38890', '1', '25', '2017-12-23', '4 godine', 'http://www8.hp.com/us/en/products/printers/product-detail.html?oid=7710401#!tab=specs',
 	        'https://product-images.www8-hp.com/digmedialib/prodimg/lowres/c04997812.png', 'stampac'),
 
-	        (6091935, 'Skener A3 Mustek F2400N', 'F2400N', '14 x 4 x 10 in', 'Mustek',
-	        	'40990', '0', '2 godine', 'http://www.mustek.com/products/large-a3-scanner/9-a3f2400n',
+	        (6091935, 'Skener A3 Mustek F2400N', 'F2400N', '14 x 4 x 10 in', 'Mustek', '32790', 
+	        	'40990', '0', '36', '2018-04-30', '2 godine', 'http://www.mustek.com/products/large-a3-scanner/9-a3f2400n',
 	        	'https://s0emmi.multimedija.rs/media/catalog/product/475/24/4752435.jpg',
 	        	'skener'),
 	        (4828429, 'Skener A4 Epson WorkForce DS-1630', 'DS-1630', '280‎ x 430 x 67 mm',
-	        	'Epson', '30990', '3', '2 godine', 'https://www.epson.co.uk/products/scanners/consumer-scanners/perfection-v370-photo',
+	        	'Epson', '24790', '30990', '3', '13', '2017-08-14', '2 godine', 'https://www.epson.co.uk/products/scanners/consumer-scanners/perfection-v370-photo',
 	        	'https://s0emmi.multimedija.rs/media/catalog/product/681/37/6813755.jpg', 'skener'
 	        ),
 
-	        (3799008, 'Monitor 14 HP L7014t TN', 'L7014t', '13.4 x 1.7 x 8.6 in', 'HP', '44990', '17', '3 godine', 'http://www8.hp.com/us/en/products/oas/product-detail.html?oid=10691873', 'https://s0emmi.multimedija.rs/media/catalog/product/863/08/8630856.jpg', 'monitor'),
-	        (3404060, 'Monitor 32 Benq PV3200PT IPS', 'PV3200PT', ' ', 'Benq', '137890', '3', '3 godine', 'https://www.benq.com/en/monitor/video-post-production/pv3200pt.html', 'https://www.benq.com/content/dam/b2c/en/monitors/pv/pv3200pt/gallery/pv3200pt-front.png', 'monitor'),
+	        (3799008, 'Monitor 14 HP L7014t TN', 'L7014t', '13.4 x 1.7 x 8.6 in', 'HP', '35990', '44990', '17', '78', '2018-06-13', '3 godine', 'http://www8.hp.com/us/en/products/oas/product-detail.html?oid=10691873', 'https://s0emmi.multimedija.rs/media/catalog/product/863/08/8630856.jpg', 'monitor'),
+	        (3404060, 'Monitor 32 Benq PV3200PT IPS', 'PV3200PT', '18.4 x 1.7 x 14.6 in', 'Benq', '110300', '137890', '3', '57', '2018-10-03', '3 godine', 'https://www.benq.com/en/monitor/video-post-production/pv3200pt.html', 'https://www.benq.com/content/dam/b2c/en/monitors/pv/pv3200pt/gallery/pv3200pt-front.png', 'monitor'),
 
 
-	        (2804973, 'Projektor Acer H6517ABD', 'H6517ABD', ' ', 'Acer', '83990', '4', '2 godine', ' ', 'https://s0emmi.multimedija.rs/media/catalog/product/680/67/6806709.jpg', 'projektor'),
-	        (3420597, 'Projektor ViewSonic PA502SP', 'PA502SP', ' ', 'ViewSonic', '46790', '2', '2 godine', 'https://www.viewsonic.com/eu/products/projectors/PA502SP.php', 'https://www.viewsonic.com/eu/asset-files/images/slides/0projector/PA502SP/scaled/PA502SP_LF01_h.jpg', 'projektor'),
+	        (2804973, 'Projektor Acer H6517ABD', 'H6517ABD', '296mm x 221mm x 120mm', 'Acer', '67200', '83990', '4', '15', '2017-05-25', '2 godine', 'https://www.acer.com/ac/en/SI/content/model/MR.JNB11.001', 'https://s0emmi.multimedija.rs/media/catalog/product/680/67/6806709.jpg', 'projektor'),
+	        (3420597, 'Projektor ViewSonic PA502SP', 'PA502SP', '256mm x 184mm x 120mm', 'ViewSonic', '37400', '46790', '2', '27', '2018-01-25', '2 godine', 'https://www.viewsonic.com/eu/products/projectors/PA502SP.php', 'https://www.viewsonic.com/eu/asset-files/images/slides/0projector/PA502SP/scaled/PA502SP_LF01_h.jpg', 'projektor'),
 
-	        (2217886, 'VGA Kabl za monitor 15-pin HDD na 15-pin HDD M 1.8m', 'Hama 41933', '1.8m', 'Hama', '999', '30', '6 meseci', 'https://www.hama.com/i/00041933/hama-vga-cable-ferrite-core-double-shielded-180-m?bySearch=41933', 'https://www.hama.com/bilder/00041/abx/00041933abx.jpg', 'kablovi'),
-	        (4022441, 'Adapter 3.5mm (zenski) na 2x cinc (muski) Hama 43254', 'Hama 43254', '0.1m', 'Hama', '317', '50', '1 godina', 'https://www.hama.com/i/00043254/hama-audio-adapter-2-rca-male-plugs-35-mm-female-jack-stereo?bySearch=43254', 'https://www.hama.com/bilder/00043/abx/00043254abx.jpg', 'kablovi'),
+	        (2217886, 'VGA Kabl za monitor 15-pin HDD na 15-pin HDD M 1.8m', 'Hama 41933', '1.8m', 'Hama', '800', '999', '30', '356', '2018-07-29', '6 meseci', 'https://www.hama.com/i/00041933/hama-vga-cable-ferrite-core-double-shielded-180-m?bySearch=41933', 'https://www.hama.com/bilder/00041/abx/00041933abx.jpg', 'kablovi'),
+	        (4022441, 'Adapter 3.5mm (zenski) na 2x cinc (muski) Hama 43254', 'Hama 43254', '0.1m', 'Hama', '250', '317', '50', '420', '2018-10-10', '1 godina', 'https://www.hama.com/i/00043254/hama-audio-adapter-2-rca-male-plugs-35-mm-female-jack-stereo?bySearch=43254', 'https://www.hama.com/bilder/00043/abx/00043254abx.jpg', 'kablovi'),
 
-			(3268589, 'Slusalice sa mikrofonom HyperX Cloud Alpha HX-HSCA-RD/EM', 'Cloud Alpha', 'duzina kabla 2m', 'HyperX', '14990', '0', '3 godine', 'https://www.hyperxgaming.com/us/headsets/cloud-alpha-pro-gaming-headset',
+			(3268589, 'Slusalice sa mikrofonom HyperX Cloud Alpha HX-HSCA-RD/EM', 'Cloud Alpha', 'duzina kabla 2m', 'HyperX', '12000', '14990', '0', '98', '2018-12-07', '3 godine', 'https://www.hyperxgaming.com/us/headsets/cloud-alpha-pro-gaming-headset',
 			'https://s0emmi.multimedija.rs/media/catalog/product/861/44/8614442.jpg', 'slusalice'),
-			(6882212, 'Slusalice sa mikrofonom Razer Hammerhead pro V2 RZ04', 'RZ04-01730100-R3G1', 'duzina kabla 1.3m', 'Razer', '11390', '20', '2 godine', 'https://www.razer.com/gaming-audio/razer-hammerhead-pro-v2', 'https://s0emmi.multimedija.rs/media/catalog/product/863/42/8634232.jpg', 'slusalice'),
-			(5941612, 'Slusalice sa mikrofonom Razer Kraken Pro V2 RZ04-02050500-R3M1', 'Kraken PRO V2 RZ04-02050500-R3M1', 'duzina kabla 3.2m', 'Razer', '11990', '5', '3 godine', 'https://www.razer.com/gaming-audio/razer-kraken-pro-v2', 'https://s0emmi.multimedija.rs/media/catalog/product/863/41/8634127.jpg', 'slusalice'),
+			(6882212, 'Slusalice sa mikrofonom Razer Hammerhead pro V2 RZ04', 'RZ04-01730100-R3G1', 'duzina kabla 1.3m', 'Razer', '9100', '11390', '20', '74', '2018-11-17', '2 godine', 'https://www.razer.com/gaming-audio/razer-hammerhead-pro-v2', 'https://s0emmi.multimedija.rs/media/catalog/product/863/42/8634232.jpg', 'slusalice'),
+			(5941612, 'Slusalice sa mikrofonom Razer Kraken Pro V2 RZ04-02050500-R3M1', 'Kraken PRO V2 RZ04-02050500-R3M1', 'duzina kabla 3.2m', 'Razer', '9600', '11990', '5', '54', '2018-05-23', '3 godine', 'https://www.razer.com/gaming-audio/razer-kraken-pro-v2', 'https://s0emmi.multimedija.rs/media/catalog/product/863/41/8634127.jpg', 'slusalice'),
 		
-			(6351577, 'Zvucnici 5.1 Genius SW-G5.1 3500', 'SW-G5.1 3500', '/', 'Genius', '9990', '0', '3 godine', 'http://global.geniusnet.com/Genius/wSite/ct?xItem=56291', 'https://s0emmi.multimedija.rs/media/catalog/product/116/90/1169092.jpg', 'zvucnici'),
-			(6638247, 'Zvucnici 5.1 Logitech Z607 80W bluetooth', 'Z607', '/', 'Logitech', '18990', '4', '4 godine', 'https://www.logitech.com/en-nz/product/z607-surround-sound-system', 'https://assets.logitech.com/assets/65551/3/z607-merida-pdp.png', 'zvucnici'),
-			(6296467, 'Zvučnici 5.1 Logitech Z906', 'Z906', '/', 'Logitech', '44990', '6', '4 godine', 'https://www.logitech.com/en-us/product/speaker-system-z906', 'https://assets.logitech.com/assets/54713/z906-gallery.png', 'zvucnici'),
+			(6351577, 'Zvucnici 5.1 Genius SW-G5.1 3500', 'SW-G5.1 3500', '/', 'Genius', '7990', '9990', '0', '76', '2017-12-30', '3 godine', 'http://global.geniusnet.com/Genius/wSite/ct?xItem=56291', 'https://s0emmi.multimedija.rs/media/catalog/product/116/90/1169092.jpg', 'zvucnici'),
+			(6638247, 'Zvucnici 5.1 Logitech Z607 80W bluetooth', 'Z607', '/', 'Logitech', '15100', '18990', '4', '102', '2018-07-16', '4 godine', 'https://www.logitech.com/en-nz/product/z607-surround-sound-system', 'https://assets.logitech.com/assets/65551/3/z607-merida-pdp.png', 'zvucnici'),
+			(6296467, 'Zvučnici 5.1 Logitech Z906', 'Z906', '/', 'Logitech', '35990', '44990', '6', '45', '2018-04-29', '4 godine', 'https://www.logitech.com/en-us/product/speaker-system-z906', 'https://assets.logitech.com/assets/54713/z906-gallery.png', 'zvucnici'),
 
-			(1938070, 'TRUST mikrofon STARZZ', 'STARZZ', '135 x 45 x 45 mm', 'TRUST', '1999', '10', '2 godine', 'https://www.trust.com/en/product/21671-starzz-all-round-microphone-for-pc-and-laptop', 'https://d7qztf2ityad6.cloudfront.net/21671/21671_pictures_product_visual_1.png?f=RM1920,800', 'mikrofon'),
-			(6353093, 'Mikrofon Audio-Technica AT2020USB', 'AT2020USB+', '162 x 52 x 52', 'Audio-technica', '23590', '0', '3 godine', 'https://www.audio-technica.com/cms/wired_mics/c75c5918ed57a8d0/index.html', 'https://cdn.audio-technica.com/cms/resource_library/product_images/a2b9cb16563d3b88/large/at2020_usb_1_sq@2x.jpg', 'mikrofon'),
+			(1938070, 'TRUST mikrofon STARZZ', 'STARZZ', '135 x 45 x 45 mm', 'TRUST', '1600', '1999', '10', '83', '2018-02-27', '2 godine', 'https://www.trust.com/en/product/21671-starzz-all-round-microphone-for-pc-and-laptop', 'https://d7qztf2ityad6.cloudfront.net/21671/21671_pictures_product_visual_1.png?f=RM1920,800', 'mikrofon'),
+			(6353093, 'Mikrofon Audio-Technica AT2020USB', 'AT2020USB+', '162 x 52 x 52', 'Audio-technica', '18800', '23590', '0', '197', '2018-11-24', '3 godine', 'https://www.audio-technica.com/cms/wired_mics/c75c5918ed57a8d0/index.html', 'https://cdn.audio-technica.com/cms/resource_library/product_images/a2b9cb16563d3b88/large/at2020_usb_1_sq@2x.jpg', 'mikrofon'),
 
-			(9372997, 'HDD External 2.5 1TB A-Data AHD650-1TU3-CBK', 'AHD650-1TU3-CBK', '121 x 81 x 21mm', 'A-Data', '6340', '25', '3 godine', 'http://www.adata.com/en/feature/260', 'https://s0emmi.multimedija.rs/media/catalog/product/680/49/6804908.jpg', 'eksterni_disk'),
-			(7741000, 'HDD External 3.5 4TB Seagate USB 3.0 STEB4000200', 'STEB4000200', '176 x 120 x 30mm', 'Seagate', '14990', '10', '2 godine', 'https://www.seagate.com/gb/en/consumer/backup/expansion-hard-drive/', 'https://www.seagate.com/files/www-content/product-content/expansion-fam/expansion-external/_shared/images/1-nexpansion-desk-main-400x400.jpg', 'eksterni_disk'),
+			(9372997, 'HDD External 2.5 1TB A-Data AHD650-1TU3-CBK', 'AHD650-1TU3-CBK', '121 x 81 x 21mm', 'A-Data', '5070', '6340', '25', '34', '2018-12-21', '3 godine', 'http://www.adata.com/en/feature/260', 'https://s0emmi.multimedija.rs/media/catalog/product/680/49/6804908.jpg', 'eksterni_disk'),
+			(7741000, 'HDD External 3.5 4TB Seagate USB 3.0 STEB4000200', 'STEB4000200', '176 x 120 x 30mm', 'Seagate', '11990', '14990', '10', '100', '2017-05-13', '2 godine', 'https://www.seagate.com/gb/en/consumer/backup/expansion-hard-drive/', 'https://www.seagate.com/files/www-content/product-content/expansion-fam/expansion-external/_shared/images/1-nexpansion-desk-main-400x400.jpg', 'eksterni_disk'),
 
-			(9032190, 'USB Flash 32GB 3.1 SanDisk SDDDC2-032G-G46 Ultra Dual Drive', 'SDDDC2-032G-G46', '9.4 x 38.10 x 20.07mm', 'SanDisk', '2990', '50', '2 godine', 'https://www.sandisk.com/home/mobile-device-storage/ultra-dual-drive-usb-type-c', 'https://www.sandisk.com/content/dam/sandisk-main/en_us/assets/product/retail/DualDrive_TypeC-left_TypeCopen.png', 'fles_memorija'),
-			(1424316, 'USB Flash 128GB 2.0 SanDisk SDCZ50-128G-B35 Blade Teardrope', 'Blade Teardrope (SDCZ50-128G-B35)', '7.4 x 17.6 x 41.5mm', 'SanDisk', '4190', '22', '3 godine', 'https://www.sandisk.com/home/usb-flash/cruzer-blade', 'https://www.sandisk.com/content/dam/sandisk-main/en_us/portal-assets/product-images/retail-products/Cruzer_Blade_angle.png', 'fles_memorija')
+			(9032190, 'USB Flash 32GB 3.1 SanDisk SDDDC2-032G-G46 Ultra Dual Drive', 'SDDDC2-032G-G46', '9.4 x 38.10 x 20.07mm', 'SanDisk', '2390', '2990', '50', '71', '2018-04-22', '2 godine', 'https://www.sandisk.com/home/mobile-device-storage/ultra-dual-drive-usb-type-c', 'https://www.sandisk.com/content/dam/sandisk-main/en_us/assets/product/retail/DualDrive_TypeC-left_TypeCopen.png', 'fles_memorija'),
+			(1424316, 'USB Flash 128GB 2.0 SanDisk SDCZ50-128G-B35 Blade Teardrope', 'Blade Teardrope (SDCZ50-128G-B35)', '7.4 x 17.6 x 41.5mm', 'SanDisk', '3350', '4190', '22', '64', '2018-07-19', '3 godine', 'https://www.sandisk.com/home/usb-flash/cruzer-blade', 'https://www.sandisk.com/content/dam/sandisk-main/en_us/portal-assets/product-images/retail-products/Cruzer_Blade_angle.png', 'fles_memorija')
 	    ";
 
 	    $unos_tastature = "INSERT INTO TASTATURA (Barcode, Povezivanje, USB_port, Numericki_deo, Tip_tastatura, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES
