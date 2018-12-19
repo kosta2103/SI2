@@ -9,7 +9,8 @@
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		
 
         
         <link rel="stylesheet" href="prikaz.css">
@@ -18,26 +19,28 @@
 
 	<body>
         <div id="head">
-            <div class="innerhead">
-                <h2>Proizvodi</h2>
-                <div class="search">
-                    <div class="form-group">                    
-                        <form action="prikaz.php" method="POST">
-                            <label class="control-label">Prikazi po</label>
-                            <select name="prikaz" class="form-control">
-                                <option>Imenu</option>
-                                <option>Vrsti</option>
-                                <option>Proizvodjacu</option>
-                            </select>
-                            <button><i class="glyphicon glyphicon-arrow-up"></i></button>
-                            <button><i class="glyphicon glyphicon-arrow-down"></i></button>
-                        </form>
-                    </div>    
-                </div>
-            </div>      	
+			<div class="row">
+				<div class="col-sm-7">           
+					<h2>Proizvodi</h2>
+				</div>
+				<div class="col-sm-5">
+					<div class="search">						                  
+						<form id="form0" action="prikaz.php" method="POST">
+							<select name="prikaz" onchange="submitForm0()" class="form-control">
+								<option selected hidden disabled>Prikazi po</option>
+								<option>Imenu</option>
+								<option>Vrsti</option>
+								<option>Proizvodjacu</option>
+							</select>
+							<button><i class="glyphicon glyphicon-arrow-up"></i></button>
+							<button><i class="glyphicon glyphicon-arrow-down"></i></button>
+						</form>						    
+					</div> 
+				</div> 
+			</div>	               	
         </div>
 		<div class="config">								
-			<div class="container">
+			<div class="container big">
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="container">
@@ -73,7 +76,11 @@
                                 </form>
                             </div>
 
-                            <script type="text/javascript">
+							<script type="text/javascript">
+								function submitForm0()
+								{
+									document.getElementById('form0').submit();
+								}
 								function submitForm()
 								{
 									document.getElementById('form1').submit();
@@ -516,14 +523,13 @@
 							</form> 
 
 						</div>
-						<br><br><br><br><br><br><br> 
                     </div>
                     <div class="col-sm-10">
                         <div class="container">
-							<?php 
+							<?php 								
 								if(isset($_POST["dodaj"]) || isset($_POST["Tip"]))
-								 {
-									$veza = mysqli_connect("localhost", "root", "", "SI2");
+								 {								
+									$veza = mysqli_connect("localhost", "root", "", "SI2");									
 
 									$barcode = @$_POST["proizvod_barcode"];
 									$naziv = @$_POST["naziv"];
@@ -790,7 +796,8 @@
 										$sql = $sql."proizvodi.Tip = '$tip'";
 									}
 
-									echo $sql;
+									
+									//echo $sql;
 									$niz_izabranih = $veza->query($sql)->fetch_all(MYSQLI_ASSOC);																										
 								?>
 
@@ -826,12 +833,20 @@
 															echo "<td>$line2</td>";
 														}
 														else echo "<td>$line2</td>";
-													}												
+													}	
+													?>
+
+													 <td>
+													 	<button><i class="glyphicon glyphicon-edit"></i></button>
+														<button><i class="glyphicon glyphicon-remove"></i></button>
+													 </td>
+
+													 <?php											
 												echo "</tr>";
 											}
 										?>
 										
-									</table><br><br><br><br><br><br><br><br><br>
+									</table>
 								<?php } 
 							?> 
 						</div>
@@ -839,12 +854,11 @@
                     </div>
                 </div>              
             </div>
-		</div>
-		<div class="bottom">											
-			<div class="divider2">&nbsp;</div>
-			<ul id="foot">
-				<li></li>
-			</ul>
-		</div>
+			<div class="bottom">											
+				<div class="divider2">&nbsp;</div>
+				<ul id="foot">
+				</ul>
+			</div>
+		</div>		
 	</body>
 </html>
