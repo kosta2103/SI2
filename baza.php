@@ -331,7 +331,7 @@
 	    	(7741000, '3.5', 'USB', '4TB')
 	    ";
 
-	    $unos_fmemorije = "INSERT INTO FLES_MEMORIJA(Barcode, USB_type_C, Brzina_citanja_pisanja, Kapacitet, Povezvianje) VALUES
+	    $unos_fmemorije = "INSERT INTO FLES_MEMORIJA(Barcode, USB_type_C, Brzina_citanja_pisanja, Kapacitet, Povezivanje) VALUES
 	    	(9032190, 'Da', '150Mb/s', '32GB', 'USB/USB C'),
 	    	(1424316, 'Ne', '10Mb/s', '128GB', 'USB')
 	    ";
