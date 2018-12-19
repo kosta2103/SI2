@@ -814,9 +814,9 @@
 												}
 												echo "</tr>";
 											}
+											$i = 0;
 											foreach($niz_izabranih as $line1)
 											{
-												$i = 0;
 												echo "<tr>";
 													foreach($line1 as $line2)
 													{
