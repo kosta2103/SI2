@@ -250,7 +250,7 @@ if(isset($_POST["izmeni"])){
 	}
 
 	if($tip == "projektor"){
-		$sql = "SELECT * FROM projektor WHERE BarcodeBarcode = '".$barcode."'";
+		$sql = "SELECT * FROM projektor WHERE Barcode = '".$barcode."'";
 		$result = mysqli_query($veza, $sql);
 
 		while ($row = mysqli_fetch_assoc($result)) {
