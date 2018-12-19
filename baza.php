@@ -174,7 +174,7 @@
 	        USB_type_C VARCHAR(2),
 	        Brzina_citanja_pisanja VARCHAR(20),
 	        Kapacitet VARCHAR(20),
-	        Povezvianje VARCHAR(20)
+	        Povezivanje VARCHAR(20)
 	    )";
 	     
 	    
