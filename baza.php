@@ -37,7 +37,7 @@
 	        Cena INT(20),
 	        Kolicina INT(20),
 			Broj_prodatih_primeraka INT(20),
-			Datum_poslednje_prodaje DATE,
+			Datum_poslednje_prodaje VARCHAR(20),
 	        Duzina_garantnog_lista VARCHAR(20),
 	        Link VARCHAR(255),
 	        Slika VARCHAR(255),
