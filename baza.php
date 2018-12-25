@@ -355,5 +355,13 @@
 		$konekcija->query($unos_ediska) or die($konekcija->error);
 		$konekcija->query($unos_fmemorije) or die($konekcija->error);
 
+		$snizenje = "CREATE TABLE IF NOT EXISTS SNIZENJE(
+			Vrsta ENUM('Proizvodjac', 'Vrsta'),
+			Naziv VARCHAR(50),
+			Procenat INT(20),
+			Vazi BOOLEAN
+		)";
+
+		$konekcija->query($snizenje) or die($konekcija->error);
 
 	?>
