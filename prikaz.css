@@ -11,14 +11,14 @@ body {
     font-size:14px;
 }
 
-#head {
+/* #head {
     height:40px;
 	width:100%;
     background:url(img/bg-header.png) repeat-x bottom center;
     color: #f0ad4e;
     z-index: 9000;
     position: fixed;
-}
+} */
 
 .col-sm-7 {
     text-align: right;
@@ -27,7 +27,7 @@ body {
 
 
 .config {
-    padding: 60px 0 1% 0;
+    padding: 80px 0 2% 0;
 }
 
 h2 {
@@ -100,11 +100,6 @@ ul
     text-align: left;
 }
 
- li
- {
-     margin-bottom: 10px
- }
-
  .container
  {
      max-width: 100%;
@@ -176,6 +171,11 @@ td, th
 .table_izmeni
 {
     margin-top: 20px;
+}
+
+.izmeni
+{
+    padding-top: 80px;
 }
 
 .leftPadding
