@@ -25,7 +25,7 @@
 				</div>
 				<div class="col-sm-5">
 					<div class="search">						                  
-						<form id="form0" action="prikaz.php" method="POST">
+						<form id="form0" action="prikaz.php" method="GET">
 							<select name="prikaz" onchange="submitForm0()" class="form-control">
 								<option selected hidden disabled>Prikazi po</option>
 								<option>Imenu</option>
@@ -42,10 +42,10 @@
 		<div class="config">								
 			<div class="container big">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 rightPadding">
                         <div class="container">
 							 
-                            <form action="prikaz.html" method="POST">
+                            <form action="prikaz.html" method="GET">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search for...">
                                     <span class="input-group-btn">
@@ -55,7 +55,7 @@
                             </form>
 
                             <div class="form-group">                    
-                                <form id="form1" action="prikaz.php" method="POST">                                   
+                                <form id="form1" action="prikaz.php" method="GET">                                   
                                     <select name="Tip" onchange = "submitForm()" class="form-control selectTip">
                                         <option value="" selected disabled hidden>Tip</option>
                                         <option value="proizvodi">Svi proizvodi</option>
@@ -88,42 +88,24 @@
                             </script>
                             
                             <?php
-								if (isset($_POST["Tip"])) {
-								$select = $_POST["Tip"];
+								if (isset($_GET["Tip"])) {
+								$select = $_GET["Tip"];
 						    ?>
 
-							<form id="form2" action="prikaz.php" method="POST">								
+							<form id="form2" action="prikaz.php" method="GET">								
 								<div class="form-group">																			
 									<input type="text" name="proizvod_barcode" placeholder="Barcode" class="form-control selectTip" autofocus>										
 								</div>
 								<div class="form-group">									
 									<input type="text" name="naziv" placeholder="Naziv" class="form-control selectTip" autofocus>
-								</div>
-								<div class="form-group">
-									<input type="text" name="model" placeholder="Model" class="form-control selectTip" autofocus>
-								</div>
-								<div class="form-group">
-									<input type="text" name="dimenzije" placeholder="Dimenzije" class="form-control selectTip" autofocus>
-								</div>
+								</div>									
 								<div class="form-group">
 									<input type="text" name="proizvodjac" placeholder="Proizvodjac" class="form-control selectTip" autofocus>
-								</div>
+								</div>								
 								<div class="form-group">
 									<input type="text" name="cena" placeholder="Cena" class="form-control selectTip" autofocus>
 								</div>
-								<div class="form-group">
-									<input type="text" name="kolicina" placeholder="Kolicina" class="form-control selectTip" autofocus>
-								</div>
-								<div class="form-group">
-									<input type="text" name="duzina_gar_lista" placeholder="Duzina garantnog lista" class="form-control selectTip" autofocus>
-								</div>
-								<div class="form-group">
-									<input type="text" name="link" placeholder="Link" class="form-control selectTip" autofocus>									
-								</div>
-								<div class="form-group">
-									<input type="text" name="slika" placeholder="Slika" class="form-control selectTip" autofocus>
-								</div>                               
-						
+				
 								<?php
 								if ($select == "eksterni_disk") {
 									?> 
@@ -524,48 +506,49 @@
 
 						</div>
                     </div>
-                    <div class="col-sm-10">
+                    <div class="col-sm-10 leftPadding">
                         <div class="container">
 							<?php 								
-								if(isset($_POST["dodaj"]) || isset($_POST["Tip"]))
+								if(isset($_GET["dodaj"]) || isset($_GET["Tip"]))
 								 {								
 									$veza = mysqli_connect("localhost", "root", "", "SI2");									
-
-									$barcode = @$_POST["proizvod_barcode"];
-									$naziv = @$_POST["naziv"];
-									$model = @$_POST["model"];
-									$dimenzije = @$_POST["dimenzije"];
-									$proizvodjac = @$_POST["proizvodjac"];
-									$cena = @$_POST["cena"];
-									$kolicina = @$_POST["kolicina"];
-									$duzina_gar_lista = @$_POST["duzina_gar_lista"];
-									$link = @$_POST["link"];
-									$slika = @$_POST["slika"];
-									//$tip = @$_POST["selektovani_tip"];
-									isset($_POST["Tip"]) ? $tip = $_POST["Tip"] : $tip = $_POST["selektovani_tip"];
-
-
+									$barcode = @$_GET["proizvod_barcode"];
+									$naziv = @$_GET["naziv"];
+									$model = @$_GET["model"];
+									$dimenzije = @$_GET["dimenzije"];
+									$proizvodjac = @$_GET["proizvodjac"];
+									$nabavna_cena = @$_GET["nabavna_cena"];
+									$cena = @$_GET["cena"];
+									$kolicina = @$_GET["kolicina"];
+									$broj_prodatih = @$_GET["broj_prodatih_primeraka"];
+									$datum_pos_prodaje = @$_GET["datum_poslednje_prodaje"];
+									$duzina_gar_lista = @$_GET["duzina_gar_lista"];
+									$link = @$_GET["link"];
+									$slika = @$_GET["slika"];
+									//$tip = @$_GET["selektovani_tip"];
+									isset($_GET["Tip"]) ? $tip = $_GET["Tip"] : $tip = $_GET["selektovani_tip"];
 									//echo $barcode."<br>".$naziv."<br>".$model."<br>".$dimenzije."<br>".$proizvodjac."<br>".$cena."<br>".$kolicina."<br>".$duzina_gar_lista."<br>".$link."<br>".$slika."<br>".$tip;
 									
 									$arr = array();
 									$arr2 = array();
-
 									if(!empty($barcode)) $arr["Barcode"] = $barcode;
 									if(!empty($naziv)) $arr["Naziv"] = $naziv;
 									if(!empty($model)) $arr["Model"] = $model;
 									if(!empty($dimenzije)) $arr["Dimenzije"] = $dimenzije;
 									if(!empty($proizvodjac)) $arr["Proizvodjac"] = $proizvodjac;
+									if(!empty($nabavna_cena)) $arr["Nabavna_cena"] = $nabavna_cena;
 									if(!empty($cena)) $arr["Cena"] = $cena;
 									if(!empty($kolicina)) $arr["Kolicina"] = $kolicina;
+									if(!empty($broj_prodatih)) $arr["Broj_prodatih_primeraka"] = $broj_prodatih;
+									if(!empty($datum_pos_prodaje)) $arr["Datum_poslednje_prodaje"] = $datum_pos_prodaje;
 									if(!empty($duzina_gar_lista)) $arr["Duzina_garantnog_lista"] = $duzina_gar_lista;
 									if(!empty($link)) $arr["Link"] = $link;
 									if(!empty($slika)) $arr["Slika"] = $slika;
-
 									if($tip == "eksterni_disk")
 									{
-										$format = @$_POST["format_eksterni_disk"];
-										$povezivanje = @$_POST["povezivanje"];
-										$kapacitet = @$_POST["kapacitet"];
+										$format = @$_GET["format_eksterni_disk"];
+										$povezivanje = @$_GET["povezivanje"];
+										$kapacitet = @$_GET["kapacitet"];
 										
 										if(!empty($format)) $arr2["Format"] = $format;
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
@@ -573,11 +556,10 @@
 									}
 									if($tip == "fles_memorija")
 									{
-										$usb_type_c = @$_POST["usb_type_c"];
-										$brzina_citanja_pisanja = @$_POST["brzina_citanja_pisanja"];
-										$kapacitet = @$_POST["kapacitet"];
-										$povezivanje = @$_POST["povezivanje"];
-
+										$usb_type_c = @$_GET["usb_type_c"];
+										$brzina_citanja_pisanja = @$_GET["brzina_citanja_pisanja"];
+										$kapacitet = @$_GET["kapacitet"];
+										$povezivanje = @$_GET["povezivanje"];
 										if(!empty($usb_type_c)) $arr2["USB_type_C"] = $usb_type_c;
 										if(!empty($brzina_citanja_pisanja)) $arr2["Brzina_citanja_pisanja"] = $brzina_citanja_pisanja;
 										if(!empty($kapacitet)) $arr2["Kapacitet"] = $kapacitet;
@@ -585,12 +567,12 @@
 									}
 									if($tip == "kablovi")
 									{
-										$strana_1 = @$_POST["strana_1"];
-										$strana_2 = @$_POST["strana_2"];
-										$broj_uticnica = @$_POST["broj_uticnica"];
-										$tip_kablovi = @$_POST["tip"];
-										$prekidac = @$_POST["prekidac"];
-										$vrsta = @$_POST["vrsta_kablovi"];
+										$strana_1 = @$_GET["strana_1"];
+										$strana_2 = @$_GET["strana_2"];
+										$broj_uticnica = @$_GET["broj_uticnica"];
+										$tip_kablovi = @$_GET["tip"];
+										$prekidac = @$_GET["prekidac"];
+										$vrsta = @$_GET["vrsta_kablovi"];
 										
 										if(!empty($strana_1)) $arr2["Strana_1"] = $strana_1;
 										if(!empty($strana_2)) $arr2["Strana_2"] = $strana_2;
@@ -601,20 +583,20 @@
 									}
 									if($tip == "mikrofon")
 									{
-										$povezivanje = @$_POST["povezivanje"];
-										$duzina_kabla = @$_POST["duzina_kabla"];
-										$frekvencijski_raspon = @$_POST["frekvencijski_raspon"];
+										$povezivanje = @$_GET["povezivanje"];
+										$duzina_kabla = @$_GET["duzina_kabla"];
+										$frekvencijski_raspon = @$_GET["frekvencijski_raspon"];
 										
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
 										if(!empty($duzina_kabla)) $arr2["Duzina_kabla"] = $duzina_kabla;
 										if(!empty($frekvencijski_raspon)) $arr2["Frekvencijski_raspon"] = $frekvencijski_raspon;
 									}
 									if($tip == "mis"){
-										$za_obe_ruke = @$_POST["za_obe_ruke"];
-										$rezolucija = @$_POST["rezolucija_mis"];
-										$povezivanje = @$_POST["povezivanje_mis"];
-										$gaming = @$_POST["gaming"];
-										$senzor = @$_POST["senzor_mis"];
+										$za_obe_ruke = @$_GET["za_obe_ruke"];
+										$rezolucija = @$_GET["rezolucija_mis"];
+										$povezivanje = @$_GET["povezivanje_mis"];
+										$gaming = @$_GET["gaming"];
+										$senzor = @$_GET["senzor_mis"];
 										
 										if(!empty($za_obe_ruke)) $arr2["Za_obe_ruke"] = $za_obe_ruke;
 										if(!empty($rezolucija)) $arr2["Rezolucija"] = $rezolucija;
@@ -624,19 +606,19 @@
 									}
 									if($tip == "monitor")
 									{
-										$povezivanje = @$_POST["povezivanje"];
-										$maksimalna_rezolucija = @$_POST["maksimalna_rezolucija"];
-										$usb = @$_POST["usb_monitor"];
-										$ugradjeni_zvucnici = @$_POST["ugradjeni_zvucnici"];
-										$dijagonala_ekrana = @$_POST["dijagonala_ekrana"];
-										$brzina_osvezavanja = @$_POST["brzina_osvezavanja"];
-										$hdmi = @$_POST["hdmi_monitor"];
-										$dvi = @$_POST["dvi"];
-										$vga = @$_POST["vga"];
-										$display_port = @$_POST["display_port"];
-										$podesavanje_po_visini = @$_POST["podesavanje_po_visini"];
-										$touchscreen = @$_POST["touchscreen"];
-										$rotacija = @$_POST["rotacija"];
+										$povezivanje = @$_GET["povezivanje"];
+										$maksimalna_rezolucija = @$_GET["maksimalna_rezolucija"];
+										$usb = @$_GET["usb_monitor"];
+										$ugradjeni_zvucnici = @$_GET["ugradjeni_zvucnici"];
+										$dijagonala_ekrana = @$_GET["dijagonala_ekrana"];
+										$brzina_osvezavanja = @$_GET["brzina_osvezavanja"];
+										$hdmi = @$_GET["hdmi_monitor"];
+										$dvi = @$_GET["dvi"];
+										$vga = @$_GET["vga"];
+										$display_port = @$_GET["display_port"];
+										$podesavanje_po_visini = @$_GET["podesavanje_po_visini"];
+										$touchscreen = @$_GET["touchscreen"];
+										$rotacija = @$_GET["rotacija"];
 										
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
 										if(!empty($maksimalna_rezolucija)) $arr2["Maksimalna_rezolucija"] = $maksimalna_rezolucija;
@@ -654,26 +636,25 @@
 									}
 									if($tip == "podloga")
 									{
-										$tip_podloga = @$_POST["tip_podloga"];
-										$materijal = @$_POST["materijal_podloga"];
+										$tip_podloga = @$_GET["tip_podloga"];
+										$materijal = @$_GET["materijal_podloga"];
 										
 										if(!empty($tip_podloga)) $arr2["Tip_podloga"] = $tip_podloga;
 										if(!empty($materijal)) $arr2["Materijal"] = $materijal;
 									}
 									if($tip == "projektor")
 									{
-										$povezivanje = @$_POST["povezivanje"];
-										$tip_projektor = @$_POST["tip_projektor"];
-										$rezolucija = @$_POST["rezolucija"];
-										$osvetljenje = @$_POST["osvetljenje"];
-										$wireless = @$_POST["wireless"];
-										$usb = @$_POST["usb"];
-										$mreza = @$_POST["mreza"];
-										$hdmi = @$_POST["hdmi"];
-										$dvi = @$_POST["dvi"];
-										$rs232 = @$_POST["rs232"];
-										$vga = @$_POST["vga"];
-
+										$povezivanje = @$_GET["povezivanje"];
+										$tip_projektor = @$_GET["tip_projektor"];
+										$rezolucija = @$_GET["rezolucija"];
+										$osvetljenje = @$_GET["osvetljenje"];
+										$wireless = @$_GET["wireless"];
+										$usb = @$_GET["usb"];
+										$mreza = @$_GET["mreza"];
+										$hdmi = @$_GET["hdmi"];
+										$dvi = @$_GET["dvi"];
+										$rs232 = @$_GET["rs232"];
+										$vga = @$_GET["vga"];
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
 										if(!empty($tip_projektor)) $arr2["Tip_projektor"] = $tip_projektor;
 										if(!empty($rezolucija)) $arr2["Rezolucija"] = $rezolucija;
@@ -688,11 +669,11 @@
 									}
 									if($tip == "skener")
 									{
-										$format = @$_POST["format_skener"];
-										$flatbed = @$_POST["flatbed"];
-										$povezivanje = @$_POST["povezivanje"];
-										$rezolucija = @$_POST["rezolucija"];
-										$adf = @$_POST["adf"];
+										$format = @$_GET["format_skener"];
+										$flatbed = @$_GET["flatbed"];
+										$povezivanje = @$_GET["povezivanje"];
+										$rezolucija = @$_GET["rezolucija"];
+										$adf = @$_GET["adf"];
 										
 										if(!empty($format)) $arr2["Format"] = $format;
 										if(!empty($flatbed)) $arr2["Flatbed"] = $flatbed;
@@ -702,12 +683,12 @@
 									}
 									if($tip == "slusalice")
 									{
-										$tip_slusalice = @$_POST["tip_slusalice"];
-										$mikrofon = @$_POST["mikrofon_slusalice"];
-										$zvucni_sistem = @$_POST["zvucni_sistem_slusalice"];
-										$povezivanje = @$_POST["povezivanje"];
-										$gaming = @$_POST["gaming"];
-										$frekvencijski_raspon = @$_POST["frekvencijski_raspon"];
+										$tip_slusalice = @$_GET["tip_slusalice"];
+										$mikrofon = @$_GET["mikrofon_slusalice"];
+										$zvucni_sistem = @$_GET["zvucni_sistem_slusalice"];
+										$povezivanje = @$_GET["povezivanje"];
+										$gaming = @$_GET["gaming"];
+										$frekvencijski_raspon = @$_GET["frekvencijski_raspon"];
 										
 										if(!empty($tip_slusalice)) $arr2["Tip_slusalice"] = $tip_slusalice;
 										if(!empty($mikrofon)) $arr2["Mikrofon"] = $mikrofon;
@@ -718,13 +699,13 @@
 									}
 									if($tip == "stampac")
 									{
-										$tip_stampac = @$_POST["tip_stampac"];
-										$povezivanje = @$_POST["povezivanje"];
-										$rezolucija = @$_POST["rezolucija"];
-										$brzina_stampe = @$_POST["brzina_stampe"];
-										$bar_kod = @$_POST["bar_kod"];
-										$mreza = @$_POST["mreza"];
-										$wireless = @$_POST["wireless"];
+										$tip_stampac = @$_GET["tip_stampac"];
+										$povezivanje = @$_GET["povezivanje"];
+										$rezolucija = @$_GET["rezolucija"];
+										$brzina_stampe = @$_GET["brzina_stampe"];
+										$bar_kod = @$_GET["bar_kod"];
+										$mreza = @$_GET["mreza"];
+										$wireless = @$_GET["wireless"];
 										
 										if(!empty($tip_stampac)) $arr2["Tip_stampac"] = $tip_stampac;
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
@@ -736,13 +717,13 @@
 									}
 									if($tip == "tastatura")
 									{
-										$povezivanje = @$_POST["povezivanje"];
-										$usb_port = @$_POST["usb_port"];
-										$numericki_deo = @$_POST["numericki_deo"];
-										$tip_tastatura = @$_POST["tip_tastatura"];
-										$tip_tastera = @$_POST["tip_tastera_tastatura"];
-										$programabilni_tasteri = @$_POST["programabilni_tasteri"];
-										$rgb_osvetljenje = @$_POST["rgb_osvetljenje"];
+										$povezivanje = @$_GET["povezivanje"];
+										$usb_port = @$_GET["usb_port"];
+										$numericki_deo = @$_GET["numericki_deo"];
+										$tip_tastatura = @$_GET["tip_tastatura"];
+										$tip_tastera = @$_GET["tip_tastera_tastatura"];
+										$programabilni_tasteri = @$_GET["programabilni_tasteri"];
+										$rgb_osvetljenje = @$_GET["rgb_osvetljenje"];
 										
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
 										if(!empty($usb_port)) $arr2["USB_port"] = $usb_port;
@@ -754,11 +735,11 @@
 									}
 									if($tip == "zvucnici")
 									{
-										$zvucni_sistem = @$_POST["zvucni_sistem_zvucnici"];
-										$snaga = @$_POST["snaga"];
-										$konektori = @$_POST["konektori"];
-										$povezivanje = @$_POST["povezivanje"];
-										$frekvencijski_raspon = @$_POST["frekvencijski_raspon"];
+										$zvucni_sistem = @$_GET["zvucni_sistem_zvucnici"];
+										$snaga = @$_GET["snaga"];
+										$konektori = @$_GET["konektori"];
+										$povezivanje = @$_GET["povezivanje"];
+										$frekvencijski_raspon = @$_GET["frekvencijski_raspon"];
 										
 										if(!empty($zvucni_sistem)) $arr2["Zvucni_sistem"] = $zvucni_sistem;
 										if(!empty($snaga)) $arr2["Snaga"] = $snaga;
@@ -766,13 +747,10 @@
 										if(!empty($povezivanje)) $arr2["Povezivanje"] = $povezivanje;
 										if(!empty($frekvencijski_raspon)) $arr2["Frekvencijski_raspon"] = $frekvencijski_raspon;
 									}
-
 									
-
 									if($tip == "proizvodi")
 									{
-										$sql = "SELECT * FROM $tip WHERE ";
-
+										$sql = "SELECT Barcode, Naziv, Proizvodjac, Cena, Link, Slika  FROM $tip WHERE ";
 										foreach(array_keys($arr) as $line)
 										{
 											$sql = $sql . "$tip." .$line ." = '".$arr[$line]."' AND ";
@@ -780,10 +758,9 @@
 										if(empty($arr)) $sql = trim($sql, " WHERE ");
 										else $sql = trim($sql, " AND ");
 									}
-									else
+									else if($tip == "monitor")
 									{
-										$sql = "SELECT * FROM proizvodi, $tip WHERE ";
-
+										$sql = "SELECT proizvodi.Barcode, proizvodi.Naziv, proizvodi.Proizvodjac, proizvodi.Cena, proizvodi.Slika, $tip.Povezivanje, $tip.Maksimalna_rezolucija, $tip.Dijagonala_ekrana, $tip.Brzina_osvezavanja FROM proizvodi, $tip WHERE ";
 										foreach(array_keys($arr) as $line)
 										{
 											$sql = $sql . "proizvodi." .$line ." = '".$arr[$line]."' AND ";
@@ -795,7 +772,20 @@
 										$sql = $sql."proizvodi.Barcode = $tip.Barcode AND ";
 										$sql = $sql."proizvodi.Tip = '$tip'";
 									}
-
+									else
+									{
+										$sql = "SELECT proizvodi.Barcode, proizvodi.Naziv, proizvodi.Proizvodjac, proizvodi.Cena, proizvodi.Slika, $tip.* FROM proizvodi, $tip WHERE ";
+										foreach(array_keys($arr) as $line)
+										{
+											$sql = $sql . "proizvodi." .$line ." = '".$arr[$line]."' AND ";
+										}
+										foreach(array_keys($arr2) as $line)
+										{
+											$sql = $sql . "$tip." .$line ." = '".$arr2[$line]."' AND ";
+										}
+										$sql = $sql."proizvodi.Barcode = $tip.Barcode AND ";
+										$sql = $sql."proizvodi.Tip = '$tip'";
+									}
 									
 									//echo $sql;
 									$niz_izabranih = $veza->query($sql)->fetch_all(MYSQLI_ASSOC);																										
@@ -842,7 +832,7 @@
 													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
 													 		<button type="submit"><i class="glyphicon glyphicon-edit"></i></button>
 													 	</form>
-													 	<form action="obrisi.php" method="POST">
+													 	<form action="obrisi.php" method="GET">
 													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
 															<button type="submit"><i class="glyphicon glyphicon-remove"></i></button>
 														</form>

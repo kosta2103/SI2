@@ -42,7 +42,7 @@ h2 {
 {
     bottom: 0;
     left:0;
-    width: 210%;
+    width: 100%;
 }
 
 .divider2 {
@@ -95,6 +95,11 @@ h2 {
      display: inline-block;
  }
 
+ul
+{
+    text-align: left;
+}
+
  li
  {
      margin-bottom: 10px
@@ -140,12 +145,17 @@ select.form-control.selectTip
     min-height: 85vh;
 }
 
+table
+{
+    max-width: 100%;
+}
+
 td, th
 {
     text-align: center;
     border: 1px solid lightgray;
     padding: 5px;
-    max-width: 300px;
+    max-width: 250px;
     font-size: 12px;
     white-space: nowrap;
     overflow: auto;
@@ -157,5 +167,38 @@ td, th
     max-height: 50px;
 }
 
+.img
+{
+    max-width: 400px;
+    max-height: 300px;
+}
 
+.table_izmeni
+{
+    margin-top: 20px;
+}
+
+.leftPadding
+{
+    padding-left: 0px;
+}
+
+.rightPadding
+{
+    padding-right: 0px;
+}
+
+.col-sm-8
+{
+    text-align: center;
+    padding-left: 300px;
+    padding-right: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.col-sm-4
+{
+    margin-top: 10px;
+}
 

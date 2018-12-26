@@ -4,10 +4,10 @@
 	    $username = "root";
 	    $password = "";
 	    $db_name = "SI2";
-
+		
 	    echo "Uspostavljanje konekcije...<br>";
 	    $konekcija = new mysqli($localhost, $username, $password);
-
+		
 	    echo "Kreiranje baze podataka $db_name !<br>";
 	    
 	    $baza = "CREATE DATABASE IF NOT EXISTS SI2";
@@ -16,7 +16,7 @@
 
 	    mysqli_select_db($konekcija, $db_name);
 	    echo "Baza izabrana! <br>";
-
+		
 	    $tabela_korisnika = "CREATE TABLE IF NOT EXISTS AUTORIZOVANI_KORISNICI (
 			ID INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	  		Ime VARCHAR(20),
@@ -216,30 +216,30 @@
 
 	        (2135262, 'Mis HyperX Pulsfire FPS Pro Gaming', 'Pulse Fire FPS Pro RGB',
 	        '120 x 63 x 41mm', 'HyperX', '5592', '6990', '10', '150', '2018-12-15', '1 godina', 'https://www.hyperxgaming.com/en/mice/pulsefire-fps-gaming-mouse',
-	        'https://media.kingston.com/hyperx/features/hx-features-mouse-pulsefire-fps-la.jpg',
+	        'https://www.gigatron.rs/img/products/large/image58f8b07edd01c.png',
 	        'mis'),
 	        (5177568, 'Mis USB Logitech G603 Lightspeed', 'G603', '115 x 67 x 38mm', 
 	        'Logitech', '7510', '9390', '2', '200', '2018-12-20', '3 godine', 'http://gaming.logitech.com/en-us/product/g603-lightspeed-wireless-gaming-mouse#specsAnchor',
-	        'https://www.logitechg.com/content/dam/gaming/en/products/g603/g603-gallery-1.png.imgw.1384.1038.jpeg',
+	        'https://www.avadirect.com/Pictures/500/11498330_5.png',
 	        'mis'),
 
 	        (5830957, 'Podloga za mis Genesis M12 Maxi Carbon 500 Flash NPG-1282', 'M12 Maxi Carbon 500 NPG -1282', '450 × 900 x 2,5mm', 'Genesis', '1830', '2290',
 	        '20', '40', '2018-09-09', '1 godina', 'http://genesis-zone.com/en/product/carbon-500-maxi-flash-gaming-mousepad/', 
-	        'https://s0emmi.multimedija.rs/media/catalog/product/862/86/8628601.jpg', 'podloga'),
+	        'http://genesis-zone.com/wp-content/uploads/2018/04/maxi_flash_1000x700_3-604x270.png', 'podloga'),
 	        (4317640, 'Podloga Mionix Sargas S', 'Sargas S', '270 × 400 x 2mm', 'Mionix', '790', 
-	        '990','0', '44', '2018-01-25', '6 meseci', 'https://mionix.net/', 'https://s0emmi.multimedija.rs/media/catalog/product/679/73/6797353.jpg', 'podloga'),
+	        '990','0', '44', '2018-01-25', '6 meseci', 'https://mionix.net/', 'http://gildiagraczy.pl/wp-content/uploads/2016/08/Mionix-Sargas-S-Mousepad-01.png', 'podloga'),
 
-	        (5647681, 'Stampac A4 Epson LX-350', 'LX-350', '12.3 x 27.10 x 14.56 in', 'Epson', '20230', '25290', '2', '20', '2018-05-07', '4 godine', 'https://www.epson.eu/products/printers/dot-matrix-printers/lx-350', 'https://s0emmi.multimedija.rs/media/catalog/product/116/96/1169612.jpg', 'stampac'),
+	        (5647681, 'Stampac A4 Epson LX-350', 'LX-350', '12.3 x 27.10 x 14.56 in', 'Epson', '20230', '25290', '2', '20', '2018-05-07', '4 godine', 'https://www.epson.eu/products/printers/dot-matrix-printers/lx-350', 'https://mediaserver.goepson.com/ImConvServlet/imconv/58d2a08a26e470ded89211dde9f6c02b71c32152/515Wx515H?use=productpictures&assetDescr=C11CC24001_Impact+Printers_Epson+LX-350_EN', 'stampac'),
 	        (7049080, 'Stampac HP LaserJet Pro M501dn', 'M501dn', '16.46 x 25.16 x 11.38 in','HP', '31100', '38890', '1', '25', '2017-12-23', '4 godine', 'http://www8.hp.com/us/en/products/printers/product-detail.html?oid=7710401#!tab=specs',
 	        'https://product-images.www8-hp.com/digmedialib/prodimg/lowres/c04997812.png', 'stampac'),
 
 	        (6091935, 'Skener A3 Mustek F2400N', 'F2400N', '14 x 4 x 10 in', 'Mustek', '32790', 
 	        	'40990', '0', '36', '2018-04-30', '2 godine', 'http://www.mustek.com/products/large-a3-scanner/9-a3f2400n',
-	        	'https://s0emmi.multimedija.rs/media/catalog/product/475/24/4752435.jpg',
+	        	'https://www.mustek.de/files/23177/highres/A3F1200N.20.png',
 	        	'skener'),
 	        (4828429, 'Skener A4 Epson WorkForce DS-1630', 'DS-1630', '280‎ x 430 x 67 mm',
 	        	'Epson', '24790', '30990', '3', '13', '2017-08-14', '2 godine', 'https://www.epson.co.uk/products/scanners/consumer-scanners/perfection-v370-photo',
-	        	'https://s0emmi.multimedija.rs/media/catalog/product/681/37/6813755.jpg', 'skener'
+	        	'https://www.epson.co.uk/files/assets/converted/1500m-1500m/2/0/4/6/20467-productpicture-lores-en-ds-1630_main.png.png', 'skener'
 	        ),
 
 	        (3799008, 'Monitor 14 HP L7014t TN', 'L7014t', '13.4 x 1.7 x 8.6 in', 'HP', '35990', '44990', '17', '78', '2018-06-13', '3 godine', 'http://www8.hp.com/us/en/products/oas/product-detail.html?oid=10691873', 'https://s0emmi.multimedija.rs/media/catalog/product/863/08/8630856.jpg', 'monitor'),
@@ -355,8 +355,9 @@
 		$konekcija->query($unos_ediska) or die($konekcija->error);
 		$konekcija->query($unos_fmemorije) or die($konekcija->error);
 
+				
+
 		$snizenje = "CREATE TABLE IF NOT EXISTS SNIZENJE(
-			ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			Vrsta ENUM('Proizvodjac', 'Vrsta'),
 			Naziv VARCHAR(50),
 			Procenat INT(20),
@@ -364,5 +365,4 @@
 		)";
 
 		$konekcija->query($snizenje) or die($konekcija->error);
-
 	?>
