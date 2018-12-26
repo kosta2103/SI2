@@ -38,7 +38,7 @@
 					<a class="nav-link" href="dodaj1.php">Dodavanje</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="prikaz.php">Prikaz</a>
+					<a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
 				</li>
 
 				<li class="nav-item dropdown">
