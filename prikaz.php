@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+
+?>
+
 <html>
     <head>
 
@@ -37,9 +42,12 @@
 				<li class="nav-item">
 					<a class="nav-link" href="dodaj1.php">Dodavanje</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
 				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="promena_cene1.php">Akcije</a>
+                </li>
 
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -821,7 +829,17 @@
 												{
 													echo "<th>".$line."</th>";
 												}
-												echo "</tr>";
+												?>												
+
+													<th>
+														<form action="korpa.php" method="POST">
+															<input type="hidden" name="barkod" value="<?php echo $bar ?>">
+															<button type="submit" name="dodaj_u_korpu" title="Dodaj u korpu"><i class="glyphicon glyphicon-shopping-cart"></i></button>
+														</form>
+													</th>
+												</tr>
+
+												<?php
 											}
 											$i = 0;
 											foreach($niz_izabranih as $line1)
@@ -849,17 +867,36 @@
 													<td>											 	
 													 	<form action="izmeni.php" method="GET">
 													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
-													 		<button type="submit"><i class="glyphicon glyphicon-edit"></i></button>
+													 		<button type="submit" title="Edit"><i class="glyphicon glyphicon-edit"></i></button>
 													 	</form>
 													 	<form action="obrisi.php" method="GET">
 													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
-															<button type="submit"><i class="glyphicon glyphicon-remove"></i></button>
+															<button type="submit" title="Obrisi"><i class="glyphicon glyphicon-remove"></i></button>
+														</form>
+														<form action="" method="POST">
+															 <input type="hidden" name="barkod" value="<?php echo $bar ?>">
+															<button type="submit" name="dodaj_u_korpu" title="Dodaj u korpu"><i class="glyphicon glyphicon-plus"></i></button>
 														</form>
 													 </td>
 
 													 <?php	
 													 $i++;											
 												echo "</tr>";
+
+											}
+											if(isset($_POST['dodaj_u_korpu']))
+											{
+												$barcode = $_POST["barkod"];
+
+												if(array_key_exists($barcode, array_keys($_SESSION["korpa"])))
+												{
+													$_SESSION["korpa"][$barcode]++;
+													echo "POSTOJI";
+												}
+												else
+												{
+													$_SESSION["korpa"][$barcode] = 1;
+												}
 											}
 										?>
 										

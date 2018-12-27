@@ -28,7 +28,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="admin.php">Home </a>
                 </li>
                 <li class="nav-item">
@@ -36,6 +36,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="promena_cene1.php">Akcije</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -55,5 +58,12 @@
                 </ul>
             </div>
         </nav>
+        <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+
+
+        <?php
+            session_start();
+            $_SESSION["korpa"] = array(); 
+        ?>
     </body>
 </html>    
