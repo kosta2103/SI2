@@ -874,7 +874,7 @@
 															<button type="submit" title="Obrisi"><i class="glyphicon glyphicon-remove"></i></button>
 														</form>
 														<form action="" method="POST">
-															 <input type="hidden" name="barkod" value="<?php echo $bar ?>">
+															<input type="hidden" name="barkod" value="<?php echo $bar ?>">
 															<button type="submit" name="dodaj_u_korpu" title="Dodaj u korpu"><i class="glyphicon glyphicon-plus"></i></button>
 														</form>
 													 </td>
@@ -888,10 +888,9 @@
 											{
 												$barcode = $_POST["barkod"];
 
-												if(array_key_exists($barcode, array_keys($_SESSION["korpa"])))
+												if(in_array($barcode, array_keys($_SESSION["korpa"])))
 												{
 													$_SESSION["korpa"][$barcode]++;
-													echo "POSTOJI";
 												}
 												else
 												{
