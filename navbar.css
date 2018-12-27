@@ -23,3 +23,8 @@ a:hover
 {
     color: #f0ad4e;
 }
+
+.active a 
+{
+    color: #f0ad4e !important; 
+}
