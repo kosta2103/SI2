@@ -368,8 +368,25 @@
 		$dobavljaci = "CREATE TABLE IF NOT EXISTS DOBAVLJACI(
 			ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			Naziv VARCHAR(50),
-			Email VARCHAR(50))";
+			Email VARCHAR(50)
+			)";
 
 		$konekcija->query($snizenje) or die($konekcija->error);
 		$konekcija->query($dobavljaci) or die($konekcija->error);
+
+		$naruceni = "CREATE TABLE IF NOT EXISTS NARUCENI(
+	        	ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			Barcode INT UNIQUE,
+	        	Naziv VARCHAR(100),
+	        	Proizvodjac VARCHAR(20),
+	        	Cena INT(20),
+	        	Kolicina INT(20),
+	       		Dobavljac VARCHAR(20),
+	        	Link VARCHAR(255),
+	        	Email VARCHAR(255),
+	        	Tip ENUM ('tastatura', 'mis', 'podloga', 'stampac', 'skener', 'monitor', 
+	        	'projektor', 'kablovi', 'slusalice', 'zvucnici', 'mikrofon', 'eksterni_disk', 'fles_memorija')
+	    		)";
+
+	    	$konekcija->query($naruceni) or die($konekcija->error);
 	?>
