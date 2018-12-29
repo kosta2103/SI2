@@ -363,7 +363,13 @@
 			Naziv VARCHAR(50),
 			Procenat INT(20),
 			Vazi BOOLEAN
-		)";
+				)";
+
+		$dobavljaci = "CREATE TABLE IF NOT EXISTS DOBAVLJACI(
+			ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			Naziv VARCHAR(50),
+			Email VARCHAR(50))";
 
 		$konekcija->query($snizenje) or die($konekcija->error);
+		$konekcija->query($dobavljaci) or die($konekcija->error);
 	?>
