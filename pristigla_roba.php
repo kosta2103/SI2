@@ -1,4 +1,6 @@
 <?php
+		session_start();
+		
 	    $localhost = "localhost";
 	    $username = "root";
 	    $password = "";
@@ -27,12 +29,12 @@
 	     //echo "Tabela je kreirana!";
 	       $sql = "SELECT * FROM PRISTIGLIPROIZVODI";
         $result = $konekcija->query($sql);
-	    ?>
+?>
 
 
       
 
-    <!DOCTYPE html>
+ 
         <html>
         <head>
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -54,48 +56,127 @@
 			<link rel="stylesheet" href="pristigla_roba.css">
         </head>
     <body>
-		<nav class="navbar fixed-top navbar-expand-lg">
-            <a class="navbar-brand" href="#">Admin</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+		<?php 
+            if($_SESSION['sesija'] == 'admin')
+            { ?>
+                <nav class="navbar fixed-top navbar-expand-lg">
+                    <a class="navbar-brand" href="#">Admin</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.php">Pocetna </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dodaj1.php">Dodavanje</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="promena_cene1.php">Akcije</a>
-                </li>
-                <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Fakture
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="cuvanje_faktura.php">Upload</a>
-						<a class="dropdown-item" href="prikaz_faktura.php">Prikaz</a>	
-					</div>
-				</li>
-                <li class="nav-item dropdown active">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Roba
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="listanarucenih.php">Narucivanje</a>
-						<a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
-						<a class="dropdown-item" href="pristigla_roba.php">Prijem</a>	
-					</div>
-				</li>               
-                </ul>
-            </div>
-        </nav>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.php">Pocetna </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dodaj1.php">Dodavanje</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="promena_cene1.php">Akcije</a>
+                        </li>
+                        <li class="nav-item dropdown">
+        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        					Fakture
+        					</a>
+        					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        						<a class="dropdown-item" href="cuvanje_faktura.php">Upload</a>
+        						<a class="dropdown-item" href="prikaz_faktura.php">Prikaz</a>	
+        					</div>
+        				</li>
+                        <li class="nav-item dropdown active">
+        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        					Roba
+        					</a>
+        					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="listanarucenih.php">Narucivanje</a>
+                                <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
+        						<a class="dropdown-item" href="pristigla_roba.php">Prijem</a>	
+        					</div>
+        				</li>               
+                        </ul>
+                    </div>
+                </nav>
+            <?php
+            }
+            
+
+            if($_SESSION['sesija'] == 'radnik')
+            { ?>
+                <nav class="navbar fixed-top navbar-expand-lg">
+                    <a class="navbar-brand" href="#">Radnik</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="radnik.php">Pocetna </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Roba
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
+                            </div>
+                        </li>               
+                        </ul>
+                    </div>
+                </nav>
+            <?php
+            }
+            
+
+            if($_SESSION['sesija'] == 'komercijalista')
+            { ?>
+                <nav class="navbar fixed-top navbar-expand-lg">
+                    <a class="navbar-brand" href="#">Komercijalista</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="komercijalista.php">Pocetna </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Fakture
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="cuvanje_faktura.php">Upload</a>
+                                <a class="dropdown-item" href="prikaz_faktura.php">Prikaz</a>   
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Roba
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="listanarucenih.php">Narucivanje</a>
+                                <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
+                                <a class="dropdown-item" href="pristigla_roba.php">Prijem</a>   
+                            </div>
+                        </li>               
+                        </ul>
+                    </div>
+                </nav>
+            <?php
+            }
+        ?>
  
 		<div class="container pristigla_roba">
 			<table class="table" style="width: 100%">

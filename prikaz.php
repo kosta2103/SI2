@@ -90,8 +90,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="radnik.php">Pocetna </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -148,7 +148,7 @@
                 </nav>
             <?php
             }
-            ?>
+        ?>
 		<div class="config">								
 			<div class="container big">
                 <div class="row">
@@ -915,10 +915,13 @@
 												?>												
 
 													<th>
+														<?php if($_SESSION['sesija'] != 'komercijalista')
+														{ ?>
 														<form action="korpa.php" method="POST">
 															<input type="hidden" name="barkod" value="<?php echo @$bar ?>">
 															<button type="submit" title="Korpa"><i class="glyphicon glyphicon-shopping-cart"></i></button>
 														</form>
+														<?php } ?>
 													</th>
 												</tr>
 
@@ -952,14 +955,20 @@
 													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
 													 		<button type="submit" title="Edit"><i class="glyphicon glyphicon-edit"></i></button>
 													 	</form>
-													 	<form action="obrisi.php" method="GET">
-													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
-															<button type="submit" title="Obrisi"><i class="glyphicon glyphicon-remove"></i></button>
-														</form>
+														 <?php if($_SESSION['sesija'] == 'admin')
+														 {?>
+															<form action="obrisi.php" method="GET">
+																<input type="hidden" name="barkod" value="<?php echo $bar ?>">
+																<button type="submit" title="Obrisi"><i class="glyphicon glyphicon-remove"></i></button>
+															</form>
+														 <?php } ?>
+														 <?php if($_SESSION['sesija'] != 'komercijalista')
+														 { ?>
 														<form action="" method="POST">
 															<input type="hidden" name="barkod" value="<?php echo $bar ?>">
 															<button type="submit" name="dodaj_u_korpu" title="Dodaj u korpu"><i class="glyphicon glyphicon-plus"></i></button>
 														</form>
+														<?php } ?>
 													 </td>
 
 													 <?php	
