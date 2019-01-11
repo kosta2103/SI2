@@ -1,6 +1,6 @@
 <?php
 $veza = mysqli_connect("localhost", "root", "", "SI2");
-$barcode = $_POST["barkod"];
+$barcode = $_GET["barkod"];
 $sql = "SELECT Tip FROM proizvodi WHERE Barcode = '".$barcode."'";
 $result = mysqli_query($veza, $sql);
 $tip1 = mysqli_fetch_row($result);
