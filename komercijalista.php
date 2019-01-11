@@ -12,12 +12,10 @@
   font-family: arial;
   background-color: white;
 }
-
 .title {
   color: grey;
   font-size: 18px;
 }
-
 button {
   border: none;
   outline: 0;
@@ -30,7 +28,6 @@ button {
   width: 100%;
   font-size: 18px;
 }
-
 a {
   text-decoration: none;
   font-size: 22px;
@@ -43,16 +40,14 @@ button:hover, a:hover {
   opacity: 0.7;
 }
 body{
-	background-image: url("slikap.jpg");
+	background-image: url("img/slikap.jpg");
 }
-
-
 </style>
 </head>
 <body id="komercijalista">
 
 <div class="card">
-  <img src="slika22.jpg" alt="Nevena" style="width:75%">
+  <img src="img/slika22.jpg" alt="Nevena" style="width:75%">
   <h2>Nevena Stasic</h2>
   <p class="title">Komercijalista</p>
   <div style="margin: 24px 0;">
@@ -62,13 +57,10 @@ body{
   <form action="pristigla_roba.php" method="POST">
   	<button type="submit"> Prijem robe </button> 
   </form>
-  <form action="cuvanje_faktura.php" method="POST">
-    <button type="submit"> Cuvanje faktura </button>
-  </form>
   <form action="prikaz_faktura.php" method="POST">
   	<button type="submit"> Prikaz faktura </button>
   </form>
-  <form action="izmenis.php" method="POST">
+  <form action="izmeni.php" method="POST">
   	<button type="submit"> Promena cene proizvoda</button>
   </form>
   <form action="login.php" method="POST">
@@ -79,4 +71,3 @@ body{
  
 </body>
 </html>
-

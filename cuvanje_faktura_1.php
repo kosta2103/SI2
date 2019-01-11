@@ -32,23 +32,6 @@ else {
 
 }
 
-
+	header("Location:cuvanje_faktura.php");
  ?>
- <!DOCTYPE html>
- <html>
- <head>
- 	<title></title>
- 	<style>
- 		
- 		body{
-
- 			text-align: center;
-			background-color: #FFEBCD;
- 		}
- 	</style>
- </head>
- <body>
-
  
- </body>
- </html>

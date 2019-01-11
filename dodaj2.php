@@ -6,7 +6,6 @@ $model = $_POST["model"];
 $dimenzije = $_POST["dimenzije"];
 $proizvodjac = $_POST["proizvodjac"];
 $nabavna_cena = $_POST["nabavna_cena"];
-
 if($_POST["cena"] != NULL){
 	$cena = $_POST["cena"];
 }
@@ -23,10 +22,8 @@ $duzina_gar_lista = $_POST["duzina_gar_lista"];
 $link = $_POST["link"];
 $slika = $_POST["slika"];
 $tip = $_POST["selektovani_tip"];
-
 $sql= "INSERT INTO proizvodi (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Nabavna_cena, Cena, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje, Duzina_garantnog_lista, Link, Slika, Tip) VALUES ('$barcode', '$naziv', '$model', '$dimenzije', '$proizvodjac', '$nabavna_cena', '$cena', '$kolicina', 0, NULL, '$duzina_gar_lista', '$link', '$slika', '$tip')";
 $veza->query($sql) or die($veza->error);
-
 if($tip == "eksterni_disk"){
 	$format = $_POST["format_eksterni_disk"];
 	$povezivanje = $_POST["povezivanje"];

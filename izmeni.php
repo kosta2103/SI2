@@ -34,6 +34,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
 				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="promena_cene1.php">Akcije</a>
+                </li>
 
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

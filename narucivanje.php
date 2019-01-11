@@ -9,11 +9,8 @@
 html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif}
 .w3-bar-block .w3-bar-item {padding: 16px}
 body{
-
 background-color: #FFEBCD;
-
 }
-
 </style>
 <body>
 
@@ -70,7 +67,6 @@ background-color: #FFEBCD;
 <script>
 var openInbox = document.getElementById("myBtn");
 openInbox.click();
-
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
@@ -79,7 +75,6 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
-
 function myFunc(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
@@ -91,8 +86,6 @@ function myFunc(id) {
         x.previousElementSibling.className.replace(" w3-red", "");
     }
 }
-
-
 </script>
 
 <script>
@@ -103,8 +96,5 @@ openTab.click();
 </body>
 </html> 
 <?php
-
 $p1 = $_POST["sifra"];
-
-
 ?>
