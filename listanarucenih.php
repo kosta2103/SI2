@@ -81,42 +81,15 @@
         				</li>               
                         </ul>
                     </div>
-                </nav>
-            <?php
-            }
-            
-
-            if($_SESSION['sesija'] == 'radnik')
-            { ?>
-                <nav class="navbar fixed-top navbar-expand-lg">
-                    <a class="navbar-brand" href="#">Radnik</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="radnik.php">Pocetna </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
-                        </li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Roba
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
-                            </div>
-                        </li>               
-                        </ul>
+                    <div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
                     </div>
                 </nav>
             <?php
             }
-            
-
             if($_SESSION['sesija'] == 'komercijalista')
             { ?>
                 <nav class="navbar fixed-top navbar-expand-lg">
@@ -153,6 +126,12 @@
                             </div>
                         </li>               
                         </ul>
+                    </div>
+                    <div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
                     </div>
                 </nav>
             <?php

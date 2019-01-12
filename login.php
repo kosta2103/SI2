@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="login.css">
@@ -57,6 +61,7 @@
                 $db_name = "SI2";
                 $flag = 1;
 
+                $_SESSION['email'] = $email;
                 //echo $email."<br>".$password;
 
                 $konekcija = new mysqli('localhost', 'root', '');

@@ -72,6 +72,12 @@
         				</li>               
                         </ul>
                     </div>
+					<div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
+                    </div>
                 </nav>
             <?php
             }
@@ -102,6 +108,12 @@
                             </div>
                         </li>               
                         </ul>
+                    </div>
+					<div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
                     </div>
                 </nav>
             <?php
@@ -144,6 +156,12 @@
                             </div>
                         </li>               
                         </ul>
+                    </div>
+					<div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
                     </div>
                 </nav>
             <?php
@@ -917,9 +935,9 @@
 													<th>
 														<?php if($_SESSION['sesija'] != 'komercijalista')
 														{ ?>
-														<form action="korpa.php" method="POST">
-															<input type="hidden" name="barkod" value="<?php echo @$bar ?>">
-															<button type="submit" title="Korpa"><i class="glyphicon glyphicon-shopping-cart"></i></button>
+														<form action="" method="POST">
+															<input type="hidden" name="barkod" value="<?php echo @$bar ?>">																
+															<button type="submit" name="btnkorpa" title="Korpa"><i class="glyphicon glyphicon-shopping-cart"></i></button>																
 														</form>
 														<?php } ?>
 													</th>
@@ -976,6 +994,19 @@
 												echo "</tr>";
 
 											}
+											
+											if(isset($_POST['btnkorpa']))
+											{
+												if(count($_SESSION['korpa']) == 0)
+												{
+													echo '<script> alert("Korpa je prazna") </script>';
+												}
+												else
+												{
+													echo '<script> window.location.href = "korpa.php" </script>';
+												}
+											}
+
 											if(isset($_POST['dodaj_u_korpu']))
 											{
 												$barcode = $_POST["barkod"];

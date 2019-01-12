@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+	session_start();
+?>
 <html>
     <head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -21,7 +23,7 @@
 		<link rel="stylesheet" href="navbar.css">
 			
     </head>
-<body>
+	<body>
 		<nav class="navbar sticky-top navbar-expand-lg">
 			<a class="navbar-brand" href="#">Admin</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,6 +65,12 @@
 					</div>
 				</li>
 				</ul>
+			</div>
+			<div>
+				<a class="color"><?php echo $_SESSION['email'] ?></a>
+				<a class="nav-item" href="logout.php">
+					<i class="glyphicon glyphicon-log-out"></i>
+				</a> 
 			</div>
 		</nav>
 <?php

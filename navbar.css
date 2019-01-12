@@ -9,7 +9,12 @@
     color: white;
 }
 
-.nav-link
+.color
+{
+    color: white !important;
+}
+
+.nav-link, .nav-item
 {
     color: white;
 }

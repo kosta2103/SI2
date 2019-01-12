@@ -71,6 +71,12 @@
         				</li>               
                         </ul>
                     </div>
+					<div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
+                    </div>
                 </nav>
             <?php
             }
@@ -101,6 +107,12 @@
                             </div>
                         </li>               
                         </ul>
+                    </div>
+					<div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
                     </div>
                 </nav>
             <?php
@@ -143,6 +155,12 @@
                             </div>
                         </li>               
                         </ul>
+                    </div>
+					<div>
+                        <a class="color"><?php echo $_SESSION['email'] ?></a>
+                        <a class="nav-item" href="logout.php">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                        </a> 
                     </div>
                 </nav>
             <?php
