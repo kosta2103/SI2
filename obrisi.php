@@ -14,3 +14,7 @@ mysqli_query($veza, $sql);
 <script>
            window.location.href = 'prikaz.php?Tip=proizvodi';
 </script>
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> 134e1db27b271df823857205677a7a4ea77dab59
