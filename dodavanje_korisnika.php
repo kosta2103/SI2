@@ -1,6 +1,6 @@
 <?php
 	session_start();
-$veza = mysqli_connect("localhost", "root", "", "SI2");
+	$veza = mysqli_connect("localhost", "root", "", "SI2");
 ?>
 
 <html>
@@ -22,6 +22,7 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
         
 		<link rel="stylesheet" href="dodaj1.css">
 		<link rel="stylesheet" href="navbar.css">
+		<link rel="stylesheet" href="korisnik.css">
 			
     </head>
 
@@ -37,12 +38,15 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php">Pocetna <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="dodaj1.php">Dodavanje proizvoda</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="dodavanje_korisnika.php">Dodavanje korisnika</a>
-                </li>
+                <li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dodavanje
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="dodavanje_korisnika.php.">Korisnika</a>
+						<a class="dropdown-item" href="dodaj1.php">Proizvoda</a>	
+					</div>
+				</li>
                 <li class="nav-item">
                     <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
 				</li>
@@ -70,6 +74,12 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
 				</li>
                 </ul>
             </div>
+			<div>
+				<a class="color"><?php echo $_SESSION['email'] ?></a>
+				<a class="nav-item" href="logout.php">
+					<i class="glyphicon glyphicon-log-out"></i>
+				</a> 
+			</div>
 		</nav>
 
 		<div class="config">								
@@ -78,7 +88,7 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
 					<div class="row">
 						<div class="col">					
 							<div class="form-group">
-								<div class="col-sm-9">
+								<div class="col">
 									<form id="form1" action="dodavanje_korisnika.php" method="POST">
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Ime</label>
@@ -104,15 +114,24 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
 												<input type="password" name="password" placeholder="Password" class="form-control" autofocus required>
 											</div>
 										</div>
-										<select name="Nivo_pristupa" class="form-control" required>
-											<option value="" selected disabled hidden >Odaberi nivo pristupa</option>
-											<option value="Administrator">Administrator</option>
-											<option value="Vlasnik">Vlasnik</option>
-											<option value="Komercijalista">Komercijalista</option>
-											<option value="Radnik">Radnik</option>
-										</select>
-										<br>     
-										<button type="submit" name="dodaj" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-plus"></i> Dodaj</button>                                 
+										<div class="form-group">
+											<div class="col-sm-3"></div>
+											<div class="col-sm-9">
+												<select name="Nivo_pristupa" class="form-control" required>
+													<option value="" selected disabled hidden >Odaberi nivo pristupa</option>
+													<option value="Administrator">Administrator</option>
+													<option value="Vlasnik">Vlasnik</option>
+													<option value="Komercijalista">Komercijalista</option>
+													<option value="Radnik">Radnik</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group">    
+											<div class="col-sm-3"></div>
+											<div class="col-sm-9">
+												<button type="submit" name="dodaj" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-plus"></i> Dodaj</button>                                 
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>

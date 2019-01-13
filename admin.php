@@ -40,12 +40,15 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="admin.php">Pocetna </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dodaj1.php">Dodavanje proizvoda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dodavanje_korisnika.php">Dodavanje korisnika</a>
-                        </li>
+                        <li class="nav-item dropdown">
+        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        					Dodavanje
+        					</a>
+        					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Korisnika</a>
+        						<a class="dropdown-item" href="dodaj1.php">Proizvoda</a>	
+        					</div>
+        				</li>
                         <li class="nav-item">
                             <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
                         </li>
