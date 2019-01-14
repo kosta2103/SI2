@@ -1100,7 +1100,7 @@
 						$tip = $niz[0]["Tip"];
 						$slika = $niz[0]["Slika"];
 
-						$niz1 = $veza->query("SELECT * FROM proizvodi,$tip WHERE proizvodi.Barcode = '$barkod'")->fetch_all(MYSQLI_ASSOC);
+						$niz1 = $veza->query("SELECT * FROM proizvodi WHERE proizvodi.Barcode = '$barkod'")->fetch_all(MYSQLI_ASSOC);
 						
 						//echo $niz1[0]["Naziv"];
 
@@ -1135,7 +1135,7 @@
 						$tip = $niz[0]["Tip"];
 						$slika = $niz[0]["Slika"];
 
-						$niz1 = $veza->query("SELECT * FROM proizvodi,$tip WHERE proizvodi.Barcode = '$barkod'")->fetch_all(MYSQLI_ASSOC);
+						$niz1 = $veza->query("SELECT * FROM proizvodi WHERE proizvodi.Barcode = '$barkod'")->fetch_all(MYSQLI_ASSOC);
 						
 						//echo $niz1[0]["Naziv"];
 
