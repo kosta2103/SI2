@@ -23,27 +23,27 @@
             <div class="login-form">
                 <div class="main-div">
                     <div class="panel">
-                        <h2>Login</h2>
-                        <p>Unesite Vasu email adresu i password</p>
+                        <h2>Ime prodavnice</h2>
+                        <p>Unesite Vasu e-mail adresu i sifru</p>
                     </div>
                     <form id="Login" method = "POST" action="login.php">
                         <div class = "form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input type="email" name = "email" class="form-control" id="inputEmail" placeholder="Email adresa">
+                                <input type="email" name = "email" class="form-control" id="inputEmail" placeholder="E-mail adresa">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input type="password" name = "password" class="form-control" id="inputPassword" placeholder="Password">
+                                <input type="password" name = "password" class="form-control" id="inputPassword" placeholder="Sifra">
                             </div>
                         </div>    
                         <div class="forgot">
-                            <a href="reset.html">Zaboravili ste password?</a>
+                            <a href="reset.html">Zaboravili ste sifru?</a>
                         </div>
                         <div class="form-group">
-                            <button type="submit" name = "login_button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Login</button>
+                            <button type="submit" name = "login_button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Uloguj se</button>
                         </div>                                          
                     </form>
                 </div>
