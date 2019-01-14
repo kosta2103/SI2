@@ -37,17 +37,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php">Pocetna <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown active">
+                <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Dodavanje
+					Korisnici
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="dodavanje_korisnika.php.">Korisnika</a>
-						<a class="dropdown-item" href="dodaj1.php">Proizvoda</a>	
+						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
 					</div>
 				</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+				<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Proizvodi
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
+					</div>
 				</li>
 				<li class="nav-item">
                     <a class="nav-link" href="promena_cene1.php">Akcije</a>
@@ -812,7 +818,7 @@
 									?>
 
 									<input type="hidden" name="selektovani_tip" value="<?php echo $select ?>">
-									<button type="submit" name="dodaj" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-plus"></i> Add</button>
+									<button type="submit" name="dodaj" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-plus"></i> Dodaj</button>
 								<?php
 							}
 							?>

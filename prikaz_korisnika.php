@@ -1,6 +1,6 @@
 <?php 
     session_start();
-$veza = mysqli_connect("localhost", "root", "", "SI2");
+	$veza = mysqli_connect("localhost", "root", "", "SI2");
 ?>
 
 
@@ -43,18 +43,24 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
                         <li class="nav-item">
                             <a class="nav-link" href="admin.php">Pocetna </a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown active">
         					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        					Dodavanje
+        					Korisnici
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Korisnika</a>
-        						<a class="dropdown-item" href="dodaj1.php">Proizvoda</a>	
+        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
         					</div>
         				</li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
-                        </li>
+                        <li class="nav-item dropdown">
+        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        					Proizvodi
+        					</a>
+        					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
+        					</div>
+        				</li>
                         <li class="nav-item">
                             <a class="nav-link" href="promena_cene1.php">Akcije</a>
                         </li>
@@ -88,48 +94,11 @@ $veza = mysqli_connect("localhost", "root", "", "SI2");
                 </nav>
             <?php
             }
-            
-
-            if($_SESSION['sesija'] == 'radnik')
-            { ?>
-                <nav class="navbar fixed-top navbar-expand-lg">
-                    <a class="navbar-brand" href="#">Radnik</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="radnik.php">Pocetna </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Roba
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
-                            </div>
-                        </li>               
-                        </ul>
-                    </div>
-					<div>
-                        <a class="color"><?php echo $_SESSION['email'] ?></a>
-                        <a class="nav-item" href="logout.php">
-                            <i class="glyphicon glyphicon-log-out"></i>
-                        </a> 
-                    </div>
-                </nav>
-            <?php
-            }
         ?>
 		<div class="config">								
 			<div class="container big">
                 <div class="row">
-                    <div class="col-sm-10 leftPadding">
+                    <div class="col">
                         <div class="container">
 							<?php 															
 								$sql = "SELECT * FROM autorizovani_korisnici";

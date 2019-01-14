@@ -36,16 +36,22 @@
                         </li>
                         <li class="nav-item dropdown">
         					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        					Dodavanje
+        					Korisnici
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Korisnika</a>
-        						<a class="dropdown-item" href="dodaj1.php">Proizvoda</a>	
+        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
         					</div>
         				</li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
-                        </li>
+                        <li class="nav-item dropdown">
+        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        					Proizvodi
+        					</a>
+        					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
+        					</div>
+        				</li>
                         <li class="nav-item">
                             <a class="nav-link" href="promena_cene1.php">Akcije</a>
                         </li>
@@ -1081,7 +1087,7 @@
 
 								<input type="hidden" name="tip" value="<?php echo $tip_proizvoda ?>">
 								<input type="hidden" name="barcode" value="<?php echo $barkod ?>">
-								<button type="submit" name="izmeni" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-ok-circle"></i> Submit</button>
+								<button type="submit" name="izmeni" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-edit"></i> Izmeni</button>
 							</form>
 									</div>
 								</div>
