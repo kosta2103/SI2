@@ -23,14 +23,14 @@
             <div class="login-form">
                 <div class="main-div">
                     <div class="panel">
-                        <h2>Admin Login</h2>
-                        <p>Please enter your email and password</p>
+                        <h2>Login</h2>
+                        <p>Unesite Vasu email adresu i password</p>
                     </div>
                     <form id="Login" method = "POST" action="login.php">
                         <div class = "form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input type="email" name = "email" class="form-control" id="inputEmail" placeholder="Email Address">
+                                <input type="email" name = "email" class="form-control" id="inputEmail" placeholder="Email adresa">
                             </div>
                         </div>
                         <div class="form-group">
@@ -40,14 +40,11 @@
                             </div>
                         </div>    
                         <div class="forgot">
-                            <a href="reset.html">Forgot password?</a>
+                            <a href="reset.html">Zaboravili ste password?</a>
                         </div>
                         <div class="form-group">
                             <button type="submit" name = "login_button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Login</button>
                         </div>                                          
-                    </form>
-                    <form action="signup.html">
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
                     </form>
                 </div>
             </div>
