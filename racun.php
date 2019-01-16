@@ -142,8 +142,11 @@
                     {
                         foreach(array_keys($_SESSION["korpa"]) as $element)
                         {
+                            $datum = date('Y-m-d');
                             $kolicina = $_SESSION["korpa"][$element];
                             $konekcija->query("UPDATE proizvodi SET Kolicina = Kolicina-$kolicina WHERE Barcode = $element");
+                            $konekcija->query("UPDATE proizvodi SET Broj_prodatih_primeraka = Broj_prodatih_primeraka+$kolicina WHERE Barcode = $element");
+                            $konekcija->query("UPDATE proizvodi SET Datum_poslednje_prodaje = '$datum' WHERE Barcode = $element");
                         }
                     }
 
