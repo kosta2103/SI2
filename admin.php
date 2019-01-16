@@ -1,12 +1,15 @@
 <?php 
     session_start();
     $_SESSION['sesija'] = 'admin';
-    $_SESSION["korpa"] = array(); 
+    $_SESSION["korpa"] = array();
+    
+    $konekcija = mysqli_connect("localhost", "root", "", "SI2");
+
 ?>
 
 <html>
 
-    <header>
+    <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     
@@ -23,7 +26,7 @@
 
         <link rel="stylesheet" href="admin.css">
         <link rel="stylesheet" href="navbar.css">
-    </header>
+    </head>
 
     <body>
         <?php 
@@ -92,6 +95,78 @@
             <?php
             }
             ?>
-        <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+        <?php
+           $niz = $konekcija->query("SELECT Naziv, Barcode, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje FROM proizvodi WHERE 100*Broj_prodatih_primeraka/(Broj_prodatih_primeraka + Kolicina) < 20")->fetch_all(MYSQLI_ASSOC);
+        ?>
+
+    <script src="//www.google-analytics.com/analytics.js"></script>
+    <script src="https://www.chartjs.org/dist/2.7.3/Chart.bundle.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+
+    
+    <div class="container">
+        <h2>Proizvodi kod kojih je procenat prodatih te vrste manji od 20 % (slaba prodaja)</h2>
+        <canvas id="chart-area" width="760" height="380" class="chartjs-render-monitor">
+
+        </canvas>
+    </div>
+   
+    
+	<script>
+        var dynamicColors = function() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return "rgb(" + r + "," + g + "," + b + ")";
+         };
+
+		var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+                        <?php
+                           foreach($niz as $line)
+                           {
+                                echo (100*$line['Broj_prodatih_primeraka'])/($line['Broj_prodatih_primeraka']+$line['Kolicina']);?>,<?php
+                           } 
+                        ?>
+					],
+					backgroundColor: [
+						<?php
+                           foreach($niz as $line)
+                           {?>
+                                dynamicColors(),
+                           <?php
+                           } 
+                        ?>
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					<?php
+                        foreach($niz as $line)
+                        {
+                            echo "'Barcode: ".$line['Barcode']."'";
+                            
+                            ?>,<?php
+                        } 
+                    ?>
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+		};
+	</script>
+
+
+
+
     </body>
 </html>    
