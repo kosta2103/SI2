@@ -890,7 +890,7 @@
 									
 									if($tip == "proizvodi")
 									{
-										$sql = "SELECT Barcode, Naziv, Proizvodjac, Cena, Kolicina, Link, Slika  FROM $tip WHERE ";
+										$sql = "SELECT Barcode, Naziv, Proizvodjac, Cena, Kolicina, Broj_prodatih_primeraka as 'Br prodatih', Link, Slika  FROM $tip WHERE ";
 										foreach(array_keys($arr) as $line)
 										{
 											$sql = $sql . "$tip." .$line ." = '".$arr[$line]."' AND ";
