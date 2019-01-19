@@ -359,7 +359,7 @@
 
 		$snizenje = "CREATE TABLE IF NOT EXISTS SNIZENJE(
 			ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			Vrsta ENUM('Proizvodjac', 'Vrsta'),
+			Vrsta ENUM('Proizvodjac', 'Vrsta', 'Slaba_prodaja'),
 			Naziv VARCHAR(50),
 			Procenat INT(20),
 			Vazi BOOLEAN
