@@ -51,8 +51,8 @@
 	        Povezivanje VARCHAR(20),
 	        USB_port VARCHAR(2),
 	        Numericki_deo VARCHAR(2),
-	        Tip_tastatura ENUM ('Wired', 'Wireless', 'Bluetooth'),
-	        Tip_tastera ENUM ('Mehanicki', 'X_Scissor', 'Gumena_membrana', 'Hibridni'),
+	        Tip_tastatura ENUM ('Wired', 'Wireless', 'Bluetooth', ''),
+	        Tip_tastera ENUM ('Mehanicki', 'X_Scissor', 'Gumena_membrana', 'Hibridni', ''),
 	        Programabilni_tasteri VARCHAR(2),
 	        RGB_osvetljenje VARCHAR(2)
 	    ) ";
@@ -60,21 +60,21 @@
 	    $tabela_mis = "CREATE TABLE IF NOT EXISTS MIS(
 	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Za_obe_ruke VARCHAR(20),
-	        Rezolucija ENUM ('<1000 dpi', '1000-2000 dpi', '2000-3000 dpi', '3000-4000 dpi', '>4000 dpi'),
-	        Povezivanje ENUM ('USB', 'PS/2', 'Wireless', 'Bluetooth'),
+	        Rezolucija ENUM ('<1000 dpi', '1000-2000 dpi', '2000-3000 dpi', '3000-4000 dpi', '>4000 dpi', ''),
+	        Povezivanje ENUM ('USB', 'PS/2', 'Wireless', 'Bluetooth', ''),
 	        Gaming VARCHAR(2),
-	        Senzor ENUM ('Opticki', 'Laserski', 'Hero')
+	        Senzor ENUM ('Opticki', 'Laserski', 'Hero', '')
 	    )";
 
 	    $tabela_podloga = "CREATE TABLE IF NOT EXISTS PODLOGA(
 	        Barcode INT UNSIGNED PRIMARY KEY,
-	        Tip_podloga ENUM ('Obicna', 'Sa gelom', 'Gamerska'),
-	        Materijal ENUM ('PVC', 'Guma', 'Platno')
+	        Tip_podloga ENUM ('Obicna', 'Sa gelom', 'Gamerska', ''),
+	        Materijal ENUM ('PVC', 'Guma', 'Platno', '')
 	    )";
 
 	    $tabela_stampac = "CREATE TABLE IF NOT EXISTS STAMPAC(
 	        Barcode INT UNSIGNED PRIMARY KEY,
-	        Tip_stampac ENUM ('Matricni', 'Laserski'),
+	        Tip_stampac ENUM ('Matricni', 'Laserski', ''),
 	        Povezivanje VARCHAR(20),
 	        Rezolucija VARCHAR(20),
 	        Brzina_stampe VARCHAR(20),
@@ -86,7 +86,7 @@
 
 	    $tabela_skener = "CREATE TABLE IF NOT EXISTS SKENER(
 	        Barcode INT UNSIGNED PRIMARY KEY,
-	        Format ENUM('A6', 'A5', 'A4', 'A3', 'A2', 'A1', 'A0', '>A0'),
+	        Format ENUM('A6', 'A5', 'A4', 'A3', 'A2', 'A1', 'A0', '>A0', ''),
 	        Flatbed VARCHAR(2),
 	        Povezivanje VARCHAR(20),
 	        Rezolucija VARCHAR(20),
@@ -97,11 +97,11 @@
 	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(50),
 	        Maksimalna_rezolucija VARCHAR(20),
-	        USB ENUM('1', '2', '3', '4', '>4', 'Ne'),
+	        USB ENUM('1', '2', '3', '4', '>4', 'Ne', ''),
 	        Ugradjeni_zvucnici VARCHAR(2),
 	        Dijagonala_ekrana VARCHAR(20),
 	        Brzina_osvezavanja VARCHAR(20),
-	        HDMI ENUM('1', '2', '3', '>3', 'Ne'),
+	        HDMI ENUM('1', '2', '3', '>3', 'Ne', ''),
 	        DVI VARCHAR(2),
 	        VGA VARCHAR(2),
 	        Display_port VARCHAR(2),
@@ -113,7 +113,7 @@
 	    $tabela_projektor = "CREATE TABLE IF NOT EXISTS PROJEKTOR(
 	        Barcode INT UNSIGNED PRIMARY KEY,
 	        Povezivanje VARCHAR(20),
-	        Tip_projektor ENUM ('DLP', 'DLP LCD', '3LCD', 'LCOS', 'LCD'),
+	        Tip_projektor ENUM ('DLP', 'DLP LCD', '3LCD', 'LCOS', 'LCD', ''),
 	        Rezolucija VARCHAR(20),
 	        Osvetljenje VARCHAR(20),
 	        Wireless VARCHAR(2),
@@ -132,15 +132,15 @@
 	        Broj_uticnica VARCHAR(20),
 	        Tip_kablovi VARCHAR(20),
 	        Prekidac VARCHAR(2),
-	        Vrsta ENUM('Kabl', 'Adapter')
+	        Vrsta ENUM('Kabl', 'Adapter', '')
 	    )";
 
 
 	    $tabela_slusalice = "CREATE TABLE IF NOT EXISTS SLUSALICE(
 	        Barcode INT UNSIGNED PRIMARY KEY,
-	        Tip_slusalice ENUM('Bubice', 'Slusalice'),
-	        Mikrofon ENUM('Ne', 'Na rucici', 'Na slusalici', 'Na kablu'),
-	        Zvucni_sistem ENUM('5.1', '7.1'),
+	        Tip_slusalice ENUM('Bubice', 'Slusalice', ''),
+	        Mikrofon ENUM('Ne', 'Na rucici', 'Na slusalici', 'Na kablu', ''),
+	        Zvucni_sistem ENUM('5.1', '7.1', ''),
 	        Povezivanje VARCHAR(20),
 	        Gaming VARCHAR(2),
 			Frekvencijski_raspon VARCHAR(30)
@@ -149,7 +149,7 @@
 
 	    $tabela_zvucnici = "CREATE TABLE IF NOT EXISTS ZVUCNICI(
 	        Barcode INT UNSIGNED PRIMARY KEY,
-	        Zvucni_sistem ENUM('4.1', '5.1', '7.1'),
+	        Zvucni_sistem ENUM('4.1', '5.1', '7.1', ''),
 	        Snaga VARCHAR(20),
 	        Konektori VARCHAR(100),
 	        Povezivanje VARCHAR(50),
@@ -167,7 +167,7 @@
 	    
 	    $tabela_ediskovi = "CREATE TABLE IF NOT EXISTS EKSTERNI_DISK(
 	        Barcode INT UNSIGNED PRIMARY KEY,
-	        Format ENUM ('2.5', '3.5'),
+	        Format ENUM ('2.5', '3.5', ''),
 	        Povezivanje VARCHAR(20),
 	        Kapacitet VARCHAR(20)
 	    )";
@@ -363,7 +363,7 @@
 			Naziv VARCHAR(50),
 			Procenat INT(20),
 			Vazi BOOLEAN
-				)";
+			)";
 
 		$dobavljaci = "CREATE TABLE IF NOT EXISTS DOBAVLJACI(
 			ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -396,7 +396,7 @@
 	        ('INA Design & Engineering', 'office@ina.rs'),
 	        ('Bel Computers d.o.o.', 'office@belcomputers.rs'),
 	        ('NetCast', 'sales@netcast.rs'),
-	        ('CENTAR ELECTRONIC d.o.o.' 'centare@gmail.com')";
+	        ('CENTAR ELECTRONIC d.o.o.', 'centare@gmail.com')";
 
 	    $konekcija->query($unos_dobavljaca) or die($konekcija->error);
 	?>

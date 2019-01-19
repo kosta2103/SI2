@@ -183,6 +183,7 @@
 				]
 			},
 			options: {
+                'onClick' : () => { window.location.href = 'prikaz.php?Tip=proizvodi' },
 				responsive: true
 			}
 		};

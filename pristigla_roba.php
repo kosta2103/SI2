@@ -25,9 +25,10 @@
 	        Tip ENUM ('tastatura', 'mis', 'podloga', 'stampac', 'skener', 'monitor', 
 	        'projektor', 'kablovi', 'slusalice', 'zvucnici', 'mikrofon', 'eksterni_disk', 'fles_memorija')
 	    )";
-	    $konekcija->query($tabela_pristigliproizvodi) or die($konekcija->error);
+		$konekcija->query($tabela_pristigliproizvodi) or die($konekcija->error);
+		//$konekcija->query("INSERT INTO PRISTIGLIPROIZVODI (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Nabavna_cena, Kolicina, Duzina_garantnog_lista, Link, Slika, Tip) VALUES('1234567', 'Naziv', 'Model', 'Dimenzije', 'Proizvodjac', '5000', '400', '2 godine', 'Link', 'Slika', 'eksterni_disk')") or die($konekcija->error);
 	     //echo "Tabela je kreirana!";
-	       $sql = "SELECT * FROM PRISTIGLIPROIZVODI";
+	    $sql = "SELECT * FROM PRISTIGLIPROIZVODI";
         $result = $konekcija->query($sql);
 ?>
 
@@ -237,7 +238,7 @@
 				echo "</tr>";
 				}
 				?>
-
+				
 			</table>
 		</div>
    </body>

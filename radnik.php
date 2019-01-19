@@ -2,6 +2,7 @@
     session_start();
     $_SESSION['sesija'] = 'radnik';
     $_SESSION["korpa"] = array(); 
+    $konekcija = mysqli_connect("localhost", "root", "", "SI2");
 ?>
 
 
@@ -64,6 +65,195 @@
             <?php
             }
             ?>
-        <BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
+        
+        <?php
+            $datum = '2018-01-01';
+            $niz1 = $konekcija->query("SELECT Naziv, Barcode, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje FROM proizvodi WHERE 100*Broj_prodatih_primeraka/(Broj_prodatih_primeraka + Kolicina) < 20")->fetch_all(MYSQLI_ASSOC);
+            $niz2 = $konekcija->query("SELECT Naziv, Barcode, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje FROM proizvodi WHERE 100*Broj_prodatih_primeraka/(Broj_prodatih_primeraka + Kolicina) > 90")->fetch_all(MYSQLI_ASSOC);
+            $niz3 = $konekcija->query("SELECT Naziv, Barcode, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje FROM proizvodi WHERE Datum_poslednje_prodaje < '$datum'")->fetch_all(MYSQLI_ASSOC);
+        ?>
+
+    <script src="//www.google-analytics.com/analytics.js"></script>
+    <script src="https://www.chartjs.org/dist/2.7.3/Chart.bundle.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <canvas id="chart-area1" class="chartjs-render-monitor">
+
+                </canvas>
+                <h2>Proizvodi kod kojih je procenat prodatih te vrste manji od 20 % (slaba prodaja)</h2>
+            </div>
+
+            <div class="col-sm-6">
+                <canvas id="chart-area2" class="chartjs-render-monitor">
+
+                </canvas>
+                <h2>Proizvodi kod kojih je procenat prodatih te vrste veci od 90 % (jaka prodaja)</h2>
+            </div>
+        </div>
+        <div class="row donji">
+            <div class="col-sm-7">
+		        <canvas id="canvas">
+
+                </canvas>
+                <h2>Proizvodi cije stanje nije promenjeno nakon <?php echo $datum ?></h2>
+            </div>
+
+            <div class="col-sm-5">
+               
+            </div>
+        </div>
+        
+    </div>
+   
+    
+	<script>
+        var dynamicColors = function() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return "rgb(" + r + "," + g + "," + b + ")";
+         };
+
+		var config1 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+                        <?php
+                           foreach($niz1 as $line)
+                           {
+                                echo (100*$line['Broj_prodatih_primeraka'])/($line['Broj_prodatih_primeraka']+$line['Kolicina']);?>,<?php
+                           } 
+                        ?>
+					],
+					backgroundColor: [
+						<?php
+                           foreach($niz1 as $line)
+                           {?>
+                                dynamicColors(),
+                           <?php
+                           } 
+                        ?>
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					<?php
+                        foreach($niz1 as $line)
+                        {
+                            echo "[";
+                            echo "'%',";
+                            echo "'Barcode: ".$line['Barcode']."',";
+                            echo "],";
+                        } 
+                    ?>
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+        var config2 = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+                        <?php
+                           foreach($niz2 as $line)
+                           {
+                                echo (100*$line['Broj_prodatih_primeraka'])/($line['Broj_prodatih_primeraka']+$line['Kolicina']);?>,<?php
+                           } 
+                        ?>
+					],
+					backgroundColor: [
+						<?php
+                           foreach($niz2 as $line)
+                           {?>
+                                dynamicColors(),
+                           <?php
+                           } 
+                        ?>
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					<?php
+                        foreach($niz2 as $line)
+                        {
+                            echo "[";
+                            echo "'%',";
+                            echo "'Barcode: ".$line['Barcode']."',";
+                            echo "],";
+                        } 
+                    ?>
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+        var barChartData = {
+			labels: [
+                <?php
+                    foreach($niz3 as $line)
+                    {
+                        echo "[";
+                        echo "'Barcode: ".$line['Barcode']."',";
+                        echo "'Datum: ".$line['Datum_poslednje_prodaje']."',";
+                        echo "],";
+                    } 
+                ?>
+            ],
+			datasets: [{
+				label: 'Kolicina',
+				backgroundColor: dynamicColors(),
+				yAxisID: 'y-axis-1',
+				data: [
+					<?php
+                        foreach($niz3 as $line)
+                        {
+                            echo "'".$line['Kolicina']."'";
+                            
+                            ?>,<?php
+                        } 
+                    ?>
+				]
+			}]
+
+		};
+
+		window.onload = function() {
+			var ctx1 = document.getElementById('chart-area1').getContext('2d');
+			window.myPie = new Chart(ctx1, config1);
+            var ctx2 = document.getElementById('chart-area2').getContext('2d');
+			window.myPie = new Chart(ctx2, config2);
+            var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					tooltips: {
+						mode: 'index',
+						intersect: true
+					},
+					scales: {
+						yAxes: [{
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'left',
+							id: 'y-axis-1',
+						},],
+					}
+				}
+			});
+		};
+    </script>
     </body>
 </html>    
