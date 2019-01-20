@@ -1,10 +1,12 @@
 <?php
 $veza = mysqli_connect("localhost", "root", "", "SI2");
 $barcode = $_POST["proizvod_barcode"];
+$flag = $_POST["flag"];
 $naziv = $_POST["naziv"];
 $model = $_POST["model"];
 $dimenzije = $_POST["dimenzije"];
 $proizvodjac = $_POST["proizvodjac"];
+$tip = $_POST["selektovani_tip"];
 if(!empty($_POST["kolicina"])){
 	$kolicina = $_POST["kolicina"];
 }
@@ -20,9 +22,13 @@ foreach($niz as $line)
 	array_push($barcodovi, $line["Barcode"]);
 }
 
-if(in_array($barcode, $barcodovi))
+if(in_array($barcode, $barcodovi) && $flag == 0)
 {
 	$veza->query("UPDATE Proizvodi SET Kolicina = Kolicina + $kolicina WHERE Barcode = $barcode");
+}
+else if(in_array($barcode, $barcodovi) && $flag == 1)
+{
+	echo '<script> alert("Proizvod sa unetim barcode-om vec postoji !") </script>';
 }
 else
 {
@@ -42,7 +48,6 @@ else
 	$duzina_gar_lista = $_POST["duzina_gar_lista"];
 	$link = $_POST["link"];
 	$slika = $_POST["slika"];
-	$tip = $_POST["selektovani_tip"];
 	$sql= "INSERT INTO proizvodi (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Nabavna_cena, Cena, Kolicina, Broj_prodatih_primeraka, Datum_poslednje_prodaje, Duzina_garantnog_lista, Link, Slika, Tip) VALUES ('$barcode', '$naziv', '$model', '$dimenzije', '$proizvodjac', '$nabavna_cena', '$cena', '$kolicina', 0, NULL, '$duzina_gar_lista', '$link', '$slika', '$tip')";
 	$veza->query($sql) or die($veza->error);
 	if($tip == "eksterni_disk"){
@@ -136,11 +141,11 @@ else
 		}
 		if(isset($_POST["tip"]))
 		{
-			$tip = $_POST["tip"];
+			$tip_kablovi = $_POST["tip"];
 		}
 		else
 		{
-			$tip = "";
+			$tip_kablovi = "";
 		}
 		if(isset($_POST["prekidac"]))
 		{
@@ -158,7 +163,7 @@ else
 		{
 			$vrsta = "";
 		}
-		$sql= "INSERT INTO kablovi (Barcode, Strana_1, Strana_2, Broj_uticnica, Tip_kablovi, Prekidac, Vrsta) VALUES ('$barcode', '$strana_1', '$strana_2', '$broj_uticnica', '$tip', '$prekidac', '$vrsta')";
+		$sql= "INSERT INTO kablovi (Barcode, Strana_1, Strana_2, Broj_uticnica, Tip_kablovi, Prekidac, Vrsta) VALUES ('$barcode', '$strana_1', '$strana_2', '$broj_uticnica', '$tip_kablovi', '$prekidac', '$vrsta')";
 		$veza->query($sql) or die($veza->error);
 	}
 	if($tip == "mikrofon"){
@@ -344,11 +349,11 @@ else
 	if($tip == "podloga"){
 		if(isset($_POST["tip_podloga"]))
 		{
-			$tip = $_POST["tip_podloga"];
+			$tip_podloga = $_POST["tip_podloga"];
 		}
 		else
 		{
-			$tip = "";
+			$tip_podloga = "";
 		}
 		if(isset($_POST["materijal_podloga"]))
 		{
@@ -358,7 +363,7 @@ else
 		{
 			$materijal = "";
 		}
-		$sql= "INSERT INTO podloga (Barcode, Tip_podloga, Materijal) VALUES ('$barcode', '$tip', '$materijal')";
+		$sql= "INSERT INTO podloga (Barcode, Tip_podloga, Materijal) VALUES ('$barcode', '$tip_podloga', '$materijal')";
 		$veza->query($sql) or die($veza->error);
 	}
 	if($tip == "projektor"){
@@ -372,11 +377,11 @@ else
 		}
 		if(isset($_POST["tip_projektor"]))
 		{
-			$tip = $_POST["tip_projektor"];
+			$tip_projektor = $_POST["tip_projektor"];
 		}
 		else
 		{
-			$tip = "";
+			$tip_projektor = "";
 		}
 		if(isset($_POST["rezolucija"]))
 		{
@@ -450,7 +455,7 @@ else
 		{
 			$vga = "";
 		}
-		$sql= "INSERT INTO projektor (Barcode, Povezivanje, Tip_projektor, Rezolucija, Osvetljenje, Wireless, USB, Mreza, HDMI, DVI, RS232, VGA) VALUES ('$barcode', '$povezivanje', '$tip', '$rezolucija', '$osvetljenje', '$wireless', '$usb', '$mreza', '$hdmi', '$dvi', '$rs232', '$vga')";
+		$sql= "INSERT INTO projektor (Barcode, Povezivanje, Tip_projektor, Rezolucija, Osvetljenje, Wireless, USB, Mreza, HDMI, DVI, RS232, VGA) VALUES ('$barcode', '$povezivanje', '$tip_projektor', '$rezolucija', '$osvetljenje', '$wireless', '$usb', '$mreza', '$hdmi', '$dvi', '$rs232', '$vga')";
 		$veza->query($sql) or die($veza->error);
 	}
 	if($tip == "skener"){
@@ -500,11 +505,11 @@ else
 	if($tip == "slusalice"){
 		if(isset($_POST["tip_slusalice"]))
 		{
-			$tip = $_POST["tip_slusalice"];
+			$tip_slusalice = $_POST["tip_slusalice"];
 		}
 		else
 		{
-			$tip = "";
+			$tip_slusalice = "";
 		}
 		if(isset($_POST["mikrofon_slusalice"]))
 		{
@@ -552,11 +557,11 @@ else
 	if($tip == "stampac"){
 		if(isset($_POST["tip_stampac"]))
 		{
-			$tip = $_POST["tip_stampac"];
+			$tip_stampac = $_POST["tip_stampac"];
 		}
 		else
 		{
-			$tip = "";
+			$tip_stampac = "";
 		}
 		if(isset($_POST["povezivanje"]))
 		{
@@ -606,7 +611,7 @@ else
 		{
 			$wireless = "";
 		}
-		$sql= "INSERT INTO stampac (Barcode, Tip_stampac, Povezivanje, Rezolucija, Brzina_stampe, Bar_kod, Mreza, Wireless) VALUES ('$barcode', '$tip', '$povezivanje', '$rezolucija', '$brzina_stampe', '$bar_kod', '$mreza', '$wireless')";
+		$sql= "INSERT INTO stampac (Barcode, Tip_stampac, Povezivanje, Rezolucija, Brzina_stampe, Bar_kod, Mreza, Wireless) VALUES ('$barcode', '$tip_stampac', '$povezivanje', '$rezolucija', '$brzina_stampe', '$bar_kod', '$mreza', '$wireless')";
 		$veza->query($sql) or die($veza->error);
 	}
 	if($tip == "tastatura"){
@@ -636,11 +641,11 @@ else
 		}
 		if(isset($_POST["tip_tastatura"]))
 		{
-			$tip = $_POST["tip_tastatura"];
+			$tip_tastatura = $_POST["tip_tastatura"];
 		}
 		else
 		{
-			$tip = "";
+			$tip_tastatura = "";
 		}
 		if(isset($_POST["tip_tastera_tastatura"]))
 		{
@@ -666,7 +671,7 @@ else
 		{
 			$rgb_osvetljenje = "";
 		}
-		$sql= "INSERT INTO tastatura (Barcode, Povezivanje, USB_port, Numericki_deo, Tip_tastatura, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES ('$barcode', '$povezivanje', '$usb_port', '$numericki_deo', '$tip', '$tip_tastera', '$programabilni_tasteri', '$rgb_osvetljenje')";
+		$sql= "INSERT INTO tastatura (Barcode, Povezivanje, USB_port, Numericki_deo, Tip_tastatura, Tip_tastera, Programabilni_tasteri, RGB_osvetljenje) VALUES ('$barcode', '$povezivanje', '$usb_port', '$numericki_deo', '$tip_tastatura', '$tip_tastera', '$programabilni_tasteri', '$rgb_osvetljenje')";
 		$veza->query($sql) or die($veza->error);
 	}
 	if($tip == "zvucnici"){
@@ -714,7 +719,19 @@ else
 		$veza->query($sql) or die($veza->error);
 	}
 }
+
+if($flag == 0)
+{
+	echo '<script>
+        window.location.href = "pristigla_roba.php";
+	</script>';
+}
+elseif($flag == 1)
+{
+	echo '<script>
+        window.location.href = "dodaj1.php?Tip='.$tip.'";
+	</script>';
+}
+
+
 ?>
-<script>
-        window.location.href = 'dodaj1.php';
-</script>

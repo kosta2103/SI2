@@ -39,7 +39,7 @@
         					Korisnici
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="dodavanje_korisnika.php">Dodavanje</a>
         						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
         					</div>
         				</li>
@@ -48,7 +48,7 @@
         					Proizvodi
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="dodaj1.php">Dodavanje</a>
         						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
         					</div>
         				</li>
@@ -680,18 +680,18 @@
 										</div>
 										<?php } ?>
 										<div class="form-group">
-											<input type="text" name="nabavna_cena" placeholder="Nabavna cena" class="form-control selectTip" autofocus>
+											<input type="number" name="nabavna_cena" placeholder="Nabavna cena" class="form-control selectTip" autofocus>
 										</div>
 										<div class="form-group">
-											<input type="text" name="cena" placeholder="Cena" class="form-control selectTip" autofocus>
+											<input type="number" name="cena" placeholder="Cena" class="form-control selectTip" autofocus>
 										</div>
 										<?php if($_SESSION['sesija'] == 'admin')
 										{ ?>
 										<div class="form-group">
-											<input type="text" name="kolicina" placeholder="Kolicina" class="form-control selectTip" autofocus>
+											<input type="number" name="kolicina" placeholder="Kolicina" class="form-control selectTip" autofocus>
 										</div>
 										<div class="form-group">
-											<input type="text" name="broj_prodatih_primeraka" placeholder="Broj prodatih primeraka" class="form-control selectTip" autofocus>
+											<input type="number" name="broj_prodatih_primeraka" placeholder="Broj prodatih primeraka" class="form-control selectTip" autofocus>
 										</div>
 										<div class="form-group">
 											<input type="text" name="datum_poslednje_prodaje" placeholder="Datum poslednje prodaje" class="form-control selectTip" autofocus>

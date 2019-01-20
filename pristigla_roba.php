@@ -76,7 +76,7 @@
         					Korisnici
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="dodavanje_korisnika.php">Dodavanje</a>
         						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
         					</div>
         				</li>
@@ -85,7 +85,7 @@
         					Proizvodi
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="dodaj1.php">Dodavanje</a>
         						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
         					</div>
         				</li>
@@ -231,6 +231,7 @@
 						<input type="hidden" name="link" value="<?php  echo $link;       ?>">
 						<input type="hidden" name="slika" value="<?php  echo $slika;       ?>">
 						<input type="hidden" name="selektovani_tip" value="<?php  echo $tip;       ?>">
+						<input type="hidden" name="flag" value="<?php  echo 0;       ?>">
 					</form>
 				</td>
 

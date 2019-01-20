@@ -42,7 +42,7 @@
 					Korisnici
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+						<a class="dropdown-item" href="dodavanje_korisnika.php">Dodavanje</a>
 						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
 					</div>
 				</li>
@@ -51,7 +51,7 @@
 					Proizvodi
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+						<a class="dropdown-item" href="dodaj1.php">Dodavanje</a>
 						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
 					</div>
 				</li>
@@ -95,7 +95,7 @@
 							<div class="form-group">
 								<label for="firstName" class="col-sm-3 control-label">Tip</label>
 								<div class="col-sm-9">
-									<form id="form1" action="dodaj1.php" method="POST">
+									<form id="form1" action="dodaj1.php" method="GET">
 										<select name="Tip" onchange = "submitForm()" class="form-control">
 											<option value="" selected disabled hidden>Tip</option>
 											<option value="eksterni_disk">Eksterni disk</option>
@@ -124,15 +124,15 @@
 							</script>
 
 						<?php
-							if (isset($_POST["Tip"])) {
-								$select = $_POST["Tip"];
+							if (isset($_GET["Tip"])) {
+								$select = $_GET["Tip"];
 						?>
 
 							<form action="dodaj2.php" method="POST">
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Barcode</label>
 									<div class="col-sm-9">
-										<input type="text" name="proizvod_barcode" placeholder="Barcode" class="form-control" autofocus>
+										<input type="text" name="proizvod_barcode" placeholder="Barcode" required minlength = "7" maxlength = "7" class="form-control" autofocus>
 									</div>
 								</div>
 								<div class="form-group">
@@ -162,19 +162,19 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Nabavna cena</label>
 									<div class="col-sm-9">
-										<input type="text" name="nabavna_cena" placeholder="Nabavna cena" class="form-control" autofocus>
+										<input type="number" name="nabavna_cena" placeholder="Nabavna cena" class="form-control" autofocus>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Cena</label>
 									<div class="col-sm-9">
-										<input type="text" name="cena" placeholder="Cena" class="form-control" autofocus>
+										<input type="number" name="cena" placeholder="Cena" class="form-control" autofocus>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Kolicina</label>
 									<div class="col-sm-9">
-										<input type="text" name="kolicina" placeholder="Kolicina" class="form-control" autofocus>
+										<input type="number" name="kolicina" placeholder="Kolicina" class="form-control" autofocus>
 									</div>
 								</div>
 								<div class="form-group">
@@ -818,6 +818,7 @@
 									?>
 
 									<input type="hidden" name="selektovani_tip" value="<?php echo $select ?>">
+									<input type="hidden" name="flag" value="<?php echo 1 ?>">
 									<button type="submit" name="dodaj" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-plus"></i> Dodaj</button>
 								<?php
 							}

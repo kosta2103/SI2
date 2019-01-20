@@ -46,7 +46,7 @@
         					Korisnici
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodavanje_korisnika.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="dodavanje_korisnika.php">Dodavanje</a>
         						<a class="dropdown-item" href="prikaz_korisnika.php">Prikaz</a>	
         					</div>
         				</li>
@@ -55,7 +55,7 @@
         					Proizvodi
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        						<a class="dropdown-item" href="dodaj1.php.">Dodavanje</a>
+        						<a class="dropdown-item" href="dodaj1.php">Dodavanje</a>
         						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
         					</div>
         				</li>
