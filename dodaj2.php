@@ -722,6 +722,10 @@ else
 
 if($flag == 0)
 {
+	if(isset($_POST["dodaj"]))
+	{
+		$veza->query("DELETE FROM pristigliproizvodi WHERE Barcode = '$barcode'");
+	}
 	echo '<script>
         window.location.href = "pristigla_roba.php";
 	</script>';

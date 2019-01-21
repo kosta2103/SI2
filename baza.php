@@ -388,7 +388,7 @@
 	        	'projektor', 'kablovi', 'slusalice', 'zvucnici', 'mikrofon', 'eksterni_disk', 'fles_memorija')
 	    		)";
 
-	    	$konekcija->query($naruceni) or die($konekcija->error);
+	    $konekcija->query($naruceni) or die($konekcija->error);
 
 	    $unos_dobavljaca = 
 	    "INSERT INTO DOBAVLJACI (Naziv, Email) VALUES 
@@ -398,5 +398,34 @@
 	        ('NetCast', 'sales@netcast.rs'),
 	        ('CENTAR ELECTRONIC d.o.o.', 'centare@gmail.com')";
 
-	    $konekcija->query($unos_dobavljaca) or die($konekcija->error);
-	?>
+		$konekcija->query($unos_dobavljaca) or die($konekcija->error);
+		
+
+		$tabela_pristigliproizvodi = "CREATE TABLE IF NOT EXISTS PRISTIGLIPROIZVODI(
+	        ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			Barcode INT UNIQUE,
+	        Naziv VARCHAR(100),
+	        Model VARCHAR(50),
+	        Dimenzije VARCHAR(50),
+	        Proizvodjac VARCHAR(20),
+            Nabavna_cena INT(20),
+	        Cena INT(20),
+	        Kolicina INT(20),
+	        Duzina_garantnog_lista VARCHAR(20),
+	        Link VARCHAR(255),
+	        Slika VARCHAR(255),
+	        Tip ENUM ('tastatura', 'mis', 'podloga', 'stampac', 'skener', 'monitor', 
+	        'projektor', 'kablovi', 'slusalice', 'zvucnici', 'mikrofon', 'eksterni_disk', 'fles_memorija')
+		)";
+		
+		$konekcija->query($tabela_pristigliproizvodi) or die($konekcija->error);
+
+		$pristigli_unos = "INSERT INTO PRISTIGLIPROIZVODI (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Nabavna_cena, Kolicina, Duzina_garantnog_lista, Link, Slika, Tip) VALUES
+		('1234567', 'Naziv', 'Model', 'Dimenzije', 'Proizvodjac', '5000', '400', '2 godine', 'Link', 'Slika', 'eksterni_disk'),
+		('5555555', 'Monitor 32in Philips 328E8QJAB5/00 VA, 1920x1080 (Full HD) 5ms', '328E8QJAB5', '', 'Philips', '29000', '80', '2 godine', 'https://www.philips.co.uk/c-p/328E8QJAB5_00/curved-lcd-monitor-with-ultra-wide-color/specifications', 'https://images.philips.com/is/image/PhilipsConsumer/278E8QJAW_69-IMS-en_HK?wid=494&hei=435', 'monitor'),
+		('6666666', 'Slusalice sa mikrofonom Audio-technica ATH-MSR7BK', 'ATH-MSR7 BK SonicPro', '', 'Audio-technica', '30000', '100', '24 meseca', 'https://www.audio-technica.com/cms/headphones/9f55d2de9afd8f31/index.html', 'https://icon2.kisspng.com/20180503/xdq/kisspng-microphone-audio-technica-corporation-headphones-a-5aea96318340a1.8909631615253233135376.jpg', 'slusalice')";
+
+		$konekcija->query($pristigli_unos) or die($konekcija->error);
+
+
+?>

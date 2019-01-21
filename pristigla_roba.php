@@ -5,31 +5,13 @@
 	    $username = "root";
 	    $password = "";
 	    $db_name = "SI2";
-	   // echo "Uspostavljanje konekcije...<br>";
+
 	    $konekcija = new mysqli($localhost, $username, $password);
-	     mysqli_select_db($konekcija, $db_name);
-	    //echo "Baza izabrana! <br>";
-	      $tabela_pristigliproizvodi = "CREATE TABLE IF NOT EXISTS PRISTIGLIPROIZVODI(
-	        ID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			Barcode INT UNIQUE,
-	        Naziv VARCHAR(100),
-	        Model VARCHAR(50),
-	        Dimenzije VARCHAR(50),
-	        Proizvodjac VARCHAR(20),
-            Nabavna_cena INT(20),
-	        Cena INT(20),
-	        Kolicina INT(20),
-	        Duzina_garantnog_lista VARCHAR(20),
-	        Link VARCHAR(255),
-	        Slika VARCHAR(255),
-	        Tip ENUM ('tastatura', 'mis', 'podloga', 'stampac', 'skener', 'monitor', 
-	        'projektor', 'kablovi', 'slusalice', 'zvucnici', 'mikrofon', 'eksterni_disk', 'fles_memorija')
-	    )";
-		$konekcija->query($tabela_pristigliproizvodi) or die($konekcija->error);
-		//$konekcija->query("INSERT INTO PRISTIGLIPROIZVODI (Barcode, Naziv, Model, Dimenzije, Proizvodjac, Nabavna_cena, Kolicina, Duzina_garantnog_lista, Link, Slika, Tip) VALUES('1234567', 'Naziv', 'Model', 'Dimenzije', 'Proizvodjac', '5000', '400', '2 godine', 'Link', 'Slika', 'eksterni_disk')") or die($konekcija->error);
-	     //echo "Tabela je kreirana!";
+	    mysqli_select_db($konekcija, $db_name);
+
 	    $sql = "SELECT * FROM PRISTIGLIPROIZVODI";
-        $result = $konekcija->query($sql);
+		$result = $konekcija->query($sql);
+
 ?>
 
 
@@ -219,7 +201,7 @@
 				?>
 				<td>
 					<form action="dodaj2.php" method="POST">
-						<button>Dodaj</button>
+						<button type="submit" name="dodaj">Dodaj</button>
 						<input type="hidden" name="proizvod_barcode" value="<?php  echo $barkod;       ?>">
 						<input type="hidden" name="naziv" value="<?php  echo $naziv;       ?>">
 						<input type="hidden" name="model" value="<?php  echo $model;       ?>">
