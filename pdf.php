@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista" || $_SESSION['pristup'] == "Radnik")){
     $konekcija = mysqli_connect("localhost", "root", "", "SI2");
 
     require('fpdf181/fpdf.php');
@@ -104,4 +105,8 @@
     echo '<script> window.location.href = "prikaz.php?Tip=proizvodi"</script>';
 
     
-?>
+}
+else{
+    header('Location: login.php');
+    exit();
+}

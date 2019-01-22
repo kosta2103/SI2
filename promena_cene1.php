@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik")){
+
 ?>
 <html>
     <head>
@@ -242,4 +244,9 @@ if(mysqli_num_rows($result) != 0){ ?>
 	<?php } ?>
 	</table>
 	</div>
-<?php } ?>
+<?php } 
+}
+else{
+    header('Location: login.php');
+    exit();
+}

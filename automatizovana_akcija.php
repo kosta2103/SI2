@@ -1,4 +1,6 @@
 <?php
+session_start();
+if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista")){
 $konekcija = mysqli_connect("localhost", "root", "", "SI2");
 
 if(isset($_GET["potvrda"])){
@@ -45,4 +47,9 @@ elseif(isset($_POST["potvrda"])){
     <script>
         window.location.href = 'komercijalista.php';
     </script> <?php
+}
+}
+else{
+    header('Location: login.php');
+    exit();
 }

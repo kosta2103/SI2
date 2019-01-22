@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Radnik")){
     $_SESSION['sesija'] = 'radnik';
     $_SESSION["korpa"] = array(); 
     $konekcija = mysqli_connect("localhost", "root", "", "SI2");
@@ -269,3 +270,9 @@
     </script>
     </body>
 </html>    
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}

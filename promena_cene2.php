@@ -1,4 +1,6 @@
 <?php
+session_start();
+if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista")){
 $veza = mysqli_connect("localhost", "root", "", "SI2");
 if(isset($_GET["proizvodjac"])){
 	$proizvodjac = $_GET["Proizvodjaci"];
@@ -235,3 +237,9 @@ else{
 <script>
     window.location.href = 'promena_cene1.php';
 </script>
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}

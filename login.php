@@ -80,6 +80,7 @@
                     {
                         $flag = 0;
                         header('Location:admin.php');
+                        $_SESSION['pristup'] = "Vlasnik";
                     }
                 }
 
@@ -89,6 +90,7 @@
                     {
                         $flag = 0;
                         header('Location:admin.php');
+                        $_SESSION['pristup'] = "Administrator";
                     }
                 }
 
@@ -98,6 +100,7 @@
                     {
                         $flag = 0;
                         header('Location:komercijalista.php');
+                        $_SESSION['pristup'] = "Komercijalista";
                     }
                 }
 
@@ -107,6 +110,7 @@
                     {
                         $flag = 0;
                         header('Location:radnik.php');
+                        $_SESSION['pristup'] = "Radnik";
                     }
                 }
 

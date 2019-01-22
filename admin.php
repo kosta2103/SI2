@@ -1,5 +1,7 @@
 <?php 
     session_start();
+
+    if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik")){
     $_SESSION['sesija'] = 'admin';
     $_SESSION["korpa"] = array();
     
@@ -446,3 +448,9 @@ function closeForm() {
 </script>
 </body>
 </html>    
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}

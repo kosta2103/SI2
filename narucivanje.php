@@ -1,3 +1,6 @@
+<?php
+session_start();
+    if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista")){ ?>
 <!DOCTYPE html>
 <html lang="en">
 <title>NARUCIVANJE</title>
@@ -97,4 +100,8 @@ openTab.click();
 </html> 
 <?php
 $p1 = $_POST["sifra"];
-?>
+}
+else{
+    header('Location: login.php');
+    exit();
+}

@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Komercijalista")){
     $_SESSION['sesija'] = 'komercijalista';
     $_SESSION['korpa'] = array(); 
     $konekcija = mysqli_connect("localhost", "root", "", "SI2");
@@ -425,3 +426,9 @@ function closeForm() {
 
 </body>
 </html>    
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}

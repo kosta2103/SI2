@@ -1,4 +1,7 @@
 <?php 
+	session_start();
+
+	if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista")){
 
 $targetfolder = "pdffajlovi/";
 
@@ -33,5 +36,9 @@ else {
 }
 
 	header("Location:cuvanje_faktura.php");
- ?>
- 
+
+}
+else{
+    header('Location: login.php');
+    exit();
+}

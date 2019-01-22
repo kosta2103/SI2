@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Radnik")){
 ?>
 
 <html>
@@ -147,54 +148,6 @@
                 </nav>
             <?php
             }
-            
-
-            if($_SESSION['sesija'] == 'komercijalista')
-            { ?>
-                <nav class="navbar fixed-top navbar-expand-lg">
-                    <a class="navbar-brand" href="#">Komercijalista</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="komercijalista.php">Pocetna </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Fakture
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="cuvanje_faktura.php">Upload</a>
-                                <a class="dropdown-item" href="prikaz_faktura.php">Prikaz</a>   
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Roba
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="listanarucenih.php">Narucivanje</a>
-                                <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
-                                <a class="dropdown-item" href="pristigla_roba.php">Prijem</a>   
-                            </div>
-                        </li>               
-                        </ul>
-                    </div>
-					<div>
-                        <a class="color"><?php echo $_SESSION['email'] ?></a>
-                        <a class="nav-item" href="logout.php">
-                            <i class="glyphicon glyphicon-log-out"></i>
-                        </a> 
-                    </div>
-                </nav>
-            <?php
-            }
         ?>
 <?php
 $veza = mysqli_connect("localhost", "root", "", "SI2");
@@ -219,28 +172,12 @@ if(isset($_POST["naruci"])){
 	mysqli_query($veza, $sql);
 }
 $barcode_naruceni = array();
-unset($barcode_naruceni);
-$barcode_naruceni = array();
-$barcode = array();
-unset($barcode);
 $barcode = array();
 $naziv = array();
-unset($naziv);
-$naziv = array();
-$proizvodjac = array();
-unset($proizvodjac);
 $proizvodjac = array();
 $cena = array();
-unset($cena);
-$cena = array();
-$dobavljac = array();
-unset($dobavljac);
 $dobavljac = array();
 $link = array();
-unset($link);
-$link = array();
-$tip = array();
-unset($tip);
 $tip = array();
 $sql = "SELECT * FROM naruceni";
 $result = mysqli_query($veza, $sql);
@@ -268,22 +205,10 @@ if(mysqli_num_rows($result) != 0){
 		array_push($tip, $row["Tip"]);
 	} 
 	$barcode_ispisi = array();
-	unset($barcode_ispisi);
-	$barcode_ispisi = array();
-	$naziv_ispisi = array();
-	unset($naziv_ispisi);
 	$naziv_ispisi = array();
 	$proizvodjac_ispisi = array();
-	unset($proizvodjac_ispisi);
-	$proizvodjac_ispisi = array();
-	$cena_ispisi = array();
-	unset($cena_ispisi);
 	$cena_ispisi = array();
 	$link_ispisi = array();
-	unset($link_ispisi);
-	$link_ispisi = array();
-	$tip_ispisi = array();
-	unset($tip_ispisi);
 	$tip_ispisi = array();
 	for($i=0; $i<count($barcode); $i++){
 		if(!(in_array($barcode[$i], $barcode_naruceni))){
@@ -351,3 +276,9 @@ if(mysqli_num_rows($result) != 0){
 }?>
 	</body>
 </html>
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}

@@ -1,5 +1,6 @@
 <?php
   session_start();
+  if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista")){
 ?>
 
  <html>
@@ -174,7 +175,10 @@
       </div>
   </body>
  </html>
-
-
-
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}
 

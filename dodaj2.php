@@ -1,4 +1,6 @@
 <?php
+if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik" || $_SESSION['pristup'] == "Komercijalista")){
+
 $veza = mysqli_connect("localhost", "root", "", "SI2");
 $barcode = $_POST["proizvod_barcode"];
 $flag = $_POST["flag"];
@@ -737,5 +739,8 @@ elseif($flag == 1)
 	</script>';
 }
 
-
-?>
+}
+else{
+    header('Location: login.php');
+    exit();
+}

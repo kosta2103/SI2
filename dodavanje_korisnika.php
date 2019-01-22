@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_SESSION['pristup'] == "Vlasnik")){
+
 	$veza = mysqli_connect("localhost", "root", "", "SI2");
 ?>
 
@@ -178,3 +180,9 @@
 		</div>
 	</body>
 </html>
+<?php
+}
+else{
+    header('Location: login.php');
+    exit();
+}
