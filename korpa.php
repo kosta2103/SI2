@@ -57,6 +57,15 @@
         						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
         					</div>
         				</li>
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Racuni
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="prikaz_racuni.php">Prikaz</a>
+                                <a class="dropdown-item" href="zamena.php">Zamena</a> 
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="promena_cene1.php">Akcije</a>
                         </li>
@@ -107,6 +116,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                        </li>
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Racuni
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="prikaz_racuni.php">Prikaz</a>
+                                <a class="dropdown-item" href="zamena.php">Zamena</a> 
+                            </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -176,7 +194,16 @@
 							<td class='align-middle'>TOTAL </td><td>".$total."</td>
 							<td class='align-middle'>
 								<form action='racun.php' method='POST'>
-									<button type='submit' name='racun'><i class='glyphicon glyphicon-shopping-cart'></i> Napravi racun</button>
+									<button type='submit' name='racun'><i class='glyphicon glyphicon-shopping-cart'></i>";
+									if(isset($_SESSION["zamena"]))
+									{
+										echo "Napravi povratnicu";
+									}
+									else
+									{
+										echo "Napravi racun";
+									} 
+									echo"</button>
 								</form>
 							</td>
 						</tr>";

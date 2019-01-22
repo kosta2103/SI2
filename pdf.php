@@ -1,6 +1,7 @@
 <?php
 
-	session_start();
+    session_start();
+    $konekcija = mysqli_connect("localhost", "root", "", "SI2");
 
     require('fpdf181/fpdf.php');
 
@@ -17,16 +18,33 @@
     $pdf->SetX(0);
     $pdf->SetY(0);
     $pdf->SetFont('Arial','B',8);
-    $pdf->Cell(10,10,'Br racuna: ',0);
-    $pdf->SetX(25);
-    $pdf->Cell(10,10, $br_racuna, 0);
-    $pdf->Ln(20);
+    if(isset($_SESSION["zamena"]))
+    {
+        $pdf->Cell(10,10,'Br povratnice: ',0);
+        $pdf->SetX(35);
+        $pdf->Cell(10,10, $br_racuna, 0);
+        $pdf->Ln(20);
+    }
+    else
+    {
+        $pdf->Cell(10,10,'Br racuna: ',0);
+        $pdf->SetX(25);
+        $pdf->Cell(10,10, $br_racuna, 0);
+        $pdf->Ln(20);
+    }
     
     $pdf->SetFont('Arial','',20);
     // Move to the right
     $pdf->Cell(80);
     // Title
-    $pdf->Cell(30,10,'Racun',0,0,'C');
+    if(isset($_SESSION["zamena"]))
+    {
+        $pdf->Cell(30,10,'Povratnica',0,0,'C');
+    }
+    else
+    {
+        $pdf->Cell(30,10,'Racun',0,0,'C');
+    }
     // Line break
     $pdf->Ln(20);
     $pdf->SetFont('Arial','B',8);
@@ -41,8 +59,6 @@
     $pdf->SetFillColor(230,230,0);
     $pdf->SetTextColor(220,50,50);
 
-
-    $konekcija = mysqli_connect("localhost", "root", "", "si2");
     $total = 0;
 
     foreach(array_keys($_SESSION["korpa"]) as $element)
@@ -70,6 +86,22 @@
         unset($_SESSION["korpa"][$element]);
     }
 
+    if(isset($_SESSION["zamena"]))
+    {
+        $zamena = $_SESSION["zamena"];
+
+        $konekcija->query("UPDATE racuni SET Zamenjen = '1', Broj_povratnice = $br_racuna WHERE Broj_racuna = $zamena") or die($konekcija->error);
+    }
+    else
+    {
+        $konekcija->query("INSERT INTO racuni(Broj_racuna, Zamenjen, Broj_povratnice) VALUES('$br_racuna', '0', '0')") or die($konekcija->error);
+    }
+
+
+    unset($_SESSION["zamena"]);
+    
     $pdf->Output('F', 'racuni/'.$br_racuna.'.pdf');
     echo '<script> window.location.href = "prikaz.php?Tip=proizvodi"</script>';
+
+    
 ?>

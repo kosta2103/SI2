@@ -393,10 +393,10 @@
 	    $unos_dobavljaca = 
 	    "INSERT INTO DOBAVLJACI (Naziv, Email) VALUES 
 	        ('Ewe Comp D.O.O.', 'nabavka@ewe.rs'),
-	        ('INA Design & Engineering', 'office@ina.rs'),
+	        ('INA', 'office@ina.rs'),
 	        ('Bel Computers d.o.o.', 'office@belcomputers.rs'),
 	        ('NetCast', 'sales@netcast.rs'),
-	        ('CENTAR ELECTRONIC d.o.o.', 'centare@gmail.com')";
+	        ('CENTAR', 'centare@gmail.com')";
 
 		$konekcija->query($unos_dobavljaca) or die($konekcija->error);
 		
@@ -427,5 +427,13 @@
 
 		$konekcija->query($pristigli_unos) or die($konekcija->error);
 
+
+		$tabela_racuni = "CREATE TABLE IF NOT EXISTS RACUNI(
+			Broj_racuna INT UNSIGNED PRIMARY KEY,
+			Zamenjen BOOLEAN,
+			Broj_povratnice INT
+		)";
+
+		$konekcija->query($tabela_racuni) or die($konekcija->error);
 
 ?>

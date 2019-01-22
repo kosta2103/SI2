@@ -1,0 +1,10 @@
+.container
+{
+    margin-top: 250px;
+    width: 500px;
+}
+
+.btn.btn-primary {
+    background: #f0ad4e none repeat scroll 0 0;
+    border-color: #f0ad4e;
+}

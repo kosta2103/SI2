@@ -59,6 +59,15 @@
         						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
         					</div>
         				</li>
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Racuni
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="prikaz_racuni.php">Prikaz</a>
+                                <a class="dropdown-item" href="zamena.php">Zamena</a> 
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="promena_cene1.php">Akcije</a>
                         </li>
@@ -109,6 +118,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="prikaz.php?Tip=proizvodi">Prikaz</a>
+                        </li>
+						<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Racuni
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="prikaz_racuni.php">Prikaz</a>
+                                <a class="dropdown-item" href="zamena.php">Zamena</a> 
+                            </div>
                         </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -186,36 +204,44 @@ if(isset($_POST["naruci"])){
 	$proizvodjac = $_POST["proizvodjac"];
 	$cena = $_POST["cena"];
 	$kolicina = $_POST["kolicina"];
-	$dobavljac1 = $_POST["dobavljaci"];
+	$dobavljac = $_POST["Dobavljac"];
 	$link = $_POST["link"];
 	$tip = $_POST["tip"];
 	$email = "";
-	$sql = "SELECT * FROM dobavljaci WHERE Naziv = '".$dobavljac1."'";
+	$sql = "SELECT * FROM dobavljaci WHERE Naziv = '".$dobavljac."'";
 	$result = mysqli_query($veza, $sql);
 	if(mysqli_num_rows($result) != 0){
 		while($row = mysqli_fetch_assoc($result)){
 			$email = $row["Email"];
 		}
 	}
-	$sql = "INSERT INTO naruceni (Barcode, Naziv, Proizvodjac, Cena, Kolicina, Dobavljac, Link, Email, Tip) VALUES ('".$barcode."', '".$naziv."', '".$proizvodjac."', '".$cena."', '".$kolicina."', '".$dobavljac1."', '".$link."', '".$email."', '".$tip."')";
+	$sql = "INSERT INTO naruceni (Barcode, Naziv, Proizvodjac, Cena, Kolicina, Dobavljac, Link, Email, Tip) VALUES ('".$barcode."', '".$naziv."', '".$proizvodjac."', '".$cena."', '".$kolicina."', '".$dobavljac."', '".$link."', '".$email."', '".$tip."')";
 	mysqli_query($veza, $sql);
 }
 $barcode_naruceni = array();
-
+unset($barcode_naruceni);
+$barcode_naruceni = array();
 $barcode = array();
-
+unset($barcode);
+$barcode = array();
 $naziv = array();
-
+unset($naziv);
+$naziv = array();
 $proizvodjac = array();
-
+unset($proizvodjac);
+$proizvodjac = array();
 $cena = array();
-
+unset($cena);
+$cena = array();
 $dobavljac = array();
-
+unset($dobavljac);
+$dobavljac = array();
 $link = array();
-
+unset($link);
+$link = array();
 $tip = array();
-
+unset($tip);
+$tip = array();
 $sql = "SELECT * FROM naruceni";
 $result = mysqli_query($veza, $sql);
 if(mysqli_num_rows($result) != 0){
@@ -242,17 +268,23 @@ if(mysqli_num_rows($result) != 0){
 		array_push($tip, $row["Tip"]);
 	} 
 	$barcode_ispisi = array();
-
+	unset($barcode_ispisi);
+	$barcode_ispisi = array();
 	$naziv_ispisi = array();
-
+	unset($naziv_ispisi);
+	$naziv_ispisi = array();
 	$proizvodjac_ispisi = array();
-
+	unset($proizvodjac_ispisi);
+	$proizvodjac_ispisi = array();
 	$cena_ispisi = array();
-
+	unset($cena_ispisi);
+	$cena_ispisi = array();
 	$link_ispisi = array();
-
+	unset($link_ispisi);
+	$link_ispisi = array();
 	$tip_ispisi = array();
-
+	unset($tip_ispisi);
+	$tip_ispisi = array();
 	for($i=0; $i<count($barcode); $i++){
 		if(!(in_array($barcode[$i], $barcode_naruceni))){
 			array_push($barcode_ispisi, $barcode[$i]);
@@ -283,7 +315,7 @@ if(mysqli_num_rows($result) != 0){
 						<td><?php echo $cena_ispisi[$i]; ?> </td>
 						<td>
 							<form action="nema_na_stanju.php" style="display: inline-block;" method="POST">
-							<select name="dobavljaci" required> 
+							<select name="Dobavljac" required> 
 								<option value="" selected disabled hidden>Izaberi dobavljaca</option> <?php
 								for($j=0; $j<count($dobavljac); $j++){ ?>
 									<option><?php echo $dobavljac[$j] ?></option>
@@ -299,7 +331,7 @@ if(mysqli_num_rows($result) != 0){
 								<input type="hidden" name="naziv" value="<?php echo $naziv_ispisi[$i] ?>">
 								<input type="hidden" name="proizvodjac" value="<?php echo $proizvodjac[$i] ?>">
 								<input type="hidden" name="cena" value="<?php echo $cena_ispisi[$i] ?>">
-
+								
 								<input type="hidden" name="link" value="<?php echo $link_ispisi[$i] ?>">
 								<input type="hidden" name="tip" value="<?php echo $tip_ispisi[$i] ?>">
 

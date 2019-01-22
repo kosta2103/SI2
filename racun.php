@@ -56,6 +56,15 @@
         						<a class="dropdown-item" href="prikaz.php?Tip=proizvodi">Prikaz</a>	
         					</div>
         				</li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Racuni
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="prikaz_racuni.php">Prikaz</a>
+                                <a class="dropdown-item" href="zamena.php">Zamena</a> 
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="promena_cene1.php">Akcije</a>
                         </li>
@@ -109,6 +118,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Racuni
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="prikaz_racuni.php">Prikaz</a>
+                                <a class="dropdown-item" href="zamena.php">Zamena</a> 
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Roba
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -129,7 +147,18 @@
             ?>
 
         <div class="container racun">
-            <h3 class="h3">Racun</h3>
+            <h3 class="h3">
+                <?php
+                    if(isset($_SESSION["zamena"]))
+                    {
+                        echo "Povratnica";
+                    }
+                    else
+                    {
+                        echo "Racun";
+                    } 
+                ?>
+            </h3>
             <table cellspacing="0" cellpadding="0" class='table-borderless' align = 'center'>
 				<tr>
 					<th class='align-middle'>Naziv</th>
@@ -140,14 +169,28 @@
                 <?php
                     if(isset($_POST["racun"]))
                     {
-                        foreach(array_keys($_SESSION["korpa"]) as $element)
+                        if(isset($_SESSION["zamena"]))
                         {
-                            $datum = date('Y-m-d');
-                            $kolicina = $_SESSION["korpa"][$element];
-                            $konekcija->query("UPDATE proizvodi SET Kolicina = Kolicina-$kolicina WHERE Barcode = $element");
-                            $konekcija->query("UPDATE proizvodi SET Broj_prodatih_primeraka = Broj_prodatih_primeraka+$kolicina WHERE Barcode = $element");
-                            $konekcija->query("UPDATE proizvodi SET Datum_poslednje_prodaje = '$datum' WHERE Barcode = $element");
+                            foreach(array_keys($_SESSION["korpa"]) as $element)
+                            {
+                                $datum = date('Y-m-d');
+                                $kolicina = $_SESSION["korpa"][$element];
+                                $konekcija->query("UPDATE proizvodi SET Broj_prodatih_primeraka = Broj_prodatih_primeraka-$kolicina WHERE Barcode = $element");
+                            }
                         }
+                        else
+                        {
+                            foreach(array_keys($_SESSION["korpa"]) as $element)
+                            {
+                                $datum = date('Y-m-d');
+                                $kolicina = $_SESSION["korpa"][$element];
+                                $konekcija->query("UPDATE proizvodi SET Kolicina = Kolicina-$kolicina WHERE Barcode = $element");
+                                $konekcija->query("UPDATE proizvodi SET Broj_prodatih_primeraka = Broj_prodatih_primeraka+$kolicina WHERE Barcode = $element");
+                                $konekcija->query("UPDATE proizvodi SET Datum_poslednje_prodaje = '$datum' WHERE Barcode = $element");
+                            }
+                        }
+
+                        
                     }
 
 					$niz = array();
@@ -168,7 +211,9 @@
 					}
                     echo
                         "<tr>
-							<td class='noBorder align-middle'><a href='pdf.php'>Napravi pdf</a></td>
+                            <td class='noBorder align-middle'><a href='pdf.php'>
+                            Napravi pdf
+                            </a></td>
 							<td class='noBorder align-middle'></td>
 							<td class='noBorder align-middle'></td>
                             <td class='align-middle'>TOTAL </td>
