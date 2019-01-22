@@ -1,7 +1,7 @@
 .open-button {
   background-color: #555;
   color: white;
-  padding: 16px 20px;
+  padding: 12px 20px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -49,7 +49,7 @@
 .form-container .btn {
   background-color: #4CAF50;
   color: white;
-  padding: 16px 20px;
+  padding: 6px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
