@@ -1000,7 +1000,7 @@
 													<td>											 	
 													 	<form action="izmeni.php" method="GET">
 													 		<input type="hidden" name="barkod" value="<?php echo $bar ?>">
-													 		<button type="submit" title="Edit"><i class="glyphicon glyphicon-edit"></i></button>
+													 		<button type="submit" title="Izmeni/Vise o proizvodu"><i class="glyphicon glyphicon-edit"></i></button>
 													 	</form>
 														 <?php if($_SESSION['sesija'] == 'admin')
 														 {?>
