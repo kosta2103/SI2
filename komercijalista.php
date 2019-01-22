@@ -106,6 +106,9 @@
             </div>
         </div>
         <div class="row donji">
+            <div class="col">
+            
+            </div>
             <div class="col-sm-7">
 		        <canvas id="canvas">
 
@@ -113,7 +116,7 @@
                 <h2>Proizvodi cije stanje nije promenjeno nakon <?php echo $datum ?></h2>
             </div>
 
-            <div class="col-sm-5">
+            <div class="col">
                
             </div>
         </div>
