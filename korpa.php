@@ -193,7 +193,7 @@
 							<td class='noBorder align-middle'></td>
 							<td class='align-middle'>TOTAL </td><td>".$total."</td>
 							<td class='align-middle'>
-								<form action='racun.php' method='POST'>
+								<form action='' method='POST'>
 									<button type='submit' name='racun'><i class='glyphicon glyphicon-shopping-cart'></i>";
 									if(isset($_SESSION["zamena"]))
 									{
@@ -212,6 +212,19 @@
 
 			</table>
 		</div>
-
+			<?php 
+				if(isset($_POST['racun']))
+				{
+					if(count($_SESSION['korpa']) == 0)
+					{
+						echo '<script> alert("Korpa je prazna") </script>';
+					}
+					else
+					{
+						$_SESSION["racun"] = 1;
+						echo '<script> window.location.href = "racun.php" </script>';
+					}
+				}
+			?>
 	</body>
 </html>

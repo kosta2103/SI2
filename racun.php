@@ -167,7 +167,7 @@
 					<th class='align-middle'>Ukupno</th>
 				</tr>
                 <?php
-                    if(isset($_POST["racun"]))
+                    if(isset($_SESSION['racun']))
                     {
                         if(isset($_SESSION["zamena"]))
                         {
@@ -192,6 +192,8 @@
 
                         
                     }
+
+                    unset($_SESSION['racun']);
 
 					$niz = array();
 					$total = 0;
