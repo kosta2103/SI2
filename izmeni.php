@@ -662,6 +662,39 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									$sql = "UPDATE zvucnici SET Zvucni_sistem ='" .$zvucni_sistem. "', Snaga = '" .$snaga. "', Konektori = '" .$konektori. "', Povezivanje = '" .$povezivanje. "', Frekvencijski_raspon = '" .$frekvencijski_raspon. "' WHERE Barcode = '" .$barcode. "'";
 									$veza->query($sql) or die($veza->error);
 								}
+
+								if($tip == "kablovi"){
+									$sql = "SELECT * FROM kablovi WHERE Barcode = '".$barcode."'";
+									$result = mysqli_query($veza, $sql);
+									while ($row = mysqli_fetch_assoc($result)) {
+										$strana_1 = $row['Strana_1'];
+										$strana_2 = $row['Strana_2'];
+										$broj_uticnica = $row['Broj_uticnica'];
+										$tip_kablovi = $row['Tip_kablovi'];
+										$prekidac = $row['Prekidac'];
+										$vrsta_kablovi = $row['Vrsta'];
+									}
+									if(!empty($_POST['strana_1']) != ""){
+										$strana_1 = $_POST["strana_1"];
+									}
+									if(!empty($_POST['strana_2'])){
+										$strana_2 = $_POST["strana_2"];
+									}
+									if(!empty($_POST['broj_uticnica'])){
+										$broj_uticnica = $_POST["broj_uticnica"];
+									}
+									if(!empty($_POST['tip'])){
+										$tip_kablovi = $_POST["tip"];
+									}
+									if(!empty($_POST['prekidac'])){
+										$prekidac = $_POST["prekidac"];
+									}
+									if(!empty($_POST['vrsta_kablovi'])){
+										$vrsta_kablovi = $_POST["vrsta_kablovi"];
+									}
+									$sql = "UPDATE kablovi SET Strana_1 ='" .$strana_1. "', Strana_2 = '" .$strana_2. "', Broj_uticnica = '" .$broj_uticnica. "', Tip_kablovi = '" .$tip_kablovi. "', Prekidac = '" .$prekidac. "', Vrsta = '".$vrsta_kablovi."' WHERE Barcode = '" .$barcode. "'";
+									$veza->query($sql) or die($veza->error);
+								}
 							}
 
 						?>
@@ -780,7 +813,11 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											<input type="text" name="tip" placeholder="Tip" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="prekidac" placeholder="Prekidac" class="form-control selectTip" autofocus maxlength = "20">
+											<select name="prekidac" class="form-control selectTip">
+												<option value="">Prekidac</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
 											<select name="vrsta_kablovi" class="form-control selectTip">
