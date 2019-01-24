@@ -295,7 +295,11 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Prekidac</label>
 											<div class="col-sm-9">
-												<input type="text" name="prekidac" placeholder="Prekidac" class="form-control" autofocus maxlength="20">
+												<select name="prekidac" class="form-control">
+												<option value="">Prekidac</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 											</div>
 										</div>
 										<div class="form-group">
