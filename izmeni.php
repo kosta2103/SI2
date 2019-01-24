@@ -844,7 +844,11 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									}
 									if ($tip_proizvoda == "mis") { ?>
 										<div class="form-group">
-											<input type="text" name="za_obe_ruke" placeholder="Za obe ruke" class="form-control selectTip" autofocus maxlength = "20">
+											<select name="za_obe_ruke" class="form-control selectTip">
+												<option value="">Za obe ruke</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
 											<select name="rezolucija_mis" class="form-control selectTip">

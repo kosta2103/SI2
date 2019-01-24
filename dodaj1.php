@@ -341,7 +341,11 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Za obe ruke</label>
 											<div class="col-sm-9">
-												<input type="text" name="za_obe_ruke" placeholder="Za obe ruke" class="form-control" autofocus maxlength="20">
+											<select name="za_obe_ruke" class="form-control">
+												<option value="" selected disabled hidden>Za obe ruke</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 											</div>
 										</div>
 										<div class="form-group">
