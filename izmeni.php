@@ -994,7 +994,7 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<<select name="hdmi" class="form-control selectTip">
+											<select name="hdmi" class="form-control selectTip">
 												<option value="">HDMI</option>
 												<option value="Da">Da</option>
 												<option value="Ne">Ne</option>
