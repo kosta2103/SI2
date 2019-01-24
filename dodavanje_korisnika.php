@@ -110,25 +110,25 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Ime</label>
 											<div class="col-sm-9">
-												<input type="text" name="ime" placeholder="Ime" class="form-control" autofocus required>
+												<input type="text" name="ime" placeholder="Ime" class="form-control" autofocus required maxlength = "20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Prezime</label>
 											<div class="col-sm-9">
-												<input type="text" name="prezime" placeholder="Prezime" class="form-control" autofocus required>
+												<input type="text" name="prezime" placeholder="Prezime" class="form-control" autofocus required maxlength = "20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">E-mail</label>
 											<div class="col-sm-9">
-												<input type="email" name="email" placeholder="E-mail" class="form-control" autofocus required>
+												<input type="email" name="email" placeholder="E-mail" class="form-control" autofocus required maxlength = "50">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Password</label>
 											<div class="col-sm-9">
-												<input type="password" name="password" placeholder="Password" class="form-control" autofocus required>
+												<input type="password" name="password" placeholder="Password" class="form-control" autofocus required maxlength = "50">
 											</div>
 										</div>
 										<div class="form-group">

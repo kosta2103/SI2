@@ -686,43 +686,43 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 										<?php if($_SESSION['sesija'] == 'admin')
 										{ ?>
 										<div class="form-group">									
-											<input type="text" name="naziv" placeholder="Naziv" class="form-control selectTip" autofocus>
+											<input type="text" name="naziv" placeholder="Naziv" class="form-control selectTip" autofocus maxlength="100">
 										</div>
 										<div class="form-group">
-											<input type="text" name="model" placeholder="Model" class="form-control selectTip" autofocus>
+											<input type="text" name="model" placeholder="Model" class="form-control selectTip" autofocus maxlength = "50">
 										</div>
 										<div class="form-group">
-											<input type="text" name="dimenzije" placeholder="Dimenzije" class="form-control selectTip" autofocus>
+											<input type="text" name="dimenzije" placeholder="Dimenzije" class="form-control selectTip" autofocus maxlength = "50">
 										</div>
 										<div class="form-group">
-											<input type="text" name="proizvodjac" placeholder="Proizvodjac" class="form-control selectTip" autofocus>
+											<input type="text" name="proizvodjac" placeholder="Proizvodjac" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<?php } ?>
 										<div class="form-group">
-											<input type="number" name="nabavna_cena" placeholder="Nabavna cena" class="form-control selectTip" autofocus>
+											<input type="number" name="nabavna_cena" placeholder="Nabavna cena" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="number" name="cena" placeholder="Cena" class="form-control selectTip" autofocus>
+											<input type="number" name="cena" placeholder="Cena" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<?php if($_SESSION['sesija'] == 'admin')
 										{ ?>
 										<div class="form-group">
-											<input type="number" name="kolicina" placeholder="Kolicina" class="form-control selectTip" autofocus>
+											<input type="number" name="kolicina" placeholder="Kolicina" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="number" name="broj_prodatih_primeraka" placeholder="Broj prodatih primeraka" class="form-control selectTip" autofocus>
+											<input type="number" name="broj_prodatih_primeraka" placeholder="Broj prodatih primeraka" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="datum_poslednje_prodaje" placeholder="Datum poslednje prodaje" class="form-control selectTip" autofocus>
+											<input type="text" name="datum_poslednje_prodaje" placeholder="Datum poslednje prodaje" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="duzina_gar_lista" placeholder="Duzina garantnog lista" class="form-control selectTip" autofocus>
+											<input type="text" name="duzina_gar_lista" placeholder="Duzina garantnog lista" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="link" placeholder="Link" class="form-control selectTip" autofocus>									
+											<input type="text" name="link" placeholder="Link" class="form-control selectTip" autofocus maxlength = "255">									
 										</div>
 										<div class="form-group">
-											<input type="text" name="slika" placeholder="Slika" class="form-control selectTip" autofocus>
+											<input type="text" name="slika" placeholder="Slika" class="form-control selectTip" autofocus maxlength = "255">
 										</div>
 										
 									</div>
@@ -732,56 +732,60 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									?> 
 									<div class="form-group">
 										<select name="format_eksterni_disk" class="form-control selectTip">
-											<option value=" " selected disabled hidden>Format</option>
+											<option value=" ">Format</option>
 											<option value="2.5">2.5</option>
 											<option value="3.5">3.5</option>
 										</select>                                       
 									</div>
 									<div class="form-group">
-										<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>										
+										<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength = "20">										
 									</div>
 									<div class="form-group">
-										<input type="text"name="kapacitet" placeholder="Kapacitet" class="form-control selectTip" autofocus>
+										<input type="text"name="kapacitet" placeholder="Kapacitet" class="form-control selectTip" autofocus maxlength = "20">
 									</div>
 
 								<?php 
 									}
 									if ($tip_proizvoda == "fles_memorija") { ?>
 										<div class="form-group">
-											<input type="text" name="usb_type_c" placeholder="USB type C" class="form-control selectTip" autofocus>
+											<select name="usb_type_c" class="form-control selectTip">
+												<option value="">USB type C</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>  
 										</div>
 										<div class="form-group">
-											<input type="text" name="brzina_citanja_pisanja" placeholder="Brzina citanja i pisanja" class="form-control selectTip" autofocus>
+											<input type="text" name="brzina_citanja_pisanja" placeholder="Brzina citanja i pisanja" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="kapacitet" placeholder="Kapacitet" class="form-control selectTip" autofocus>
+											<input type="text" name="kapacitet" placeholder="Kapacitet" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										
 									<?php 
 									} 
 									if ($tip_proizvoda == "kablovi") { ?>
 										<div class="form-group">
-											<input type="text" name="strana_1" placeholder="Strana 1" class="form-control selectTip" autofocus>
+											<input type="text" name="strana_1" placeholder="Strana 1" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="strana_2" placeholder="Strana 2" class="form-control selectTip" autofocus>
+											<input type="text" name="strana_2" placeholder="Strana 2" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="broj_uticnica" placeholder="Broj uticnica" class="form-control selectTip" autofocus>
+											<input type="text" name="broj_uticnica" placeholder="Broj uticnica" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="tip" placeholder="Tip" class="form-control selectTip" autofocus>
+											<input type="text" name="tip" placeholder="Tip" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="prekidac" placeholder="Prekidac" class="form-control selectTip" autofocus>
+											<input type="text" name="prekidac" placeholder="Prekidac" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
 											<select name="vrsta_kablovi" class="form-control selectTip">
-												<option value="" selected disabled hidden>Vrsta</option>
-												<option value="<Kabl">Kabl</option>
+												<option value="">Vrsta</option>
+												<option value="Kabl">Kabl</option>
 												<option value="Adapter">Adapter</option>
 											</select>
 										</div>
@@ -790,24 +794,24 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									}
 									if ($tip_proizvoda == "mikrofon") { ?>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="duzina_kabla" placeholder="Duzina kabla" class="form-control selectTip" autofocus>
+											<input type="text" name="duzina_kabla" placeholder="Duzina kabla" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control selectTip" autofocus>
+											<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control selectTip" autofocus maxlength = "30">
 										</div>
 										
 									<?php 
 									}
 									if ($tip_proizvoda == "mis") { ?>
 										<div class="form-group">
-											<input type="text" name="za_obe_ruke" placeholder="Za obe ruke" class="form-control selectTip" autofocus>
+											<input type="text" name="za_obe_ruke" placeholder="Za obe ruke" class="form-control selectTip" autofocus maxlength = "20">
 										</div>
 										<div class="form-group">
 											<select name="rezolucija_mis" class="form-control selectTip">
-												<option value="" selected disabled hidden>Rezolucija</option>
+												<option value="">Rezolucija</option>
 												<option value="<1000 dpi"><?php echo "<1000 dpi" ?></option>
 												<option value="000-2000 dpi">000-2000 dpi</option>
 												<option value="2000-3000 dpi">2000-3000 dpi</option>
@@ -817,7 +821,7 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 										</div>
 										<div class="form-group">
 											<select name="povezivanje_mis" class="form-control selectTip">
-												<option value="" selected disabled hidden>Povezivanje</option>
+												<option value="">Povezivanje</option>
 												<option value="USB">USB</option>
 												<option value="PS/2">PS/2</option>
 												<option value="Wireless">Wireless</option>
@@ -825,11 +829,15 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="gaming" placeholder="Gaming" class="form-control selectTip" autofocus>
+											<select name="gaming" class="form-control selectTip">
+												<option value="">Gaming</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
 											<select name="senzor_mis" class="form-control selectTip">
-												<option value="" selected disabled hidden>Senzor</option>
+												<option value="">Senzor</option>
 												<option value="Opticki">Opticki</option>
 												<option value="Laserski">Laserski</option>
 												<option value="Hero">Hero</option>
@@ -840,14 +848,14 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									}
 									if ($tip_proizvoda == "monitor") { ?>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="50">
 										</div>
 										<div class="form-group">
-											<input type="text" name="maksimalna_rezolucija" placeholder="Maksimalna rezolucija" class="form-control selectTip" autofocus>
+											<input type="text" name="maksimalna_rezolucija" placeholder="Maksimalna rezolucija" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
 											<select name="usb_monitor" class="form-control selectTip">
-												<option value="" selected disabled hidden>USB</option>
+												<option value="">USB</option>
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -857,17 +865,21 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="ugradjeni_zvucnici" placeholder="Ugradjeni zvucnici" class="form-control selectTip" autofocus>
+											<select name="ugradjeni_zvucnici" class="form-control selectTip">
+												<option value="">Ugradjeni zvucnici</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>     
 										</div>
 										<div class="form-group">
-											<input type="text" name="dijagonala_ekrana" placeholder="Dijagonala ekrana" class="form-control selectTip" autofocus>
+											<input type="text" name="dijagonala_ekrana" placeholder="Dijagonala ekrana" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="brzina_osvezavanja" placeholder="Brzina osvezavanja" class="form-control selectTip" autofocus>
+											<input type="text" name="brzina_osvezavanja" placeholder="Brzina osvezavanja" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
 											<select name="hdmi_monitor" class="form-control selectTip">
-												<option value="" selected disabled hidden>HDMI</option>
+												<option value="">HDMI</option>
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -876,22 +888,46 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="dvi" placeholder="DVI" class="form-control selectTip" autofocus>
+											<select name="dvi" class="form-control selectTip">
+												<option value="">DVI</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>    
 										</div>
 										<div class="form-group">
-											<input type="text" name="vga" placeholder="VGA" class="form-control selectTip" autofocus>
+											<select name="vga" class="form-control selectTip">
+												<option value="">VGA</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="display_port" placeholder="Display port" class="form-control selectTip" autofocus>
+											<select name="display_port" class="form-control selectTip">
+												<option value="">Display port</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>    
 										</div>
 										<div class="form-group">
-											<input type="text" name="podesavanje_po_visini" placeholder="Podesavanje po visini" class="form-control selectTip" autofocus>
+											<select name="podesavanja_po_visini" class="form-control selectTip">
+												<option value="">Podesavanje po visini</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 										<div class="form-group">
-											<input type="text" name="touchscreen" placeholder="TouchScreen" class="form-control selectTip" autofocus>
+											<select name="touchscreen" class="form-control selectTip">
+												<option value="">TouchScreen</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>    
 										</div>
 										<div class="form-group">
-											<input type="text" name="rotacija" placeholder="Rotacija" class="form-control selectTip" autofocus>
+											<select name="rotacija" class="form-control selectTip">
+												<option value="">Rotacija</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 																			
 									<?php 
@@ -899,7 +935,7 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									if ($tip_proizvoda == "podloga") { ?>
 										<div class="form-group">
 											<select name="tip_podloga" class="form-control selectTip">
-												<option value="" selected disabled hidden>Tip</option>
+												<option value="">Tip</option>
 												<option value="Obicna">Obicna</option>
 												<option value="Sa gelom">Sa gelom</option>
 												<option value="Gamerska">Gamerska</option>
@@ -907,7 +943,7 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 										</div>
 										<div class="form-group">
 											<select name="materijal_podloga" class="form-control selectTip">
-												<option value="" selected disabled hidden>Materijal</option>
+												<option value="">Materijal</option>
 												<option value="PVC">PVC</option>
 												<option value="Guma">Guma</option>
 												<option value="Platno">Platno</option>
@@ -918,11 +954,11 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									}
 									if ($tip_proizvoda == "projektor") { ?>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
 											<select name="tip_projektor" class="form-control selectTip">
-												<option value="" selected disabled hidden>Tip</option>
+												<option value="">Tip</option>
 												<option value="DLP">DLP</option>
 												<option value="DLP LCD">DLP LCD</option>
 												<option value="3LCD">3LCD</option>
@@ -931,31 +967,59 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control selectTip" autofocus>
+											<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="osvetljenje" placeholder="Osvetljenje" class="form-control selectTip" autofocus>
+											<input type="text" name="osvetljenje" placeholder="Osvetljenje" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="wireless" placeholder="Wireless" class="form-control selectTip" autofocus>
+											<select name="wireless" class="form-control selectTip">
+												<option value="">Wireless</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>    
 										</div>
 										<div class="form-group">
-											<input type="text" name="usb" placeholder="USB" class="form-control selectTip" autofocus>
+											<select name="usb" class="form-control selectTip">
+												<option value="">USB</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 										<div class="form-group">
-											<input type="text" name="mreza" placeholder="Mreza" class="form-control selectTip" autofocus>
+											<select name="mreza" class="form-control selectTip">
+												<option value="">Mreza</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="hdmi" placeholder="HDMI" class="form-control selectTip" autofocus>
+											<<select name="hdmi" class="form-control selectTip">
+												<option value="">HDMI</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>  
 										</div>
 										<div class="form-group">
-											<input type="text" name="dvi" placeholder="DVI" class="form-control selectTip" autofocus>
+											<select name="dvi" class="form-control selectTip">
+												<option value="">DVI</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="rs232" placeholder="RS232" class="form-control selectTip" autofocus>
+											<select name="rs232" class="form-control selectTip">
+												<option value="">RS232</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>   
 										</div>
 										<div class="form-group">
-											<input type="text" name="vga" placeholder="VGA" class="form-control selectTip" autofocus>
+											<select name="vga" class="form-control selectTip">
+												<option value="">VGA</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 																				
 									<?php 
@@ -963,7 +1027,7 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									if ($tip_proizvoda == "skener") { ?>
 										<div class="form-group">
 											<select name="format_skener" class="form-control selectTip">
-												<option value="" selected disabled hidden>Format</option>
+												<option value="">Format</option>
 												<option value="A6">A6</option>
 												<option value="A5">A5</option>
 												<option value="A4">A4</option>
@@ -975,16 +1039,24 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="flatbed" placeholder="Flatbed" class="form-control selectTip" autofocus>
+											<select name="flatbed" class="form-control selectTip">
+												<option value="">Flatbed</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>  
 										</div>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control selectTip" autofocus>
+											<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="adf" placeholder="ADF" class="form-control selectTip" autofocus>
+											<select name="adf" class="form-control selectTip">
+												<option value="">ADF</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 																				
 									<?php 
@@ -992,14 +1064,14 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									if ($tip_proizvoda == "slusalice") { ?>
 										<div class="form-group">
 											<select name="tip_slusalice" class="form-control selectTip">
-												<option value="" selected disabled hidden>Tip</option>
+												<option value="">Tip</option>
 												<option value="Bubice">Bubice</option>
 												<option value="Slusalice">Slusalice</option>
 											</select>
 										</div>
 										<div class="form-group">
 											<select name="mikrofon_slusalice" class="form-control selectTip">
-												<option value="" selected disabled hidden>Mikrofon</option>
+												<option value="">Mikrofon</option>
 												<option value="Ne">Ne</option>
 												<option value="Na rucici">Na rucici</option>
 												<option value="Na slusalici">Na slusalici</option>
@@ -1008,19 +1080,23 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 										</div>
 										<div class="form-group">
 											<select name="zvucni_sistem_slusalice" class="form-control selectTip">
-												<option value="" selected disabled hidden>Zvucni sistem</option>
+												<option value="">Zvucni sistem</option>
 												<option value="5.1">5.1</option>
 												<option value="7.1">7.1</option>
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="gaming" placeholder="Gaming" class="form-control selectTip" autofocus>
+											<select name="gaming" class="form-control selectTip">
+												<option value="">Gaming</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 										<div class="form-group">
-											<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control selectTip" autofocus>
+											<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control selectTip" autofocus maxlength="30">
 										</div>
 																																						
 									<?php 
@@ -1028,45 +1104,65 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									if ($tip_proizvoda == "stampac") { ?>
 										<div class="form-group">
 											<select name="tip_stampac" class="form-control selectTip">
-												<option value="" selected disabled hidden>Tip</option>
+												<option value="">Tip</option>
 												<option value="Matricni">Matricni</option>
 												<option value="Laserski">Laserski</option>
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control selectTip" autofocus>
+											<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="brzina_stampe" placeholder="Brzina stampe" class="form-control selectTip" autofocus>
+											<input type="text" name="brzina_stampe" placeholder="Brzina stampe" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="bar_kod" placeholder="Bar kod" class="form-control selectTip" autofocus>
+											<select name="bar_kod" class="form-control selectTip">
+												<option value="">Bar kod</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 										<div class="form-group">
-											<input type="text" name="mreza" placeholder="Mreza" class="form-control selectTip" autofocus>
+											<select name="mreza" class="form-control selectTip">
+												<option value="">Mreza</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 										<div class="form-group">
-											<input type="text" name="wireless" placeholder="Wireless" class="form-control selectTip" autofocus>
+											<select name="wireless" class="form-control selectTip">
+												<option value="">Wireless</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 
 									<?php 
 									}
 									if ($tip_proizvoda == "tastatura") { ?>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="usb_port" placeholder="USB" class="form-control selectTip" autofocus>
+											<select name="usb_port" class="form-control selectTip">
+												<option value="">USB</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="numericki_deo" placeholder="Numericki deo" class="form-control selectTip" autofocus>
+											<select name="numericki_deo" class="form-control selectTip">
+												<option value="">Numericki deo</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 										<div class="form-group">
 											<select name="tip_tastatura" class="form-control selectTip">
-												<option value="" selected disabled hidden>Tip</option>
+												<option value="">Tip</option>
 												<option value="Wired">Wired</option>
 												<option value="Wireless">Wireless</option>
 												<option value="Bluetooth">Bluetooth</option>
@@ -1074,7 +1170,7 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 										</div>
 										<div class="form-group">
 											<select name="tip_tastera_tastatura" class="form-control selectTip">
-												<option value="" selected disabled hidden>Tip tastera</option>
+												<option value="">Tip tastera</option>
 												<option value="Mehanicki">Mehanicki</option>
 												<option value="X_Scissor">X_Scissor</option>
 												<option value="Gumena_membrana">Gumena_membrana</option>
@@ -1082,10 +1178,18 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="programabilni_tasteri" placeholder="Programabilni tasteri" class="form-control selectTip" autofocus>
+											<select name="programabilni_tasteri" class="form-control selectTip">
+												<option value="">Programabilni tasteri</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="rgb_osvetljenje" placeholder="RGB osvetljenje" class="form-control selectTip" autofocus>
+											<select name="rgb_osvetljenje" class="form-control selectTip">
+												<option value="">RGB osvetljenje</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select> 
 										</div>
 																			
 									<?php 
@@ -1094,23 +1198,23 @@ if(isset($_SESSION['pristup']) && ($_SESSION['pristup'] == "Administrator" || $_
 									{ ?>
 										<div class="form-group">
 											<select name="zvucni_sistem_zvucnici" class="form-control selectTip">
-												<option value="" selected disabled hidden>Zvucni sistem</option>
+												<option value="">Zvucni sistem</option>
 												<option value="4.1">4.1</option>
 												<option value="5.1">5.1</option>
 												<option value="7.1">7.1</option>
 											</select>
 										</div>
 										<div class="form-group">
-											<input type="text" name="snaga" placeholder="Snaga" class="form-control selectTip" autofocus>
+											<input type="text" name="snaga" placeholder="Snaga" class="form-control selectTip" autofocus maxlength="20">
 										</div>
 										<div class="form-group">
-											<input type="text" name="konektori" placeholder="Konektori" class="form-control selectTip" autofocus>
+											<input type="text" name="konektori" placeholder="Konektori" class="form-control selectTip" autofocus maxlength="100">
 										</div>
 										<div class="form-group">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control selectTip" autofocus maxlength="50">
 										</div>
 										<div class="form-group">
-											<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control selectTip" autofocus>
+											<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control selectTip" autofocus maxlength="30">
 										</div>
 																				
 									<?php 

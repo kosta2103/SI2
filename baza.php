@@ -381,7 +381,7 @@
 	        	Proizvodjac VARCHAR(20),
 	        	Cena INT(20),
 	        	Kolicina INT(20),
-	       		Dobavljac VARCHAR(20),
+	       		Dobavljac VARCHAR(50),
 	        	Link VARCHAR(255),
 	        	Email VARCHAR(255),
 	        	Tip ENUM ('tastatura', 'mis', 'podloga', 'stampac', 'skener', 'monitor', 
@@ -393,10 +393,10 @@
 	    $unos_dobavljaca = 
 	    "INSERT INTO DOBAVLJACI (Naziv, Email) VALUES 
 	        ('Ewe Comp D.O.O.', 'nabavka@ewe.rs'),
-	        ('INA', 'office@ina.rs'),
+	        ('INA Design & Engineering', 'office@ina.rs'),
 	        ('Bel Computers d.o.o.', 'office@belcomputers.rs'),
 	        ('NetCast', 'sales@netcast.rs'),
-	        ('CENTAR', 'centare@gmail.com')";
+	        ('CENTAR ELECTRONIC d.o.o.', 'centare@gmail.com')";
 
 		$konekcija->query($unos_dobavljaca) or die($konekcija->error);
 		

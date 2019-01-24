@@ -148,61 +148,61 @@
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Naziv</label>
 									<div class="col-sm-9">
-										<input type="text" name="naziv" placeholder="Naziv" class="form-control" autofocus>
+										<input type="text" name="naziv" placeholder="Naziv" class="form-control" autofocus required maxlength = "100">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Model</label>
 									<div class="col-sm-9">
-										<input type="text" name="model" placeholder="Model" class="form-control" autofocus>
+										<input type="text" name="model" placeholder="Model" class="form-control" autofocus required maxlength = "50">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Dimenzije</label>
 									<div class="col-sm-9">
-										<input type="text" name="dimenzije" placeholder="Dimenzije" class="form-control" autofocus>
+										<input type="text" name="dimenzije" placeholder="Dimenzije" class="form-control" autofocus maxlength = "50">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Proizvodjac</label>
 									<div class="col-sm-9">
-										<input type="text" name="proizvodjac" placeholder="Proizvodjac" class="form-control" autofocus>
+										<input type="text" name="proizvodjac" placeholder="Proizvodjac" class="form-control" autofocus required maxlength = "20">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Nabavna cena</label>
 									<div class="col-sm-9">
-										<input type="number" name="nabavna_cena" placeholder="Nabavna cena" class="form-control" autofocus>
+										<input type="number" name="nabavna_cena" placeholder="Nabavna cena" class="form-control" autofocus maxlength = "20">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Cena</label>
 									<div class="col-sm-9">
-										<input type="number" name="cena" placeholder="Cena" class="form-control" autofocus>
+										<input type="number" name="cena" placeholder="Cena" class="form-control" autofocus maxlength = "20">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Kolicina</label>
 									<div class="col-sm-9">
-										<input type="number" name="kolicina" placeholder="Kolicina" class="form-control" autofocus>
+										<input type="number" name="kolicina" placeholder="Kolicina" class="form-control" autofocus maxlength = "20">
 									</div>
 								</div>
 								<div class="form-group">
 										<label class="col-sm-3 control-label">Duzina garantnog lista</label>
 										<div class="col-sm-9">
-											<input type="text"name="duzina_gar_lista" placeholder="Duzina garantnog lista" class="form-control" autofocus>
+											<input type="text"name="duzina_gar_lista" placeholder="Duzina garantnog lista" class="form-control" autofocus maxlength = "20">
 										</div>
 								</div>
 								<div class="form-group">
 										<label class="col-sm-3 control-label">Link</label>
 										<div class="col-sm-9">
-											<input type="text" name="link" placeholder="Link" class="form-control" autofocus>
+											<input type="text" name="link" placeholder="Link" class="form-control" autofocus maxlength = "255">
 										</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label">Slika</label>
 									<div class="col-sm-9">
-										<input type="text" name="slika" placeholder="Slika" class="form-control" autofocus>
+										<input type="text" name="slika" placeholder="Slika" class="form-control" autofocus maxlength = "255">
 									</div>
 								</div>                               
 						</div>    
@@ -215,7 +215,7 @@
 										<div class="col-sm-9">
 											<select name="format_eksterni_disk" class="form-control">
 												<option value="" selected disabled hidden>Format</option>
-												<option value="<2.5">2.5</option>
+												<option value="2.5">2.5</option>
 												<option value="3.5">3.5</option>
 											</select>                                       
 											</div>
@@ -223,13 +223,13 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Povezivanje</label>
 										<div class="col-sm-9">
-											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+											<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength = "20">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Kapacitet</label>
 										<div class="col-sm-9">
-											<input type="text"name="kapacitet" placeholder="Kapacitet" class="form-control" autofocus>
+											<input type="text"name="kapacitet" placeholder="Kapacitet" class="form-control" autofocus maxlength = "20">
 										</div>
 									</div>
 
@@ -239,25 +239,29 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">USB Type C</label>
 											<div class="col-sm-9">
-												<input type="text" name="usb_type_c" placeholder="USB type C" class="form-control" autofocus>
+											<select name="usb_type_c" class="form-control">
+												<option value="" selected disabled hidden>USB type C</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Brzina citanja i pisanja</label>
 											<div class="col-sm-9">
-												<input type="text" name="brzina_citanja_pisanja" placeholder="Brzina citanja i pisanja" class="form-control" autofocus>
+												<input type="text" name="brzina_citanja_pisanja" placeholder="Brzina citanja i pisanja" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Kapacitet</label>
 											<div class="col-sm-9">
-												<input type="text" name="kapacitet" placeholder="Kapacitet" class="form-control" autofocus>
+												<input type="text" name="kapacitet" placeholder="Kapacitet" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										
@@ -267,31 +271,31 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Strana 1</label>
 											<div class="col-sm-9">
-												<input type="text" name="strana_1" placeholder="Strana 1" class="form-control" autofocus>
+												<input type="text" name="strana_1" placeholder="Strana 1" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Strana 2</label>
 											<div class="col-sm-9">
-												<input type="text" name="strana_2" placeholder="Strana 2" class="form-control" autofocus>
+												<input type="text" name="strana_2" placeholder="Strana 2" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Broj uticnica</label>
 											<div class="col-sm-9">
-												<input type="text" name="broj_uticnica" placeholder="Broj uticnica" class="form-control" autofocus>
+												<input type="text" name="broj_uticnica" placeholder="Broj uticnica" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Tip kabla</label>
 											<div class="col-sm-9">
-												<input type="text" name="tip" placeholder="Tip" class="form-control" autofocus>
+												<input type="text" name="tip" placeholder="Tip" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Prekidac</label>
 											<div class="col-sm-9">
-												<input type="text" name="prekidac" placeholder="Prekidac" class="form-control" autofocus>
+												<input type="text" name="prekidac" placeholder="Prekidac" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
@@ -299,7 +303,7 @@
 											<div class="col-sm-9">
 												<select name="vrsta_kablovi" class="form-control">
 													<option value="" selected disabled hidden>Vrsta</option>
-													<option value="<Kabl">Kabl</option>
+													<option value="Kabl">Kabl</option>
 													<option value="Adapter">Adapter</option>
 												</select>
 											</div>
@@ -311,19 +315,19 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Duzina kabla</label>
 											<div class="col-sm-9">
-												<input type="text" name="duzina_kabla" placeholder="Duzina kabla" class="form-control" autofocus>
+												<input type="text" name="duzina_kabla" placeholder="Duzina kabla" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Frekvencijski raspon</label>
 											<div class="col-sm-9">
-												<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control" autofocus>
+												<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control" autofocus maxlength="30">
 											</div>
 										</div>
 										
@@ -333,7 +337,7 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Za obe ruke</label>
 											<div class="col-sm-9">
-												<input type="text" name="za_obe_ruke" placeholder="Za obe ruke" class="form-control" autofocus>
+												<input type="text" name="za_obe_ruke" placeholder="Za obe ruke" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
@@ -364,7 +368,11 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Gaming</label>
 											<div class="col-sm-9">
-												<input type="text" name="gaming" placeholder="Gaming" class="form-control" autofocus>
+											<select name="gaming" class="form-control">
+												<option value="" selected disabled hidden>Gaming</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
@@ -385,13 +393,13 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="50">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Maksimalna rezolucija</label>
 											<div class="col-sm-9">
-												<input type="text" name="maksimalna_rezolucija" placeholder="Maksimalna rezolucija" class="form-control" autofocus>
+												<input type="text" name="maksimalna_rezolucija" placeholder="Maksimalna rezolucija" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
@@ -411,19 +419,23 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Ugradjeni zvucnici</label>
 											<div class="col-sm-9">
-												<input type="text" name="ugradjeni_zvucnici" placeholder="Ugradjeni zvucnici" class="form-control" autofocus>
+											<select name="ugradjeni_zvucnici" class="form-control">
+												<option value="" selected disabled hidden>Ugradjeni zvucnici</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Dijagonala ekrana</label>
 											<div class="col-sm-9">
-												<input type="text" name="dijagonala_ekrana" placeholder="Dijagonala ekrana" class="form-control" autofocus>
+												<input type="text" name="dijagonala_ekrana" placeholder="Dijagonala ekrana" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Brzina osvezavanja</label>
 											<div class="col-sm-9">
-												<input type="text" name="brzina_osvezavanja" placeholder="Brzina osvezavanja" class="form-control" autofocus>
+												<input type="text" name="brzina_osvezavanja" placeholder="Brzina osvezavanja" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
@@ -442,37 +454,61 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">DVI</label>
 											<div class="col-sm-9">
-												<input type="text" name="dvi" placeholder="DVI" class="form-control" autofocus>
+											<select name="dvi" class="form-control">
+												<option value="" selected disabled hidden>DVI</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">VGA</label>
 											<div class="col-sm-9">
-												<input type="text" name="vga" placeholder="VGA" class="form-control" autofocus>
+											<select name="vga" class="form-control">
+												<option value="" selected disabled hidden>VGA</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Display port</label>
 											<div class="col-sm-9">
-												<input type="text" name="display_port" placeholder="Display port" class="form-control" autofocus>
+											<select name="display_port" class="form-control">
+												<option value="" selected disabled hidden>Display port</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Podesavanje po visini</label>
 											<div class="col-sm-9">
-												<input type="text" name="podesavanje_po_visini" placeholder="Podesavanje po visini" class="form-control" autofocus>
+											<select name="podesavanja_po_visini" class="form-control">
+												<option value="" selected disabled hidden>Podesavanje po visini</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">TouchScreen</label>
 											<div class="col-sm-9">
-												<input type="text" name="touchscreen" placeholder="TouchScreen" class="form-control" autofocus>
+											<select name="touchscreen" class="form-control">
+												<option value="" selected disabled hidden>TouchScreen</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Rotacija</label>
 											<div class="col-sm-9">
-												<input type="text" name="rotacija" placeholder="Rotacija" class="form-control" autofocus>
+											<select name="rotacija" class="form-control">
+												<option value="" selected disabled hidden>Rotacija</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 																			
@@ -508,7 +544,7 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
@@ -527,55 +563,83 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Rezolucija</label>
 											<div class="col-sm-9">
-												<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control" autofocus>
+												<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Osvetljenje</label>
 											<div class="col-sm-9">
-												<input type="text" name="osvetljenje" placeholder="Osvetljenje" class="form-control" autofocus>
+												<input type="text" name="osvetljenje" placeholder="Osvetljenje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Wireless</label>
 											<div class="col-sm-9">
-												<input type="text" name="wireless" placeholder="Wireless" class="form-control" autofocus>
+											<select name="wireless" class="form-control">
+												<option value="" selected disabled hidden>Wireless</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">USB</label>
 											<div class="col-sm-9">
-												<input type="text" name="usb" placeholder="USB" class="form-control" autofocus>
+											<select name="usb" class="form-control">
+												<option value="" selected disabled hidden>USB</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Mreza</label>
 											<div class="col-sm-9">
-												<input type="text" name="mreza" placeholder="Mreza" class="form-control" autofocus>
+											<select name="mreza" class="form-control">
+												<option value="" selected disabled hidden>Mreza</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">HDMI</label>
 											<div class="col-sm-9">
-												<input type="text" name="hdmi" placeholder="HDMI" class="form-control" autofocus>
+											<select name="hdmi" class="form-control">
+												<option value="" selected disabled hidden>HDMI</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">DVI</label>
 											<div class="col-sm-9">
-												<input type="text" name="dvi" placeholder="DVI" class="form-control" autofocus>
+											<select name="dvi" class="form-control">
+												<option value="" selected disabled hidden>DVI</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">RS232</label>
 											<div class="col-sm-9">
-												<input type="text" name="rs232" placeholder="RS232" class="form-control" autofocus>
+											<select name="rs232" class="form-control">
+												<option value="" selected disabled hidden>RS232</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">VGA</label>
 											<div class="col-sm-9">
-												<input type="text" name="vga" placeholder="VGA" class="form-control" autofocus>
+											<select name="vga" class="form-control">
+												<option value="" selected disabled hidden>VGA</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 																				
@@ -601,25 +665,33 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Flatbed</label>
 											<div class="col-sm-9">
-												<input type="text" name="flatbed" placeholder="Flatbed" class="form-control" autofocus>
+											<select name="flatbed" class="form-control">
+												<option value="" selected disabled hidden>Flatbed</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Rezolucija</label>
 											<div class="col-sm-9">
-												<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control" autofocus>
+												<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">ADF</label>
 											<div class="col-sm-9">
-												<input type="text" name="adf" placeholder="ADF" class="form-control" autofocus>
+											<select name="adf" class="form-control">
+												<option value="" selected disabled hidden>ADF</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 																				
@@ -661,19 +733,23 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Gaming</label>
 											<div class="col-sm-9">
-												<input type="text" name="gaming" placeholder="Gaming" class="form-control" autofocus>
+											<select name="gaming" class="form-control">
+												<option value="" selected disabled hidden>Gaming</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Frekvencijski raspon</label>
 											<div class="col-sm-9">
-												<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control" autofocus>
+												<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control" autofocus maxlength="30">
 											</div>
 										</div>
 																																						
@@ -693,37 +769,49 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Rezolucija</label>
 											<div class="col-sm-9">
-												<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control" autofocus>
+												<input type="text" name="rezolucija" placeholder="Rezolucija" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Brzina stampe</label>
 											<div class="col-sm-9">
-												<input type="text" name="brzina_stampe" placeholder="Brzina stampe" class="form-control" autofocus>
+												<input type="text" name="brzina_stampe" placeholder="Brzina stampe" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Bar kod</label>
 											<div class="col-sm-9">
-												<input type="text" name="bar_kod" placeholder="Bar kod" class="form-control" autofocus>
+											<select name="bar_kod" class="form-control">
+												<option value="" selected disabled hidden>Bar kod</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Mreza</label>
 											<div class="col-sm-9">
-												<input type="text" name="mreza" placeholder="Mreza" class="form-control" autofocus>
+											<select name="mreza" class="form-control">
+												<option value="" selected disabled hidden>Mreza</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Wireless</label>
 											<div class="col-sm-9">
-												<input type="text" name="wireless" placeholder="Wireless" class="form-control" autofocus>
+											<select name="wireless" class="form-control">
+												<option value="" selected disabled hidden>Wireless</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 
@@ -733,19 +821,27 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">USB</label>
 											<div class="col-sm-9">
-												<input type="text" name="usb_port" placeholder="USB" class="form-control" autofocus>
+											<select name="usb_port" class="form-control">
+												<option value="" selected disabled hidden>USB</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Numericki deo</label>
 											<div class="col-sm-9">
-												<input type="text" name="numericki_deo" placeholder="Numericki deo" class="form-control" autofocus>
+											<select name="numericki_deo" class="form-control">
+												<option value="" selected disabled hidden>Numericki deo</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
@@ -774,13 +870,21 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Programabilni tasteri</label>
 											<div class="col-sm-9">
-												<input type="text" name="programabilni_tasteri" placeholder="Programabilni tasteri" class="form-control" autofocus>
+											<select name="programabilni_tasteri" class="form-control">
+												<option value="" selected disabled hidden>Programabilni tasteri</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">RGB osvetljenje</label>
 											<div class="col-sm-9">
-												<input type="text" name="rgb_osvetljenje" placeholder="RGB osvetljenje" class="form-control" autofocus>
+											<select name="rgb_osvetljenje" class="form-control">
+												<option value="" selected disabled hidden>RGB osvetljenje</option>
+												<option value="Da">Da</option>
+												<option value="Ne">Ne</option>
+											</select>                                       
 											</div>
 										</div>
 																			
@@ -801,25 +905,25 @@
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Snaga</label>
 											<div class="col-sm-9">
-												<input type="text" name="snaga" placeholder="Snaga" class="form-control" autofocus>
+												<input type="text" name="snaga" placeholder="Snaga" class="form-control" autofocus maxlength="20">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Konektori</label>
 											<div class="col-sm-9">
-												<input type="text" name="konektori" placeholder="Konektori" class="form-control" autofocus>
+												<input type="text" name="konektori" placeholder="Konektori" class="form-control" autofocus maxlength="100">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Povezivanje</label>
 											<div class="col-sm-9">
-												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus>
+												<input type="text" name="povezivanje" placeholder="Povezivanje" class="form-control" autofocus maxlength="50">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-3 control-label">Frekvencijski raspon</label>
 											<div class="col-sm-9">
-												<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control" autofocus>
+												<input type="text" name="frekvencijski_raspon" placeholder="Frekvencijski raspon" class="form-control" autofocus maxlength="30">
 											</div>
 										</div>
 																				

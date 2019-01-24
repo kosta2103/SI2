@@ -139,16 +139,16 @@ else{
 		<form action="izmeni_korisnika.php" method="POST">
 			<div class="col">
 				<div class="form-group">									
-					<input type="text" name="ime" placeholder="Ime" class="form-control selectTip" autofocus>
+					<input type="text" name="ime" placeholder="Ime" class="form-control selectTip" autofocus maxlength="20">
 				</div>
 				<div class="form-group">
-					<input type="text" name="prezime" placeholder="Prezime" class="form-control selectTip" autofocus>
+					<input type="text" name="prezime" placeholder="Prezime" class="form-control selectTip" autofocus maxlength="20">
 				</div>
 				<div class="form-group">
-					<input type="text" name="email" placeholder="E-mail" class="form-control selectTip" autofocus>
+					<input type="text" name="email" placeholder="E-mail" class="form-control selectTip" autofocus maxlength="50">
 				</div>
 				<div class="form-group">
-					<input type="text" name="password" placeholder="Password" class="form-control selectTip" autofocus>
+					<input type="text" name="password" placeholder="Password" class="form-control selectTip" autofocus maxlength="50">
 				</div>
 				<div class="form-group">
 					<select name="pristup" class="form-control">
