@@ -18,6 +18,8 @@
 
 <html>
 	<head>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     
@@ -198,8 +200,8 @@
 					?>
 		
 					<td>
-						<form action="narucivanje.php" method="POST">
-							<button>Naruci</button>
+						<form id = "forma" action="" method="POST">
+							<button name="naruci">Naruci</button>
 							<input type="hidden" name="email" value="<?php  echo $email;       ?>">
 							<input type="hidden" name="sifra" value="<?php  echo $barkod;       ?>">
 							<input type="hidden" name="naziv" value="<?php  echo $naziv;       ?>">
@@ -214,6 +216,86 @@
 
 			</table>
 		</div>
+
+		<?php
+			if(isset($_POST["naruci"]))
+			{
+		?>
+			
+
+		<div id="id01" class="w3-modal" style="display: inline-block;z-index:4;">
+            <div class="w3-modal-content w3-animate-zoom">
+                <div class="w3-container w3-padding w3-red">
+                <h2>Send Mail</h2>
+                </div>
+                <div class="w3-panel">
+                <label>To</label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" value="<?php echo $_POST["email"];    ?> ">
+                <label>From</label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" value="<?php echo "tim3@gmail.com";      ?>">
+                <label>Subject</label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" value="<?php echo "Porudzbina"     ?>">
+                <textarea class="w3-input w3-border w3-margin-bottom" style="height:150px" ><?php
+                echo "Narudzbenica: \n\n";
+                echo "Sifra proizvoda: " . $_POST["sifra"]. "\n";
+                echo "Naziv proizvoda: " . $_POST["naziv"]. "\n";
+				echo "Kolicina: "  . $_POST["kolicina"];          ?>
+				</textarea>
+                <div class="w3-section">
+                    <form action = "" method = "POST">
+                        <input type="hidden" name="email" value="<?php  echo $email;       ?>">
+                        <input type="hidden" name="sifra" value="<?php  echo $barkod;       ?>">
+                        <input type="hidden" name="naziv" value="<?php  echo $naziv;       ?>">
+                        <input type="hidden" name="kolicina" value="<?php  echo $kolicina;       ?>">
+                        <a class="w3-button w3-red" onclick="document.getElementById('id01').style.display='none'">Cancel  <i class="fa fa-remove"></i></a>
+                        <button type="submit" name="dugme" class="w3-button w3-light-grey w3-right">Send  <i class="fa fa-paper-plane"></i></button>
+                    </form>
+                </div>    
+                </div>
+            </div>
+		</div>
+		<?php } 
+            if(isset($_POST["dugme"]))
+            {    
+                $ime = date('Y_m_d_H_i_s');
+                $fajl = fopen('mail/'.$ime.'.txt', 'w');
+
+                $tekst = "Mail \n";
+                fwrite($fajl, $tekst);
+
+                $tekst = 'To: '.$_POST["email"];
+                fwrite($fajl, $tekst);
+
+                $tekst = 'From: tim3@gmail.com';
+                fwrite($fajl, $tekst);
+
+                $tekst = 'Subject:';
+                fwrite($fajl, $tekst);
+                fwrite($fajl, "");
+
+                $tekst = 'Porudzbina: ';
+                fwrite($fajl, $tekst);
+
+                $tekst = 'Sifra proizvoda: '.$_POST["sifra"];
+                fwrite($fajl, $tekst);
+
+                $tekst = 'Naziv proizvoda:'.$_POST["naziv"];
+                fwrite($fajl, $tekst);
+
+                $tekst = 'Kolicina: '.$_POST["kolicina"];
+                fwrite($fajl, $tekst);
+                fclose($fajl);
+
+                $sifra = $_POST["sifra"];
+                $konekcija->query("DELETE FROM NARUCENI WHERE Barcode = $sifra");
+            
+                echo"
+                <script>
+                    window.location.href = 'listanarucenih.php';
+                    document.getElementById('id01').style.display='none';
+                </script>";
+            }?>
+           
 	</body>
 </html>
 <?php
