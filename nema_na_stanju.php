@@ -254,7 +254,7 @@ if(mysqli_num_rows($result) != 0){
 							
 								<input type="hidden" name="barcode" value="<?php echo $barcode_ispisi[$i] ?>">
 								<input type="hidden" name="naziv" value="<?php echo $naziv_ispisi[$i] ?>">
-								<input type="hidden" name="proizvodjac" value="<?php echo $proizvodjac[$i] ?>">
+								<input type="hidden" name="proizvodjac" value="<?php echo $proizvodjac_ispisi[$i] ?>">
 								<input type="hidden" name="cena" value="<?php echo $cena_ispisi[$i] ?>">
 								
 								<input type="hidden" name="link" value="<?php echo $link_ispisi[$i] ?>">
