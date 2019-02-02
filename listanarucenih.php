@@ -258,31 +258,31 @@
             if(isset($_POST["dugme"]))
             {    
                 $ime = date('Y_m_d_H_i_s');
-                $fajl = fopen('mail/'.$ime.'.txt', 'w');
+                $fajl = fopen('mail/'.$ime.'.txt', 'a');
 
-                $tekst = "Mail \n";
+                $tekst = "Mail". "\n";
                 fwrite($fajl, $tekst);
 
-                $tekst = 'To: '.$_POST["email"];
+                $tekst = "To: ".$_POST["email"];
                 fwrite($fajl, $tekst);
 
-                $tekst = 'From: tim3@gmail.com';
+                $tekst = "\nFrom: tim3@gmail.com";
                 fwrite($fajl, $tekst);
 
-                $tekst = 'Subject:';
+                $tekst = "\nSubject:";
                 fwrite($fajl, $tekst);
                 fwrite($fajl, "");
 
-                $tekst = 'Porudzbina: ';
+                $tekst = "\n\nPorudzbina: ";
                 fwrite($fajl, $tekst);
 
-                $tekst = 'Sifra proizvoda: '.$_POST["sifra"];
+                $tekst = "\nSifra proizvoda: ".$_POST["sifra"];
                 fwrite($fajl, $tekst);
 
-                $tekst = 'Naziv proizvoda:'.$_POST["naziv"];
+                $tekst = "\nNaziv proizvoda: ".$_POST["naziv"];
                 fwrite($fajl, $tekst);
 
-                $tekst = 'Kolicina: '.$_POST["kolicina"];
+                $tekst = "\nKolicina: ".$_POST["kolicina"];
                 fwrite($fajl, $tekst);
                 fclose($fajl);
 
