@@ -24,6 +24,7 @@
 
         
         <link rel="stylesheet" href="prikaz.css">
+        <link rel="stylesheet" href="instrukcije.css">
         <link rel="stylesheet" href="navbar.css">
         
             <style>
@@ -66,10 +67,7 @@
     h3{
         text-align: center;
     }
-    p{
-        text-align: center;
-
-    }
+    
 </style>
         
             
@@ -88,11 +86,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                         
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="help.php">O nama </a>
                         </li>
                         
-                         <li class="nav-item">
+                         <li class="nav-item active">
                             <a class="nav-link" href="instrukcije_admin.php">Uputstvo za admina</a>
                         </li>           
                         <li class="nav-item">
@@ -126,8 +124,11 @@
            <div class="container">
     <br><br>
   <br><br><br><br><br><br><br><br><br>
-  <p>Ukoliko se na sajt prodavnice ulogujete kao jedan od autorizovanih korisnika 'admin' ili 'vlasnik', na pocetnoj strani naici cete na graficki prikaz o slaboj, jakoj i nepromenjenoj prodaji proizvoda. <br> U donjem desnom uglu pocetne strane, postoji prozor koji se otvara klikom na dugme 'Obavestenja' i u kome dobijate informacije o tome koji proizvod treba biti snizen i koliko. Klikom na dugme Potvrdi, odobravate preporuceni popust. <br> Autorizovani korisnici, admin i vlasnik, imaju pravo dodavanja novih proizvoda, korisnika i faktura kao i prikaz postojecih proizvoda, korisnika i faktura. U okviru uvida u postojece proizvode, korisnike ili fakture, adminu ili vlasniku je dozvoljena funkcija izmene informacija ili brisanje odredjenih korisnika, izmene, brisanja i dodavanja u korpu za narucivanje potrebnih proizvoda ili faktura. <br> U okviru admin stranice, omoguceno vam je jos i menjanje postojece cene, koje se vrsi procentualno. <br>
+  <div class="container">
+  <p>Ukoliko se na sajt prodavnice ulogujete kao jedan od autorizovanih korisnika 'admin' ili 'vlasnik', na pocetnoj strani naici cete na graficki prikaz o slaboj, jakoj i nepromenjenoj prodaji proizvoda. U donjem desnom uglu pocetne strane, postoji prozor koji se otvara klikom na dugme 'Obavestenja' i u kome dobijate informacije o tome koji proizvod treba biti snizen i koliko. Klikom na dugme Potvrdi, odobravate preporuceni popust. Autorizovani korisnici, admin i vlasnik, imaju pravo dodavanja novih proizvoda, korisnika i faktura kao i prikaz postojecih proizvoda, korisnika i faktura. U okviru uvida u postojece proizvode, korisnike ili fakture, adminu ili vlasniku je dozvoljena funkcija izmene informacija ili brisanje odredjenih korisnika, izmene, brisanja i dodavanja u korpu za narucivanje potrebnih proizvoda ili faktura. U okviru admin stranice, omoguceno vam je jos i menjanje postojece cene, koje se vrsi procentualno.
     U padajucem meniju 'Instrukcije', iznad, imate vezu na svaku pojedinacnu instrukciju iz ovog teksta, koja je omogucena adminu ili vlasniku.   </p>
+    </div>
+
 </div>
 
             <?php

@@ -24,6 +24,7 @@
 
         
         <link rel="stylesheet" href="prikaz.css">
+        <link rel="stylesheet" href="instrukcije.css">
         <link rel="stylesheet" href="navbar.css">
         
             <style>
@@ -66,10 +67,7 @@
     h3{
         text-align: center;
     }
-    p{
-        text-align: center;
-
-    }
+    
 </style>
         
             
@@ -88,7 +86,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                         
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="help.php">O nama </a>
                         </li>
                         
@@ -98,7 +96,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="instrukcije_komercijalista.php">Uputstvo za komercijalistu</a>
                         </li>           
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="instrukcije_radnik.php">Uputstvo za radnika</a>
                         </li>                      
                         </ul>
@@ -113,16 +111,18 @@
            <div class="container">
     <br><br>
   <br><br><br><br><br><br><br><br><br>
+  <div class="container">
  <p>
-    Kada se ulogujete na stranicu radnika, prvo cete naici na graficki prikaz o slaboj, jakoj i nepromenljivoj prodaji proizvoda. <br>
+    Kada se ulogujete na stranicu radnika, prvo cete naici na graficki prikaz o slaboj, jakoj i nepromenljivoj prodaji proizvoda. 
 Da biste izlistali sve proizvode koji postoje u prodavnici potrebno je kliknuti na karticu 'Prikaz' u okviru Toolbara radnik stranice. 
-Kada se izlistaju svi proizvodi, u okviru te liste moguce je izmeniti neke podatke o proizvodima ili dodati neki proizvod u korpu za narucene proizvode.<br>
-Klikom na karticu Racuni, dobijaju se jos dve nove opcije(prikaz i zamena racuna).<br>
+Kada se izlistaju svi proizvodi, u okviru te liste moguce je izmeniti neke podatke o proizvodima ili dodati neki proizvod u korpu za narucene proizvode.
+Klikom na karticu Racuni, dobijaju se jos dve nove opcije(prikaz i zamena racuna).
 Pored ovih opcija, radnik ima opciju izlistavanja narucenih proizvoda, kao i narucivanje odredjenih proizvoda.
-Ovo mu je omoguceno karticom Roba.<br>
+Ovo mu je omoguceno karticom Roba.
  <br>
 
 </p>
+</div>
 </div>
 
             <?php

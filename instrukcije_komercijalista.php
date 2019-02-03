@@ -24,6 +24,7 @@
 
         
         <link rel="stylesheet" href="prikaz.css">
+        <link rel="stylesheet" href="instrukcije.css">
         <link rel="stylesheet" href="navbar.css">
         
             <style>
@@ -66,10 +67,7 @@
     h3{
         text-align: center;
     }
-    p{
-        text-align: center;
-
-    }
+   
 </style>
         
             
@@ -88,14 +86,14 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                         
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                             <a class="nav-link" href="help.php">O nama </a>
                         </li>
                         
                          <li class="nav-item">
                             <a class="nav-link" href="instrukcije_admin.php">Uputstvo za admina</a>
                         </li>           
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="instrukcije_komercijalista.php">Uputstvo za komercijalistu</a>
                         </li>           
                         <li class="nav-item">
@@ -113,13 +111,15 @@
            <div class="container">
     <br><br>
   <br><br><br><br><br><br><br><br><br>
-  <p>Kada se ulogujete na stranicu kao autorizovani korisnik 'komercijalista', prvo cete naici na graficki prikaz o slaboj, jakoj i nepromenjenoj prodaji proizvoda. <br>
-U donjem desnom uglu prozora postoji dugme obavestenja u kome komercijalista dobija informacije o tome koji proizvod treba biti snizen i koliko. Klikom na dugme 'Potvrdi' u ovom prozoru komercijalista odobrava preporuceni popust. <br>
+  <div class="container">
+  <p>Kada se ulogujete na stranicu kao autorizovani korisnik 'komercijalista', prvo cete naici na graficki prikaz o slaboj, jakoj i nepromenjenoj prodaji proizvoda.
+U donjem desnom uglu prozora postoji dugme obavestenja u kome komercijalista dobija informacije o tome koji proizvod treba biti snizen i koliko. Klikom na dugme 'Potvrdi' u ovom prozoru komercijalista odobrava preporuceni popust.
 Da biste izlistali sve proizvode koji postoje u prodavnici potrebno je kliknuti na karticu 'Prikaz' u okviru Toolbara radnik stranice. 
-Kada se izlistaju svi proizvodi u okviru te liste moguce je izmeniti neke podatke o proizvodima.<br>
-Da bi ucitali i prikazali listu ovih faktura potrebno je kliknuti na karticu Fakture iz toolbara i onda odabrati jednu od dve ponudjene opcije(Upload, Prikaz) u zavisnosti sta zelite. <br>
-Poslednja opcija koja se pruza osobi ulogovanoj kao komercijalista jeste uvid u listu narucenih proizvoda i prijem robe.<br>
+Kada se izlistaju svi proizvodi u okviru te liste moguce je izmeniti neke podatke o proizvodima.
+Da bi ucitali i prikazali listu ovih faktura potrebno je kliknuti na karticu Fakture iz toolbara i onda odabrati jednu od dve ponudjene opcije(Upload, Prikaz) u zavisnosti sta zelite.
+Poslednja opcija koja se pruza osobi ulogovanoj kao komercijalista jeste uvid u listu narucenih proizvoda i prijem robe.
  </p>
+ </div>
 </div>
 
             <?php

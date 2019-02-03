@@ -1,9 +1,0 @@
-Mail
-To: nabavka@ewe.rs
-From: tim3@gmail.com
-Subject:
-
-Porudzbina: 
-Sifra proizvoda: 1234567
-Naziv proizvoda: HDD External 3.5
-Kolicina: 100
