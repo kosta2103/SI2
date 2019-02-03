@@ -90,10 +90,7 @@
                                 <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
         						<a class="dropdown-item" href="pristigla_roba.php">Prijem</a>	
         					</div>
-        				</li>  
-                         <li class="nav-item">
-                            <a class="nav-link" href="help.php">Help</a>
-                        </li>               
+        				</li>               
                         </ul>
                     </div>
 					<div>
@@ -139,10 +136,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
                             </div>
-                        </li>   
-                         <li class="nav-item">
-                            <a class="nav-link" href="help.php">Help</a>
-                        </li>                 
+                        </li>               
                         </ul>
                     </div>
 					<div>
@@ -260,7 +254,7 @@ if(mysqli_num_rows($result) != 0){
 							
 								<input type="hidden" name="barcode" value="<?php echo $barcode_ispisi[$i] ?>">
 								<input type="hidden" name="naziv" value="<?php echo $naziv_ispisi[$i] ?>">
-								<input type="hidden" name="proizvodjac" value="<?php echo $proizvodjac[$i] ?>">
+								<input type="hidden" name="proizvodjac" value="<?php echo $proizvodjac_ispisi[$i] ?>">
 								<input type="hidden" name="cena" value="<?php echo $cena_ispisi[$i] ?>">
 								
 								<input type="hidden" name="link" value="<?php echo $link_ispisi[$i] ?>">
