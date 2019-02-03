@@ -87,6 +87,9 @@
 						<a class="dropdown-item" href="pristigla_roba.php">Prijem</a>	
 					</div>
 				</li>
+				 <li class="nav-item">
+                            <a class="nav-link" href="help.php">Help</a>
+                        </li>  
 				</ul>
 			</div>
 			<div>

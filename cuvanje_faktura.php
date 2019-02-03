@@ -90,7 +90,10 @@
 							<a class="dropdown-item" href="nema_na_stanju.php">Nema na stanju</a>
 							<a class="dropdown-item" href="pristigla_roba.php">Prijem</a>	
 						</div>
-					</li>               
+					</li>     
+					 <li class="nav-item">
+                            <a class="nav-link" href="help.php">Help</a>
+                        </li>            
 					</ul>
 				</div>
 				<div>
@@ -136,7 +139,11 @@
 							<a class="dropdown-item" href="listanarucenih.php">Narucivanje</a>
 							<a class="dropdown-item" href="pristigla_roba.php">Prijem</a>   
 						</div>
-					</li>               
+
+					</li>       
+					 <li class="nav-item">
+                            <a class="nav-link" href="help.php">Help</a>
+                        </li>             
 					</ul>
 				</div>
 				<div>

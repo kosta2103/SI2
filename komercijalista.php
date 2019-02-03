@@ -64,7 +64,10 @@
                                 <a class="dropdown-item" href="listanarucenih.php">Narucivanje</a>
                                 <a class="dropdown-item" href="pristigla_roba.php">Prijem</a>   
                             </div>
-                        </li>               
+                        </li>       
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.php">Help</a>
+                        </li>     
                         </ul>
                     </div>
                     <div>
@@ -111,7 +114,7 @@
             
             </div>
             <div class="col-sm-7">
-		        <canvas id="canvas">
+                <canvas id="canvas">
 
                 </canvas>
                 <h2>Proizvodi cije stanje nije promenjeno nakon <?php echo $datum ?></h2>
@@ -125,7 +128,7 @@
     </div>
    
     
-	<script>
+    <script>
         var dynamicColors = function() {
             var r = Math.floor(Math.random() * 255);
             var g = Math.floor(Math.random() * 255);
@@ -133,31 +136,31 @@
             return "rgb(" + r + "," + g + "," + b + ")";
          };
 
-		var config1 = {
-			type: 'pie',
-			data: {
-				datasets: [{
-					data: [
+        var config1 = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
                         <?php
                            foreach($niz1 as $line)
                            {
                                 echo (100*$line['Broj_prodatih_primeraka'])/($line['Broj_prodatih_primeraka']+$line['Kolicina']);?>,<?php
                            } 
                         ?>
-					],
-					backgroundColor: [
-						<?php
+                    ],
+                    backgroundColor: [
+                        <?php
                            foreach($niz1 as $line)
                            {?>
                                 dynamicColors(),
                            <?php
                            } 
                         ?>
-					],
-					label: 'Dataset 1'
-				}],
-				labels: [
-					<?php
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    <?php
                         foreach($niz1 as $line)
                         {
                             echo "[";
@@ -166,38 +169,38 @@
                             echo "],";
                         } 
                     ?>
-				]
-			},
-			options: {
-				responsive: true
-			}
-		};
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
 
         var config2 = {
-			type: 'pie',
-			data: {
-				datasets: [{
-					data: [
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
                         <?php
                            foreach($niz2 as $line)
                            {
                                 echo (100*$line['Broj_prodatih_primeraka'])/($line['Broj_prodatih_primeraka']+$line['Kolicina']);?>,<?php
                            } 
                         ?>
-					],
-					backgroundColor: [
-						<?php
+                    ],
+                    backgroundColor: [
+                        <?php
                            foreach($niz2 as $line)
                            {?>
                                 dynamicColors(),
                            <?php
                            } 
                         ?>
-					],
-					label: 'Dataset 1'
-				}],
-				labels: [
-					<?php
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    <?php
                         foreach($niz2 as $line)
                         {
                             echo "[";
@@ -206,15 +209,15 @@
                             echo "],";
                         } 
                     ?>
-				]
-			},
-			options: {
-				responsive: true
-			}
-		};
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
 
         var barChartData = {
-			labels: [
+            labels: [
                 <?php
                     foreach($niz3 as $line)
                     {
@@ -225,12 +228,12 @@
                     } 
                 ?>
             ],
-			datasets: [{
-				label: 'Kolicina',
-				backgroundColor: dynamicColors(),
-				yAxisID: 'y-axis-1',
-				data: [
-					<?php
+            datasets: [{
+                label: 'Kolicina',
+                backgroundColor: dynamicColors(),
+                yAxisID: 'y-axis-1',
+                data: [
+                    <?php
                         foreach($niz3 as $line)
                         {
                             echo "'".$line['Kolicina']."'";
@@ -238,37 +241,37 @@
                             ?>,<?php
                         } 
                     ?>
-				]
-			}]
+                ]
+            }]
 
-		};
+        };
 
-		window.onload = function() {
-			var ctx1 = document.getElementById('chart-area1').getContext('2d');
-			window.myPie = new Chart(ctx1, config1);
+        window.onload = function() {
+            var ctx1 = document.getElementById('chart-area1').getContext('2d');
+            window.myPie = new Chart(ctx1, config1);
             var ctx2 = document.getElementById('chart-area2').getContext('2d');
-			window.myPie = new Chart(ctx2, config2);
+            window.myPie = new Chart(ctx2, config2);
             var ctx = document.getElementById('canvas').getContext('2d');
-			window.myBar = new Chart(ctx, {
-				type: 'bar',
-				data: barChartData,
-				options: {
-					responsive: true,
-					tooltips: {
-						mode: 'index',
-						intersect: true
-					},
-					scales: {
-						yAxes: [{
-							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-							display: true,
-							position: 'left',
-							id: 'y-axis-1',
-						},],
-					}
-				}
-			});
-		};
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    responsive: true,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true
+                    },
+                    scales: {
+                        yAxes: [{
+                            type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            display: true,
+                            position: 'left',
+                            id: 'y-axis-1',
+                        },],
+                    }
+                }
+            });
+        };
     </script>
 
     <?php
